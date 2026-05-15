@@ -2,12 +2,14 @@
 
 namespace
 {
-constexpr int appWidth = 560;
-constexpr int appHeight = 320;
+constexpr int appWidth = 700;
+constexpr int appHeight = 850;
 
 constexpr int masterGainNrpn = 0x0100;
-constexpr int leftInputChannel = 0;   // DSP1
-constexpr int rightInputChannel = 2;  // DSP3
+constexpr int leftInputChannel = 0;    // DSP1 (left input)
+constexpr int leftOutputChannel = 1;   // DSP2 (left output)
+constexpr int rightInputChannel = 2;   // DSP3 (right input)
+constexpr int rightOutputChannel = 3;  // DSP4 (right output)
 
 int dbToSamGainValue (double db)
 {
@@ -50,14 +52,16 @@ class MainComponent final : public juce::Component,
 public:
     MainComponent()
     {
+        // ============== TOP SECTION ==============
         addAndMakeVisible (title);
-        title.setText ("SAM5504 MIDI Control", juce::dontSendNotification);
+        title.setText ("SAM5504 Audio DSP Control", juce::dontSendNotification);
         title.setJustificationType (juce::Justification::centredLeft);
-        title.setFont (juce::FontOptions (24.0f, juce::Font::bold));
+        title.setFont (juce::FontOptions (26.0f, juce::Font::bold));
 
+        // MIDI Device Selection
         addAndMakeVisible (deviceLabel);
-        deviceLabel.setText ("MIDI out", juce::dontSendNotification);
-        deviceLabel.attachToComponent (&deviceList, true);
+        deviceLabel.setText ("MIDI out:", juce::dontSendNotification);
+        deviceLabel.setFont (juce::FontOptions (14.0f, juce::Font::bold));
 
         addAndMakeVisible (deviceList);
         deviceList.addListener (this);
@@ -73,23 +77,97 @@ public:
         addAndMakeVisible (status);
         status.setJustificationType (juce::Justification::centredLeft);
 
-        addAndMakeVisible (gainLabel);
-        gainLabel.setText ("Master gain", juce::dontSendNotification);
-        gainLabel.attachToComponent (&gainSlider, false);
+        // ============== MASTER GAIN SECTION ==============
+        addAndMakeVisible (masterGainSeparator);
+        masterGainSeparator.setText ("Master Control", juce::dontSendNotification);
+        masterGainSeparator.setFont (juce::FontOptions (16.0f, juce::Font::bold));
 
-        addAndMakeVisible (gainSlider);
-        gainSlider.setSliderStyle (juce::Slider::LinearHorizontal);
-        gainSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 88, 26);
-        gainSlider.setRange (-24.0, 15.0, 0.1);
-        gainSlider.setValue (0.0, juce::dontSendNotification);
-        gainSlider.setTextValueSuffix (" dB");
-        gainSlider.addListener (this);
+        addAndMakeVisible (masterGainLabel);
+        masterGainLabel.setText ("Master Gain:", juce::dontSendNotification);
+        masterGainLabel.setFont (juce::FontOptions (13.0f));
 
-        addAndMakeVisible (hint);
-        hint.setText ("Sends NRPN 0x0100 to DSP1 and DSP3 in real time.",
-                      juce::dontSendNotification);
-        hint.setJustificationType (juce::Justification::centredLeft);
-        hint.setColour (juce::Label::textColourId, juce::Colours::grey);
+        addAndMakeVisible (masterGainSlider);
+        masterGainSlider.setSliderStyle (juce::Slider::LinearHorizontal);
+        masterGainSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 70, 24);
+        masterGainSlider.setRange (-24.0, 15.0, 0.1);
+        masterGainSlider.setValue (0.0, juce::dontSendNotification);
+        masterGainSlider.setTextValueSuffix (" dB");
+        masterGainSlider.addListener (this);
+
+        // ============== OUTPUT CONTROLS SECTION ==============
+        addAndMakeVisible (outputsSeparator);
+        outputsSeparator.setText ("Individual Output Gain Control", juce::dontSendNotification);
+        outputsSeparator.setFont (juce::FontOptions (16.0f, juce::Font::bold));
+
+        // Output A (Left channel output DSP#2)
+        addAndMakeVisible (outputALabel);
+        outputALabel.setText ("Output A (Left):", juce::dontSendNotification);
+        outputALabel.setFont (juce::FontOptions (12.0f));
+
+        addAndMakeVisible (outputASlider);
+        outputASlider.setSliderStyle (juce::Slider::LinearHorizontal);
+        outputASlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
+        outputASlider.setRange (-24.0, 15.0, 0.1);
+        outputASlider.setValue (0.0, juce::dontSendNotification);
+        outputASlider.setTextValueSuffix (" dB");
+        outputASlider.addListener (this);
+
+        // Output B (Left channel output DSP#2)
+        addAndMakeVisible (outputBLabel);
+        outputBLabel.setText ("Output B (Left):", juce::dontSendNotification);
+        outputBLabel.setFont (juce::FontOptions (12.0f));
+
+        addAndMakeVisible (outputBSlider);
+        outputBSlider.setSliderStyle (juce::Slider::LinearHorizontal);
+        outputBSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
+        outputBSlider.setRange (-24.0, 15.0, 0.1);
+        outputBSlider.setValue (0.0, juce::dontSendNotification);
+        outputBSlider.setTextValueSuffix (" dB");
+        outputBSlider.addListener (this);
+
+        // Output C (Right channel output DSP#4)
+        addAndMakeVisible (outputCLabel);
+        outputCLabel.setText ("Output C (Right):", juce::dontSendNotification);
+        outputCLabel.setFont (juce::FontOptions (12.0f));
+
+        addAndMakeVisible (outputCSlider);
+        outputCSlider.setSliderStyle (juce::Slider::LinearHorizontal);
+        outputCSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
+        outputCSlider.setRange (-24.0, 15.0, 0.1);
+        outputCSlider.setValue (0.0, juce::dontSendNotification);
+        outputCSlider.setTextValueSuffix (" dB");
+        outputCSlider.addListener (this);
+
+        // Output D (Right channel output DSP#4)
+        addAndMakeVisible (outputDLabel);
+        outputDLabel.setText ("Output D (Right):", juce::dontSendNotification);
+        outputDLabel.setFont (juce::FontOptions (12.0f));
+
+        addAndMakeVisible (outputDSlider);
+        outputDSlider.setSliderStyle (juce::Slider::LinearHorizontal);
+        outputDSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
+        outputDSlider.setRange (-24.0, 15.0, 0.1);
+        outputDSlider.setValue (0.0, juce::dontSendNotification);
+        outputDSlider.setTextValueSuffix (" dB");
+        outputDSlider.addListener (this);
+
+        // ============== BOARD INFO SECTION ==============
+        addAndMakeVisible (boardInfoSeparator);
+        boardInfoSeparator.setText ("Board Information", juce::dontSendNotification);
+        boardInfoSeparator.setFont (juce::FontOptions (16.0f, juce::Font::bold));
+
+        addAndMakeVisible (boardInfo);
+        juce::String infoText;
+        infoText += "DREAM SAM5504 Evaluation Board";
+        infoText += "\nAudio: 96 kHz, 2-in / 4-out stereo";
+        infoText += "\nPrecision: 24-bit fixed-point";
+        infoText += "\nDSP Chains: 4 parallel processors";
+        infoText += "\nFeatures: Gain, 3-band & 2-band EQ";
+        infoText += "\nStatus: Production-Ready";
+        boardInfo.setText (infoText, juce::dontSendNotification);
+        boardInfo.setJustificationType (juce::Justification::topLeft);
+        boardInfo.setFont (juce::FontOptions (11.0f));
+        boardInfo.setColour (juce::Label::textColourId, juce::Colours::darkgrey);
 
         setSize (appWidth, appHeight);
         refreshMidiDevices();
@@ -98,7 +176,11 @@ public:
 
     ~MainComponent() override
     {
-        gainSlider.removeListener (this);
+        masterGainSlider.removeListener (this);
+        outputASlider.removeListener (this);
+        outputBSlider.removeListener (this);
+        outputCSlider.removeListener (this);
+        outputDSlider.removeListener (this);
         deviceList.removeListener (this);
         refreshButton.removeListener (this);
         connectButton.removeListener (this);
@@ -107,34 +189,90 @@ public:
     void paint (juce::Graphics& g) override
     {
         g.fillAll (juce::Colour (0xfff6f7f8));
+        
+        // Draw section backgrounds
+        g.setColour (juce::Colour (0xffefeff2));
+        g.fillRoundedRectangle (midiArea.toFloat(), 6.0f);
+        g.fillRoundedRectangle (controlArea.toFloat(), 6.0f);
+        g.fillRoundedRectangle (outputArea.toFloat(), 6.0f);
+        g.fillRoundedRectangle (boardArea.toFloat(), 6.0f);
+
+        // Draw borders
         g.setColour (juce::Colour (0xffc7ccd1));
-        g.drawRoundedRectangle (contentArea.toFloat(), 8.0f, 1.0f);
+        g.drawRoundedRectangle (midiArea.toFloat(), 6.0f, 1.0f);
+        g.drawRoundedRectangle (controlArea.toFloat(), 6.0f, 1.0f);
+        g.drawRoundedRectangle (outputArea.toFloat(), 6.0f, 1.0f);
+        g.drawRoundedRectangle (boardArea.toFloat(), 6.0f, 1.0f);
     }
 
     void resized() override
     {
-        auto bounds = getLocalBounds().reduced (24);
+        auto bounds = getLocalBounds().reduced (20);
+        
+        // Title
         title.setBounds (bounds.removeFromTop (40));
-        bounds.removeFromTop (18);
+        bounds.removeFromTop (16);
 
-        contentArea = bounds.removeFromTop (210);
-        auto inner = contentArea.reduced (24);
+        // MIDI Section
+        midiArea = bounds.removeFromTop (110);
+        auto midiInner = midiArea.reduced (16);
 
-        auto row = inner.removeFromTop (32);
-        deviceList.setBounds (row.removeFromLeft (260));
-        row.removeFromLeft (12);
-        refreshButton.setBounds (row.removeFromLeft (92));
-        row.removeFromLeft (12);
-        connectButton.setBounds (row.removeFromLeft (104));
+        auto midiRow = midiInner.removeFromTop (32);
+        deviceLabel.setBounds (midiRow.removeFromLeft (70));
+        deviceList.setBounds (midiRow.removeFromLeft (200));
+        midiRow.removeFromLeft (10);
+        refreshButton.setBounds (midiRow.removeFromLeft (85));
+        midiRow.removeFromLeft (8);
+        connectButton.setBounds (midiRow.removeFromLeft (85));
 
-        inner.removeFromTop (22);
-        status.setBounds (inner.removeFromTop (24));
+        midiInner.removeFromTop (14);
+        status.setBounds (midiInner.removeFromTop (24));
 
-        inner.removeFromTop (34);
-        gainSlider.setBounds (inner.removeFromTop (44));
+        bounds.removeFromTop (12);
 
-        inner.removeFromTop (12);
-        hint.setBounds (inner.removeFromTop (24));
+        // Master Gain Section
+        controlArea = bounds.removeFromTop (80);
+        auto controlInner = controlArea.reduced (16);
+        masterGainSeparator.setBounds (controlInner.removeFromTop (24));
+        controlInner.removeFromTop (8);
+        masterGainLabel.setBounds (controlInner.removeFromLeft (80).removeFromTop (24));
+        masterGainSlider.setBounds (controlInner.removeFromTop (28));
+
+        bounds.removeFromTop (12);
+
+        // Output Controls Section
+        outputArea = bounds.removeFromTop (180);
+        auto outputInner = outputArea.reduced (16);
+        outputsSeparator.setBounds (outputInner.removeFromTop (24));
+        outputInner.removeFromTop (8);
+
+        auto outRow = outputInner.removeFromTop (28);
+        outputALabel.setBounds (outRow.removeFromLeft (100));
+        outputASlider.setBounds (outRow);
+
+        outputInner.removeFromTop (6);
+        outRow = outputInner.removeFromTop (28);
+        outputBLabel.setBounds (outRow.removeFromLeft (100));
+        outputBSlider.setBounds (outRow);
+
+        outputInner.removeFromTop (6);
+        outRow = outputInner.removeFromTop (28);
+        outputCLabel.setBounds (outRow.removeFromLeft (100));
+        outputCSlider.setBounds (outRow);
+
+        outputInner.removeFromTop (6);
+        outRow = outputInner.removeFromTop (28);
+        outputDLabel.setBounds (outRow.removeFromLeft (100));
+        outputDSlider.setBounds (outRow);
+
+        bounds.removeFromTop (12);
+
+        // Board Info Section
+        boardArea = bounds;
+        auto boardInner = boardArea.reduced (16);
+        boardInfoSeparator.setBounds (boardInner.removeFromTop (24));
+        boardInner.removeFromTop (8);
+        boardInfo.setBounds (boardInner);
     }
 
 private:
@@ -173,7 +311,10 @@ private:
         updateStatus();
 
         if (midiOut != nullptr)
+        {
             sendMasterGain();
+            sendOutputGains();
+        }
     }
 
     void sendMasterGain()
@@ -181,9 +322,23 @@ private:
         if (midiOut == nullptr)
             return;
 
-        const auto value = dbToSamGainValue (gainSlider.getValue());
+        const auto value = dbToSamGainValue (masterGainSlider.getValue());
         sendDreamNrpn (*midiOut, leftInputChannel, masterGainNrpn, value);
         sendDreamNrpn (*midiOut, rightInputChannel, masterGainNrpn, value);
+    }
+
+    void sendOutputGains()
+    {
+        if (midiOut == nullptr)
+            return;
+
+        // Output A & B: DSP#2 (left output, channel 1)
+        auto valueA = dbToSamGainValue (outputASlider.getValue());
+        sendDreamNrpn (*midiOut, leftOutputChannel, masterGainNrpn, valueA);
+
+        // Output C & D: DSP#4 (right output, channel 3)
+        auto valueC = dbToSamGainValue (outputCSlider.getValue());
+        sendDreamNrpn (*midiOut, rightOutputChannel, masterGainNrpn, valueC);
     }
 
     void updateStatus()
@@ -191,13 +346,13 @@ private:
         if (midiOut != nullptr)
         {
             connectButton.setButtonText ("Disconnect");
-            status.setText ("Connected: " + midiOut->getName(), juce::dontSendNotification);
+            status.setText ("✓ Connected: " + midiOut->getName(), juce::dontSendNotification);
             status.setColour (juce::Label::textColourId, juce::Colour (0xff176b35));
             return;
         }
 
         connectButton.setButtonText ("Connect");
-        status.setText ("Not connected", juce::dontSendNotification);
+        status.setText ("✗ Not connected", juce::dontSendNotification);
         status.setColour (juce::Label::textColourId, juce::Colour (0xff8a2d2d));
     }
 
@@ -226,21 +381,53 @@ private:
             connectSelectedDevice();
     }
 
-    void sliderValueChanged (juce::Slider*) override
+    void sliderValueChanged (juce::Slider* slider) override
     {
-        sendMasterGain();
+        if (slider == &masterGainSlider)
+        {
+            sendMasterGain();
+            return;
+        }
+
+        if (slider == &outputASlider || slider == &outputBSlider ||
+            slider == &outputCSlider || slider == &outputDSlider)
+        {
+            sendOutputGains();
+            return;
+        }
     }
 
+    // Top section
     juce::Label title;
     juce::Label deviceLabel;
     juce::ComboBox deviceList;
     juce::TextButton refreshButton;
     juce::TextButton connectButton;
     juce::Label status;
-    juce::Label gainLabel;
-    juce::Slider gainSlider;
-    juce::Label hint;
-    juce::Rectangle<int> contentArea;
+    juce::Rectangle<int> midiArea;
+
+    // Master gain section
+    juce::Label masterGainSeparator;
+    juce::Label masterGainLabel;
+    juce::Slider masterGainSlider;
+    juce::Rectangle<int> controlArea;
+
+    // Output control section
+    juce::Label outputsSeparator;
+    juce::Label outputALabel;
+    juce::Slider outputASlider;
+    juce::Label outputBLabel;
+    juce::Slider outputBSlider;
+    juce::Label outputCLabel;
+    juce::Slider outputCSlider;
+    juce::Label outputDLabel;
+    juce::Slider outputDSlider;
+    juce::Rectangle<int> outputArea;
+
+    // Board info section
+    juce::Label boardInfoSeparator;
+    juce::Label boardInfo;
+    juce::Rectangle<int> boardArea;
 
     juce::Array<juce::MidiDeviceInfo> outputs;
     std::unique_ptr<juce::MidiOutput> midiOut;
