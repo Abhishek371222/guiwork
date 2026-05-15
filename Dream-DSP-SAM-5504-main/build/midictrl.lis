@@ -1,0 +1,1337 @@
+P16
+00000	----
+00000			.area text(ROM,REL,CON)
+		;*******************************************************************
+		;* Atmel P16 ANSI C Code Generation	Version M-1.8 (Mar 13,2005)
+		;*******************************************************************
+		$CASE
+			PUBLIC _dspDesigner_InitNrpnFunction
+00000		_dspDesigner_InitNrpnFunction
+		; #include <system.h>
+		; #include "dspDesigner.h"
+		; #include "midictrl.h"
+		; 
+		; extern void Send( UCHAR data );	// function to send MIDI data is defined by application firmware (e.g. USB or UART)
+		; 
+		; PTR32 nrpnFunctionPtrTable[NBDSPINITIALIZED];
+		; 
+		; void dspDesigner_InitNrpnFunction( void )
+		; {
+		; 	nrpnFunctionPtrTable[0] = _cptr32( dsp1NrpnHandler );
+00000	FBD0		DLA	DR3,_dsp1NrpnHandler
+	0000 RE
+00002	D148		LI R1,_nrpnFunctionPtrTable
+	0021 R
+00004	CE91 		STX R6,DP0+R1+1
+00005	CF90 		STX R7,DP0+R1
+		; 	nrpnFunctionPtrTable[1] = _cptr32( dsp2NrpnHandler );
+00006	FBD0		DLA	DR3,_dsp2NrpnHandler
+	0000 RE
+00008	D148		LI R1,_nrpnFunctionPtrTable+2
+	0023 R
+0000A	CE91 		STX R6,DP0+R1+1
+0000B	CF90 		STX R7,DP0+R1
+		; 	nrpnFunctionPtrTable[2] = _cptr32( dsp3NrpnHandler );
+0000C	FBD0		DLA	DR3,_dsp3NrpnHandler
+	0000 RE
+0000E	D148		LI R1,_nrpnFunctionPtrTable+4
+	0025 R
+00010	CE91 		STX R6,DP0+R1+1
+00011	CF90 		STX R7,DP0+R1
+		; 	nrpnFunctionPtrTable[3] = _cptr32( dsp4NrpnHandler );
+00012	FBD0		DLA	DR3,_dsp4NrpnHandler
+	0000 RE
+00014	D148		LI R1,_nrpnFunctionPtrTable+6
+	0027 R
+00016	CE91 		STX R6,DP0+R1+1
+00017	CF90 		STX R7,DP0+R1
+		
+00018	D5C8 		XRET 0
+			PUBLIC _dspDesigner_HandleNRPN
+		;            ch0 -> BP-5
+		;        handled -> BP-4
+		;      processId -> BP-3
+		;   nrpnFunction -> BP-2
+		;         format -> BP+6
+		;              v -> BP+4
+		;           nrpn -> BP+3
+		;             ch -> BP+2
+00019		_dspDesigner_HandleNRPN
+00019	C04C		SXSP  5
+	0005 
+		; 
+		; }
+		; typedef WORD (*NrpnFunctionPtr)(WORD, WORD, WORD, DWORD, WORD);
+		; 
+		; SysEx sysExData;
+		; 
+		; /* -----------------------------------------------------
+		;  * handle MIDI NRPN parameter control
+		;  * return 0, if NRPN not handled, else NRPN is handled
+		;  */ 
+		; WORD dspDesigner_HandleNRPN( WORD ch, WORD nrpn, DWORD v, WORD format )
+		; { 
+		; 	PTR32 nrpnFunction;
+		; 	WORD processId;
+		; 	WORD handled;
+		; 
+		; 	// return if nrpn is not mapped
+		; 	if (nrpn == 0xFFFF) return 0;
+0001B	D2CF		LXS R7,BP+3
+	0003 
+0001D	D749		CPI R7,-1
+	FFFF 
+0001F	E302 		JNZ L15
+00020	0000 		LI R0,0
+00021	7864 		SJMP	L14
+		
+00022		L15
+		; 
+		; 	if (ch > 15)
+00022	D2CE		LXS R6,BP+2
+	0002 
+00024	0E0F 		CPI	R6,15
+00025	E103 		JB L17
+00026	E202 		JZ L17
+		; 		return 0;
+00027	0000 		LI R0,0
+00028	785D 		SJMP	L14
+		
+00029		L17
+		; 
+		; 	processId = nrpn>>8;
+00029	830D 		LW	R3,BP
+0002A	2B05 		SBI	R3,5
+0002B	C7B8 		LX	R7,DP0+R3+8
+0002C	F7D8 		SHR R7,8
+0002D	CFB2 		STX	R7,DP0+R3+2
+		; 
+		; 	/*
+		; 	 * Primary path: zero-based channel mapping (MIDI status byte semantics).
+		; 	 */
+		; 	if (ch < NBDSPINITIALIZED)
+0002E	C1B7 		LX	R1,DP0+R3+7
+0002F	0904 		CPI	R1,4
+00030	E026 		JAE	L21
+		; 	{
+		; 		nrpnFunction = nrpnFunctionPtrTable[ch];
+00031	F191 		SHL	R1,1
+00032	D14A		ADI	R1,_nrpnFunctionPtrTable
+	0021 R
+00034	FB81 		DLX	DR3,DP0+R1
+00035	FBF7 		SWAP	DR3
+00036	D3CE		STXS R6,BP-1
+	FFFF 
+00038	D3CF		STXS R7,BP-2
+	FFFE 
+		; 		handled = dspNrpnHandlerCallback( nrpnFunction, nrpn, dsp[ch], processId, v, format );
+0003A	C7BB 		LX	R7,DP0+R3+11
+0003B	7E07 		XPUSH  R7
+0003C	FBE2		DLXS	DR3,BP+4
+	0004 
+0003E	FBF7 		SWAP	DR3
+0003F	7E06 		XPUSH  R6
+00040	7E07 		XPUSH	R7
+00041	C7B2 		LX	R7,DP0+R3+2
+00042	7E07 		XPUSH  R7
+00043	C1B7 		LX	R1,DP0+R3+7
+00044	D14A		ADI	R1,_dsp
+	0000 RE
+00046	C790 		LX R7,DP0+R1
+00047	7E07 		XPUSH  R7
+00048	C7B8 		LX	R7,DP0+R3+8
+00049	7E07 		XPUSH  R7
+0004A	FBE2		DLXS	DR3,BP-2
+	FFFE 
+0004C	FBF7 		SWAP	DR3
+0004D	7E06 		XPUSH  R6
+0004E	7E07 		XPUSH	R7
+0004F	D7C8		XCALL _dspNrpnHandlerCallback
+	0000 RE
+00051	D3C8		STXS R0,BP-4
+	FFFC 
+		; 		if (handled)
+00053	8700 		LW	R7,R0
+00054	B702 		JRZ	R7,L21
+		; 			return 1;
+00055	0001 		LI R0,1
+00056	782F 		SJMP	L14
+		
+00057		L21
+		; 	}
+		
+		; 
+		; 	/*
+		; 	 * Fallback for some SysEx senders that encode channel as 1..N instead of 0..N-1.
+		; 	 * Only applied to SysEx/28-bit path to avoid changing normal CC/NRPN handling.
+		; 	 */
+		; 	if ( (format == FORMAT_28BIT_PRECISION) && (ch > 0) && (ch <= NBDSPINITIALIZED) )
+00057	830D 		LW	R3,BP
+00058	2B05 		SBI	R3,5
+00059	C7BB 		LX	R7,DP0+R3+11
+0005A	0F01 		CPI R7,1
+0005B	E329 		JNZ L23
+0005C	C7B7 		LX	R7,DP0+R3+7
+0005D	B727 		JRZ	R7,L23
+0005E	0704 		LI R7,4
+0005F	C1B7 		LX	R1,DP0+R3+7
+00060	8F01 		CMP	R7,R1
+00061	E123 		JB L23
+		; 	{
+		; 		WORD ch0 = ch - 1;
+00062	2901 		SBI	R1,1
+00063	C9B0 		STX	R1,DP0+R3
+		; 		nrpnFunction = nrpnFunctionPtrTable[ch0];
+00064	F191 		SHL	R1,1
+00065	D14A		ADI	R1,_nrpnFunctionPtrTable
+	0021 R
+00067	FB81 		DLX	DR3,DP0+R1
+00068	FBF7 		SWAP	DR3
+00069	D3CE		STXS R6,BP-1
+	FFFF 
+0006B	D3CF		STXS R7,BP-2
+	FFFE 
+		; 		return dspNrpnHandlerCallback( nrpnFunction, nrpn, dsp[ch0], processId, v, format );
+0006D	C7BB 		LX	R7,DP0+R3+11
+0006E	7E07 		XPUSH  R7
+0006F	FBE2		DLXS	DR3,BP+4
+	0004 
+00071	FBF7 		SWAP	DR3
+00072	7E06 		XPUSH  R6
+00073	7E07 		XPUSH	R7
+00074	C7B2 		LX	R7,DP0+R3+2
+00075	7E07 		XPUSH  R7
+00076	C1B0 		LX	R1,DP0+R3
+00077	D14A		ADI	R1,_dsp
+	0000 RE
+00079	C790 		LX R7,DP0+R1
+0007A	7E07 		XPUSH  R7
+0007B	C7B8 		LX	R7,DP0+R3+8
+0007C	7E07 		XPUSH  R7
+0007D	FBE2		DLXS	DR3,BP-2
+	FFFE 
+0007F	FBF7 		SWAP	DR3
+00080	7E06 		XPUSH  R6
+00081	7E07 		XPUSH	R7
+00082	D7C8		XCALL _dspNrpnHandlerCallback
+	0000 RE
+00084	7801 		SJMP L14
+		
+00085		L23
+		; 	}
+		; 
+		; 	return 0;
+00085	0000 		LI R0,0
+		
+00086		L14
+00086	D5CD 		XRET 5
+00087	----
+00000			.area data(RAM,REL,CON)
+00000		L26	DS	1
+00001	----
+00000			.area idata(ROM,REL,CON)
+00000	FFFF 		DW	65535
+00001	----
+00001			.area data(RAM,REL,CON)
+00001			DS	1
+00002	----
+00001			.area idata(ROM,REL,CON)
+00001	FFFF 		DW	65535
+00002	----
+00002			.area data(RAM,REL,CON)
+00002			DS	1
+00003	----
+00002			.area idata(ROM,REL,CON)
+00002	FFFF 		DW	65535
+00003	----
+00003			.area data(RAM,REL,CON)
+00003			DS	1
+00004	----
+00003			.area idata(ROM,REL,CON)
+00003	FFFF 		DW	65535
+00004	----
+00004			.area data(RAM,REL,CON)
+00004			DS	1
+00005	----
+00004			.area idata(ROM,REL,CON)
+00004	FFFF 		DW	65535
+00005	----
+00005			.area data(RAM,REL,CON)
+00005			DS	1
+00006	----
+00005			.area idata(ROM,REL,CON)
+00005	FFFF 		DW	65535
+00006	----
+00006			.area data(RAM,REL,CON)
+00006			DS	1
+00007	----
+00006			.area idata(ROM,REL,CON)
+00006	FFFF 		DW	65535
+00007	----
+00007			.area data(RAM,REL,CON)
+00007			DS	1
+00008	----
+00007			.area idata(ROM,REL,CON)
+00007	FFFF 		DW	65535
+00008	----
+00008			.area data(RAM,REL,CON)
+00008			DS	1
+00009	----
+00008			.area idata(ROM,REL,CON)
+00008	FFFF 		DW	65535
+00009	----
+00009			.area data(RAM,REL,CON)
+00009			DS	1
+0000A	----
+00009			.area idata(ROM,REL,CON)
+00009	FFFF 		DW	65535
+0000A	----
+0000A			.area data(RAM,REL,CON)
+0000A			DS	1
+0000B	----
+0000A			.area idata(ROM,REL,CON)
+0000A	FFFF 		DW	65535
+0000B	----
+0000B			.area data(RAM,REL,CON)
+0000B			DS	1
+0000C	----
+0000B			.area idata(ROM,REL,CON)
+0000B	FFFF 		DW	65535
+0000C	----
+0000C			.area data(RAM,REL,CON)
+0000C			DS	1
+0000D	----
+0000C			.area idata(ROM,REL,CON)
+0000C	FFFF 		DW	65535
+0000D	----
+0000D			.area data(RAM,REL,CON)
+0000D			DS	1
+0000E	----
+0000D			.area idata(ROM,REL,CON)
+0000D	FFFF 		DW	65535
+0000E	----
+0000E			.area data(RAM,REL,CON)
+0000E			DS	1
+0000F	----
+0000E			.area idata(ROM,REL,CON)
+0000E	FFFF 		DW	65535
+0000F	----
+0000F			.area data(RAM,REL,CON)
+0000F			DS	1
+00010	----
+0000F			.area idata(ROM,REL,CON)
+0000F	FFFF 		DW	65535
+00010	----
+00010			.area data(RAM,REL,CON)
+00010		L27	DS	1
+00011	----
+00010			.area idata(ROM,REL,CON)
+00010	0000 		DW	0
+00011	----
+00011			.area data(RAM,REL,CON)
+00011			DS	1
+00012	----
+00011			.area idata(ROM,REL,CON)
+00011	0000 		DW	0
+00012	----
+00012			.area data(RAM,REL,CON)
+00012			DS	1
+00013	----
+00012			.area idata(ROM,REL,CON)
+00012	0000 		DW	0
+00013	----
+00013			.area data(RAM,REL,CON)
+00013			DS	1
+00014	----
+00013			.area idata(ROM,REL,CON)
+00013	0000 		DW	0
+00014	----
+00014			.area data(RAM,REL,CON)
+00014			DS	1
+00015	----
+00014			.area idata(ROM,REL,CON)
+00014	0000 		DW	0
+00015	----
+00015			.area data(RAM,REL,CON)
+00015			DS	1
+00016	----
+00015			.area idata(ROM,REL,CON)
+00015	0000 		DW	0
+00016	----
+00016			.area data(RAM,REL,CON)
+00016			DS	1
+00017	----
+00016			.area idata(ROM,REL,CON)
+00016	0000 		DW	0
+00017	----
+00017			.area data(RAM,REL,CON)
+00017			DS	1
+00018	----
+00017			.area idata(ROM,REL,CON)
+00017	0000 		DW	0
+00018	----
+00018			.area data(RAM,REL,CON)
+00018			DS	1
+00019	----
+00018			.area idata(ROM,REL,CON)
+00018	0000 		DW	0
+00019	----
+00019			.area data(RAM,REL,CON)
+00019			DS	1
+0001A	----
+00019			.area idata(ROM,REL,CON)
+00019	0000 		DW	0
+0001A	----
+0001A			.area data(RAM,REL,CON)
+0001A			DS	1
+0001B	----
+0001A			.area idata(ROM,REL,CON)
+0001A	0000 		DW	0
+0001B	----
+0001B			.area data(RAM,REL,CON)
+0001B			DS	1
+0001C	----
+0001B			.area idata(ROM,REL,CON)
+0001B	0000 		DW	0
+0001C	----
+0001C			.area data(RAM,REL,CON)
+0001C			DS	1
+0001D	----
+0001C			.area idata(ROM,REL,CON)
+0001C	0000 		DW	0
+0001D	----
+0001D			.area data(RAM,REL,CON)
+0001D			DS	1
+0001E	----
+0001D			.area idata(ROM,REL,CON)
+0001D	0000 		DW	0
+0001E	----
+0001E			.area data(RAM,REL,CON)
+0001E			DS	1
+0001F	----
+0001E			.area idata(ROM,REL,CON)
+0001E	0000 		DW	0
+0001F	----
+0001F			.area data(RAM,REL,CON)
+0001F			DS	1
+00020	----
+0001F			.area idata(ROM,REL,CON)
+0001F	0000 		DW	0
+00020	----
+00020			.area data(RAM,REL,CON)
+			PUBLIC _dspDesigner_HandleMidiEvent
+00020	----
+00087			.area text(ROM,REL,CON)
+		;        nrpnTmp -> BP-11
+		;       nrpnData -> BP-10
+		;             b3 -> BP-8
+		;     sysExIndex -> BP-7
+		;             ch -> BP-6
+		;             b2 -> BP-5
+		;        SX_data -> BP-4
+		;            cin -> BP-1
+		;             Ev -> BP+2
+00087		_dspDesigner_HandleMidiEvent
+00087	C04C		SXSP  11
+	000B 
+		; 
+		; }
+		; 
+		; WORD dspDesigner_HandleMidiEvent( DWORD Ev )
+		; {
+		; 	WORD cin,ch,b2,b3;
+		; 	int sysExIndex;
+		; 	DWORD nrpnData;
+		; 	WORD SX_data[3];
+		; 	static WORD nrpn[16] = {	//NRPN number, initialized with 0xFFFF = undefined
+		; 		0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,
+		; 		0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF };
+		; 	static WORD nrpn_val[16] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };	//NRPN value
+		; 	WORD nrpnTmp;
+		; 
+		; 	//d = | code | byte1 | byte2 | byte3 |
+		; 	cin=(Ev>>24)&0x0F;	//code index number
+00089	0718 		LI R7,24
+0008A	FAE2		DLXS	DR2,BP+2
+	0002 
+0008C	FAF7 		SWAP	DR2
+0008D	F20F 		DSHR	DR2,R7
+			 
+			 
+0008E	FBF0		DLIS	DR3,15
+	000F 
+00090	FA23 		DAND	DR2,DR3
+00091	830D 		LW	R3,BP
+00092	2B0B 		SBI	R3,11
+00093	CCBA 		STX	R4,DP0+R3+10
+		; 	ch=(Ev>>16)&0x0F;	//MIDI channel (0..15)
+00094	0710 		LI R7,16
+00095	FAE2		DLXS	DR2,BP+2
+	0002 
+00097	FAF7 		SWAP	DR2
+00098	F20F 		DSHR	DR2,R7
+			 
+			 
+00099	0700 		LI R7,0
+0009A	FA23 		DAND	DR2,DR3
+0009B	CCB5 		STX	R4,DP0+R3+5
+		; 	b2=(Ev>>8)&0x7F;	//MIDI byte 2
+0009C	0708 		LI R7,8
+0009D	FAE2		DLXS	DR2,BP+2
+	0002 
+0009F	FAF7 		SWAP	DR2
+000A0	F20F 		DSHR	DR2,R7
+			 
+			 
+000A1	FBF0		DLIS	DR3,127
+	007F 
+000A3	FA23 		DAND	DR2,DR3
+000A4	CCB6 		STX	R4,DP0+R3+6
+		; 	b3=Ev&0x7F;			//MIDI byte 3
+000A5	FAE2		DLXS	DR2,BP+2
+	0002 
+000A7	FAF7 		SWAP	DR2
+000A8	FA23 		DAND	DR2,DR3
+000A9	CCB3 		STX	R4,DP0+R3+3
+		; 
+		; 	if( cin==0xB )	//control change?
+000AA	C7BA 		LX	R7,DP0+R3+10
+000AB	0F0B 		CPI R7,11
+000AC	E37B 		JNZ	L39
+		; 	{
+		; 		if( b2==98 )	//NRPN LSB?
+000AD	C7B6 		LX	R7,DP0+R3+6
+000AE	0F62 		CPI R7,98
+000AF	E30F 		JNZ L30
+		; 		{
+		; 			nrpn[ch]=(nrpn[ch]&0xFF00)|b3;
+000B0	C1B5 		LX	R1,DP0+R3+5
+000B1	D14A		ADI	R1,L26
+	0000 R
+000B3	C7B3 		LX	R7,DP0+R3+3
+000B4	C590 		LX R5,DP0+R1
+000B5	D54B		ANI R5,-256
+	FF00 
+000B7	A507 		OR R5,R7
+000B8	CD90 		STX R5,DP0+R1
+		; 			nrpn_val[ch]=0;
+000B9	C1B5 		LX	R1,DP0+R3+5
+000BA	D14A		ADI	R1,L27
+	0010 R
+000BC	0700 		LI R7,0
+000BD	CF90 		STX R7,DP0+R1
+		; 		}
+000BE	7869 		SJMP	L39
+		
+000BF		L30
+		; 		else if( b2==99 ) 	//NRPN MSB?
+000BF	830D 		LW	R3,BP
+000C0	2B0B 		SBI	R3,11
+000C1	C7B6 		LX	R7,DP0+R3+6
+000C2	0F63 		CPI R7,99
+000C3	E30F 		JNZ L32
+		; 		{
+		; 			nrpn[ch]=(nrpn[ch]&0x00FF)|b3<<8;
+000C4	C1B5 		LX	R1,DP0+R3+5
+000C5	D14A		ADI	R1,L26
+	0000 R
+000C7	C7B3 		LX	R7,DP0+R3+3
+000C8	F798 		SHL R7,8
+000C9	C590 		LX R5,DP0+R1
+000CA	1DFF 		ANI R5,255
+000CB	A507 		OR R5,R7
+000CC	CD90 		STX R5,DP0+R1
+		; 			nrpn_val[ch]=0;
+000CD	C1B5 		LX	R1,DP0+R3+5
+000CE	D14A		ADI	R1,L27
+	0010 R
+000D0	0700 		LI R7,0
+000D1	CF90 		STX R7,DP0+R1
+		; 		}
+000D2	7855 		SJMP	L39
+		
+000D3		L32
+		; 		else if( b2==100 || b2==101 )	//RPN LSB or MSB?
+000D3	D2CF		LXS R7,BP-5
+	FFFB 
+000D5	0F64 		CPI R7,100
+000D6	E202 		JZ L36
+000D7	0F65 		CPI R7,101
+000D8	E30E 		JNZ L34
+		
+000D9		L36
+		; 		{
+		; 			nrpn[ch]=0xFFFF;	//clear NRPN
+000D9	830D 		LW	R3,BP
+000DA	2B0B 		SBI	R3,11
+000DB	C1B5 		LX	R1,DP0+R3+5
+000DC	D14A		ADI	R1,L26
+	0000 R
+000DE	D748		LI R7,-1
+	FFFF 
+000E0	CF90 		STX R7,DP0+R1
+		; 			nrpn_val[ch]=0;
+000E1	C1B5 		LX	R1,DP0+R3+5
+000E2	D14A		ADI	R1,L27
+	0010 R
+000E4	0700 		LI R7,0
+000E5	CF90 		STX R7,DP0+R1
+		; 		}
+000E6	7841 		SJMP	L39
+		
+000E7		L34
+		; 		else if( b2==38 )	//data entry LSB?
+000E7	830D 		LW	R3,BP
+000E8	2B0B 		SBI	R3,11
+000E9	C7B6 		LX	R7,DP0+R3+6
+000EA	0F26 		CPI R7,38
+000EB	E30B 		JNZ L37
+		; 		{
+		; 			nrpn_val[ch]=(nrpn_val[ch]&0x7F00)|b3<<1;	//LSB
+000EC	C1B5 		LX	R1,DP0+R3+5
+000ED	D14A		ADI	R1,L27
+	0010 R
+000EF	C7B3 		LX	R7,DP0+R3+3
+000F0	F791 		SHL R7,1
+000F1	C590 		LX R5,DP0+R1
+000F2	D54B		ANI R5,32512
+	7F00 
+000F4	A507 		OR R5,R7
+000F5	CD90 		STX R5,DP0+R1
+		; 		}
+000F6	7831 		SJMP	L39
+		
+000F7		L37
+		; 		else if( b2==6 )	//data entry MSB?
+000F7	830D 		LW	R3,BP
+000F8	2B0B 		SBI	R3,11
+000F9	C7B6 		LX	R7,DP0+R3+6
+000FA	0F06 		CPI R7,6
+000FB	E32C 		JNZ	L39
+		; 		{
+		; 			nrpn_val[ch]=(nrpn_val[ch]&0x00FF)|b3<<8;	//MSB
+000FC	C1B5 		LX	R1,DP0+R3+5
+000FD	D14A		ADI	R1,L27
+	0010 R
+000FF	C7B3 		LX	R7,DP0+R3+3
+00100	F798 		SHL R7,8
+00101	C590 		LX R5,DP0+R1
+00102	1DFF 		ANI R5,255
+00103	A507 		OR R5,R7
+00104	CD90 		STX R5,DP0+R1
+		; 			nrpnTmp = nrpn[ch];
+00105	C1B5 		LX	R1,DP0+R3+5
+00106	D14A		ADI	R1,L26
+	0000 R
+00108	C790 		LX R7,DP0+R1
+00109	CFB0 		STX	R7,DP0+R3
+		; 			if ( ( ((nrpnTmp&0xFF00)>>8) == 0xFF ) || ( (nrpnTmp&0xFF) == 0xFF ) ) // is undefined?
+0010A	D74B		ANI R7,-256
+	FF00 
+0010C	F7D8 		SHR R7,8
+0010D	0FFF 		CPI R7,255
+0010E	E204 		JZ L43
+0010F	C7B0 		LX	R7,DP0+R3
+00110	1FFF 		ANI R7,255
+00111	0FFF 		CPI R7,255
+00112	E303 		JNZ L41
+		
+00113		L43
+		; 				return 0;
+00113	0000 		LI R0,0
+00114	D0CE		LJMP L25
+	022C R
+		
+00116		L41
+		; 			return dspDesigner_HandleNRPN( ch, nrpnTmp, (DWORD)nrpn_val[ch], FORMAT_14BIT_PRECISION );
+00116	0500 		LI	R5,0
+00117	7E05 		XPUSH	R5
+00118	830D 		LW	R3,BP
+00119	2B0B 		SBI	R3,11
+0011A	C1B5 		LX	R1,DP0+R3+5
+0011B	D14A		ADI	R1,L27
+	0010 R
+0011D	C690 		LX	R6,DP0+R1
+0011E	7E06 		XPUSH  R6
+0011F	7E05 		XPUSH	R5
+00120	C7B0 		LX	R7,DP0+R3
+00121	7E07 		XPUSH  R7
+00122	C7B5 		LX	R7,DP0+R3+5
+00123	7E07 		XPUSH  R7
+00124	D7C8		XCALL _dspDesigner_HandleNRPN
+	0019 R
+00126	D0CE		LJMP L25
+	022C R
+		
+00128		L39
+		
+		
+		
+		
+		; 		}
+		; 	}
+		
+		; 
+		; 	if ( cin == 0x4 ) // SysEx Continue
+00128	830D 		LW	R3,BP
+00129	2B0B 		SBI	R3,11
+0012A	C7BA 		LX	R7,DP0+R3+10
+0012B	0F04 		CPI R7,4
+0012C	E346 		JNZ	L44
+		; 	{
+		; 		SX_data[0] = (Ev>>16)&0xFF;
+0012D	0710 		LI R7,16
+0012E	FAE2		DLXS	DR2,BP+2
+	0002 
+00130	FAF7 		SWAP	DR2
+00131	F20F 		DSHR	DR2,R7
+			 
+			 
+00132	FBF0		DLIS	DR3,255
+	00FF 
+00134	FA23 		DAND	DR2,DR3
+00135	CCB7 		STX	R4,DP0+R3+7
+		; 		SX_data[1] = (Ev>>8)&0xFF;
+00136	0708 		LI R7,8
+00137	FAE2		DLXS	DR2,BP+2
+	0002 
+00139	FAF7 		SWAP	DR2
+0013A	F20F 		DSHR	DR2,R7
+			 
+			 
+0013B	0700 		LI R7,0
+0013C	FA23 		DAND	DR2,DR3
+0013D	CCB8 		STX	R4,DP0+R3+8
+		; 		SX_data[2] = (Ev&0xFF);
+0013E	FAE2		DLXS	DR2,BP+2
+	0002 
+00140	FAF7 		SWAP	DR2
+00141	FA23 		DAND	DR2,DR3
+00142	CCB9 		STX	R4,DP0+R3+9
+		; 
+		; 		if (SX_data[0] == 0xF0)
+00143	C7B7 		LX	R7,DP0+R3+7
+00144	0FF0 		CPI R7,240
+00145	E303 		JNZ L48
+		; 			sysExData.pnt = 0;
+00146	0700 		LI R7,0
+00147	FF90		STXA	R7,DP0,_sysExData
+	0000 R
+		
+00149		L48
+		; 		if (sysExData.pnt >= SYSEX_SIZE-3) return 0;
+00149	FE80		LXA	R6,DP0,_sysExData
+	0000 R
+0014B	0E1D 		CPI	R6,29
+0014C	E103 		JB L50
+0014D	0000 		LI R0,0
+0014E	D0CE		LJMP L25
+	022C R
+		
+00150		L50
+		; 		sysExData.Buffer[sysExData.pnt++] = SX_data[0];
+00150	D148		LI R1,_sysExData
+	0000 R
+00152	C790 		LX R7,DP0+R1
+00153	8607 		LW R6,R7
+00154	1601 		ADI R6,1
+00155	CE90 		STX R6,DP0+R1
+00156	8107 		LW R1,R7
+00157	D14A		ADI	R1,_sysExData+1
+	0001 R
+00159	830D 		LW	R3,BP
+0015A	2B0B 		SBI	R3,11
+0015B	C7B7 		LX	R7,DP0+R3+7
+0015C	CF90 		STX R7,DP0+R1
+		; 		sysExData.Buffer[sysExData.pnt++] = SX_data[1];
+0015D	D148		LI R1,_sysExData
+	0000 R
+0015F	C790 		LX R7,DP0+R1
+00160	8607 		LW R6,R7
+00161	1601 		ADI R6,1
+00162	CE90 		STX R6,DP0+R1
+00163	8107 		LW R1,R7
+00164	D14A		ADI	R1,_sysExData+1
+	0001 R
+00166	C7B8 		LX	R7,DP0+R3+8
+00167	CF90 		STX R7,DP0+R1
+		; 		sysExData.Buffer[sysExData.pnt++] = SX_data[2];
+00168	D148		LI R1,_sysExData
+	0000 R
+0016A	C790 		LX R7,DP0+R1
+0016B	8607 		LW R6,R7
+0016C	1601 		ADI R6,1
+0016D	CE90 		STX R6,DP0+R1
+0016E	8107 		LW R1,R7
+0016F	D14A		ADI	R1,_sysExData+1
+	0001 R
+00171	C7B9 		LX	R7,DP0+R3+9
+00172	CF90 		STX R7,DP0+R1
+		; 	}
+		
+00173		L44
+		; 	if ( cin >= 0x5 && cin <= 0x7 ) // SysEx End.
+00173	830D 		LW	R3,BP
+00174	2B0B 		SBI	R3,11
+00175	C6BA 		LX	R6,DP0+R3+10
+00176	0E05 		CPI	R6,5
+00177	E002 		JAE	$+3
+00178	D0CE		LJMP	L77
+	022B R
+0017A	0707 		LI R7,7
+0017B	8F06 		CMP R7,R6
+0017C	E002 		JAE	$+3
+0017D	D0CE		LJMP	L77
+	022B R
+		; 	{
+		; 		SX_data[0] = (Ev>>16)&0xFF;
+0017F	0710 		LI R7,16
+00180	FAE2		DLXS	DR2,BP+2
+	0002 
+00182	FAF7 		SWAP	DR2
+00183	F20F 		DSHR	DR2,R7
+			 
+			 
+00184	FBF0		DLIS	DR3,255
+	00FF 
+00186	FA23 		DAND	DR2,DR3
+00187	CCB7 		STX	R4,DP0+R3+7
+		; 		SX_data[1] = (Ev>>8)&0xFF;
+00188	0708 		LI R7,8
+00189	FAE2		DLXS	DR2,BP+2
+	0002 
+0018B	FAF7 		SWAP	DR2
+0018C	F20F 		DSHR	DR2,R7
+			 
+			 
+0018D	0700 		LI R7,0
+0018E	FA23 		DAND	DR2,DR3
+0018F	CCB8 		STX	R4,DP0+R3+8
+		; 		SX_data[2] = (Ev&0xFF);
+00190	FAE2		DLXS	DR2,BP+2
+	0002 
+00192	FAF7 		SWAP	DR2
+00193	FA23 		DAND	DR2,DR3
+00194	CCB9 		STX	R4,DP0+R3+9
+		; 		if (sysExData.pnt >= SYSEX_SIZE-1) return 0;
+00195	FE80		LXA	R6,DP0,_sysExData
+	0000 R
+00197	0E1F 		CPI	R6,31
+00198	E103 		JB L61
+00199	0000 		LI R0,0
+0019A	D0CE		LJMP L25
+	022C R
+		
+0019C		L61
+		; 		sysExData.Buffer[sysExData.pnt++] = SX_data[0];
+0019C	D148		LI R1,_sysExData
+	0000 R
+0019E	C790 		LX R7,DP0+R1
+0019F	8607 		LW R6,R7
+001A0	1601 		ADI R6,1
+001A1	CE90 		STX R6,DP0+R1
+001A2	8107 		LW R1,R7
+001A3	D14A		ADI	R1,_sysExData+1
+	0001 R
+001A5	830D 		LW	R3,BP
+001A6	2B0B 		SBI	R3,11
+001A7	C7B7 		LX	R7,DP0+R3+7
+001A8	CF90 		STX R7,DP0+R1
+		; 		if (cin >= 6)
+001A9	C6BA 		LX	R6,DP0+R3+10
+001AA	0E06 		CPI	R6,6
+001AB	E112 		JB L64
+		; 		{
+		; 			if (sysExData.pnt >= SYSEX_SIZE-1) return 0;
+001AC	FE80		LXA	R6,DP0,_sysExData
+	0000 R
+001AE	0E1F 		CPI	R6,31
+001AF	E102 		JB L66
+001B0	0000 		LI R0,0
+001B1	787A 		SJMP	L25
+		
+001B2		L66
+		; 			sysExData.Buffer[sysExData.pnt++] = SX_data[1];
+001B2	D148		LI R1,_sysExData
+	0000 R
+001B4	C790 		LX R7,DP0+R1
+001B5	8607 		LW R6,R7
+001B6	1601 		ADI R6,1
+001B7	CE90 		STX R6,DP0+R1
+001B8	8107 		LW R1,R7
+001B9	D14A		ADI	R1,_sysExData+1
+	0001 R
+001BB	D2CF		LXS R7,BP-3
+	FFFD 
+001BD	CF90 		STX R7,DP0+R1
+		; 		}
+		
+001BE		L64
+		; 		if (cin == 7)
+001BE	D2CF		LXS R7,BP-1
+	FFFF 
+001C0	0F07 		CPI R7,7
+001C1	E312 		JNZ L70
+		; 		{
+		; 			if (sysExData.pnt >= SYSEX_SIZE-1) return 0;
+001C2	FE80		LXA	R6,DP0,_sysExData
+	0000 R
+001C4	0E1F 		CPI	R6,31
+001C5	E102 		JB L72
+001C6	0000 		LI R0,0
+001C7	7864 		SJMP	L25
+		
+001C8		L72
+		; 			sysExData.Buffer[sysExData.pnt++] = SX_data[2];
+001C8	D148		LI R1,_sysExData
+	0000 R
+001CA	C790 		LX R7,DP0+R1
+001CB	8607 		LW R6,R7
+001CC	1601 		ADI R6,1
+001CD	CE90 		STX R6,DP0+R1
+001CE	8107 		LW R1,R7
+001CF	D14A		ADI	R1,_sysExData+1
+	0001 R
+001D1	D2CF		LXS R7,BP-2
+	FFFE 
+001D3	CF90 		STX R7,DP0+R1
+		; 		}
+		
+001D4		L70
+		; 		switch(sysExData.Buffer[SYSEX_CMD])
+001D4	FF80		LXA	R7,DP0,_sysExData+1+4
+	0005 R
+001D6	0F3D 		CPI R7,61
+001D7	E353 		JNZ	L77
+001D8		L80
+		
+		; 		{
+		
+		; 			case 0x3D:
+		; 				b2 = sysExData.Buffer[SYSEX_NRPN_BASE+SYSEX_NRPN_COUNT];
+001D8	D148		LI	R1,_sysExData
+	0000 R
+001DA	C799 		LX	R7,DP0+R1+9
+001DB	D3CF		STXS R7,BP-5
+	FFFB 
+		; 				if( b2 > 4 ) return 0;
+001DD	0F04 		CPI	R7,4
+001DE	E103 		JB L83
+001DF	E202 		JZ L83
+001E0	0000 		LI R0,0
+001E1	784A 		SJMP	L25
+		
+001E2		L83
+		; 				for( sysExIndex = b2, nrpnData = 0;; sysExIndex-- )
+001E2	830D 		LW	R3,BP
+001E3	2B0B 		SBI	R3,11
+001E4	C7B6 		LX	R7,DP0+R3+6
+001E5	CFB4 		STX	R7,DP0+R3+4
+001E6	FB63 		DXOR	DR3,DR3
+001E7	D3CE		STXS R6,BP-9
+	FFF7 
+001E9	D3CF		STXS R7,BP-10
+	FFF6 
+		
+001EB		L85
+		; 				{
+		; 					nrpnData |= (DWORD)sysExData.Buffer[SYSEX_NRPN_BASE+SYSEX_NRPN_DATA+b2-sysExIndex];
+001EB	830D 		LW	R3,BP
+001EC	2B0B 		SBI	R3,11
+001ED	C7B4 		LX	R7,DP0+R3+4
+001EE	C1B6 		LX	R1,DP0+R3+6
+001EF	1109 		ADI	R1,9
+001F0	A907 		SUB	R1,R7
+001F1	D14A		ADI	R1,_sysExData+1
+	0001 R
+001F3	C690 		LX	R6,DP0+R1
+001F4	0700 		LI R7,0
+001F5	FAE2		DLXS	DR2,BP-10
+	FFF6 
+001F7	FAF7 		SWAP	DR2
+001F8	FA53 		DOR	DR2,DR3
+001F9	D3CC		STXS R4,BP-9
+	FFF7 
+001FB	D3CD		STXS R5,BP-10
+	FFF6 
+		; 					if (sysExIndex <= 1)
+001FD	0401 		LI R4,1
+001FE	C5B4 		LX	R5,DP0+R3+4
+001FF	8C05 		CMP	R4,R5
+00200	FCE7		JBS	L90
+	0001 
+			 
+			 
+			 
+			 
+		; 						break;
+00202	780F 		SJMP L87
+		
+00203		L90
+00203	0707 		LI R7,7
+00204	FAE2		DLXS	DR2,BP-10
+	FFF6 
+00206	FAF7 		SWAP	DR2
+00207	F22F 		DSHL	DR2,R7
+			 
+			 
+00208	D3CC		STXS R4,BP-9
+	FFF7 
+0020A	D3CD		STXS R5,BP-10
+	FFF6 
+		
+0020C	830D 		LW	R3,BP
+0020D	2B0B 		SBI	R3,11
+0020E	C7B4 		LX	R7,DP0+R3+4
+0020F	2F01 		SBI R7,1
+00210	CFB4 		STX	R7,DP0+R3+4
+00211	78D9 		SJMP	L85
+		
+00212		L87
+		; 					nrpnData <<= (DWORD)7;
+		; 				}
+		; 				ch = sysExData.Buffer[SYSEX_NRPN_BASE+SYSEX_NRPN_CHANNEL];
+00212	D148		LI	R1,_sysExData
+	0000 R
+00214	C796 		LX	R7,DP0+R1+6
+00215	830D 		LW	R3,BP
+00216	2B0B 		SBI	R3,11
+00217	CFB5 		STX	R7,DP0+R3+5
+		; 				nrpnTmp = (sysExData.Buffer[SYSEX_NRPN_BASE+SYSEX_NRPN_HI]<<8) | sysExData.Buffer[SYSEX_NRPN_BASE+SYSEX_NRPN_LO];
+00218	C798 		LX	R7,DP0+R1+8
+00219	C697 		LX	R6,DP0+R1+7
+0021A	F698 		SHL R6,8
+0021B	A607 		OR R6,R7
+0021C	CEB0 		STX	R6,DP0+R3
+		; 				return dspDesigner_HandleNRPN( ch, nrpnTmp, nrpnData, FORMAT_28BIT_PRECISION );
+0021D	C14C		XPUSHI 1
+	0001 
+0021F	FBE2		DLXS	DR3,BP-10
+	FFF6 
+00221	FBF7 		SWAP	DR3
+00222	7E06 		XPUSH  R6
+00223	7E07 		XPUSH	R7
+00224	C7B0 		LX	R7,DP0+R3
+00225	7E07 		XPUSH  R7
+00226	C7B5 		LX	R7,DP0+R3+5
+00227	7E07 		XPUSH  R7
+00228	D7C8		XCALL _dspDesigner_HandleNRPN
+	0019 R
+0022A	7801 		SJMP L25
+		
+		; 				break;
+		; 			default: break; 
+		
+0022B		L77
+		; 		}
+		; 	}
+		
+		; 	return 0;
+0022B	0000 		LI R0,0
+		
+0022C		L25
+0022C	D5CA 		XRET 2
+			PUBLIC _dichotomicSearch
+		;    lastElement -> BP-6
+		;            max -> BP-5
+		;            min -> BP-4
+		;         oldMid -> BP-3
+		;   pointedValue -> BP-2
+		;            mid -> BP-1
+		;  valueToSearch -> BP+7
+		;       tableLen -> BP+6
+		;      itemIndex -> BP+5
+		;        rowSize -> BP+4
+		;          table -> BP+2
+0022D		_dichotomicSearch
+0022D	C04C		SXSP  6
+	0006 
+		; }
+		; 
+		; WORD dichotomicSearch( PTR32 table, WORD rowSize, WORD itemIndex, WORD tableLen, WORD valueToSearch )
+		; {
+		; 
+		; 	WORD min, max, mid, oldMid, pointedValue, lastElement;
+		; 
+		; 	if (!tableLen) return -1;
+0022F	D2CF		LXS R7,BP+6
+	0006 
+00231	BF04 		JRNZ	R7,L99
+00232	D048		LI R0,-1
+	FFFF 
+00234	D0CE		LJMP L98
+	02BF R
+		
+00236		L99
+		; 
+		; 	lastElement	= _rdxtmemEx(table+(tableLen-1)*rowSize+itemIndex);
+00236	830D 		LW	R3,BP
+00237	2B06 		SBI	R3,6
+00238	C6BA 		LX	R6,DP0+R3+10
+00239	C7BC 		LX	R7,DP0+R3+12
+0023A	2F01 		SBI R7,1
+0023B	D4CE 		UMUL R6
+0023C	8607 		LW R6,R7
+0023D	0700 		LI R7,0
+0023E	FAE2		DLXS	DR2,BP+2
+	0002 
+00240	FAF7 		SWAP	DR2
+00241	FA43 		DADD	DR2,DR3
+00242	C7BB 		LX	R7,DP0+R3+11
+00243	8607 		LW R6,R7
+00244	0700 		LI R7,0
+00245	FA43 		DADD	DR2,DR3
+00246	F8A2 		LXI	R0,DR2
+00247	C8B0 		STX	R0,DP0+R3
+		; 	// Special case for 1st and Last element
+		; 	if (valueToSearch == lastElement )
+00248	8700 		LW	R7,R0
+00249	C6BD 		LX	R6,DP0+R3+13
+0024A	8E07 		CMP R6,R7
+0024B	E304 		JNZ L101
+		; 		return tableLen-1;
+0024C	C7BC 		LX	R7,DP0+R3+12
+0024D	8007 		LW R0,R7
+0024E	2801 		SBI R0,1
+0024F	786F 		SJMP	L98
+		
+00250		L101
+		; 	if ( (valueToSearch>>8) > (lastElement>>8) )
+00250	830D 		LW	R3,BP
+00251	2B06 		SBI	R3,6
+00252	C7B0 		LX	R7,DP0+R3
+00253	F7D8 		SHR R7,8
+00254	C6BD 		LX	R6,DP0+R3+13
+00255	F6D8 		SHR R6,8
+00256	8E07 		CMP R6,R7
+00257	E104 		JB L103
+00258	E203 		JZ L103
+		; 		return -1; // probably in custom function implementation
+00259	D048		LI R0,-1
+	FFFF 
+0025B	7863 		SJMP	L98
+		
+0025C		L103
+		; 	if ( valueToSearch == _rdxtmemEx(table+itemIndex) )
+0025C	830D 		LW	R3,BP
+0025D	2B06 		SBI	R3,6
+0025E	C6BB 		LX	R6,DP0+R3+11
+0025F	0700 		LI R7,0
+00260	FAE2		DLXS	DR2,BP+2
+	0002 
+00262	FAF7 		SWAP	DR2
+00263	FA43 		DADD	DR2,DR3
+00264	F8A2 		LXI	R0,DR2
+00265	C6BD 		LX	R6,DP0+R3+13
+00266	8E00 		CMP R6,R0
+00267	E302 		JNZ L105
+		; 		return 0;
+00268	0000 		LI R0,0
+00269	7855 		SJMP	L98
+		
+0026A		L105
+		; 
+		; 	for ( oldMid = min = 0, max = tableLen-1, mid = (max+min)>>1; ; mid = (max+min)>>1 )
+0026A	0700 		LI R7,0
+0026B	830D 		LW	R3,BP
+0026C	2B06 		SBI	R3,6
+0026D	CFB2 		STX	R7,DP0+R3+2
+0026E	CFB3 		STX	R7,DP0+R3+3
+0026F	C7BC 		LX	R7,DP0+R3+12
+00270	2F01 		SBI R7,1
+00271	CFB1 		STX	R7,DP0+R3+1
+00272	C7B2 		LX	R7,DP0+R3+2
+00273	C6B1 		LX	R6,DP0+R3+1
+00274	9607 		ADD R6,R7
+00275	F6D1 		SHR	R6,1
+00276	CEB5 		STX	R6,DP0+R3+5
+		
+00277		L107
+		; 	{
+		; 		pointedValue = _rdxtmemEx(table+mid*rowSize+itemIndex);
+00277	830D 		LW	R3,BP
+00278	2B06 		SBI	R3,6
+00279	C6BA 		LX	R6,DP0+R3+10
+0027A	C7B5 		LX	R7,DP0+R3+5
+0027B	D4CE 		UMUL R6
+0027C	8607 		LW R6,R7
+0027D	0700 		LI R7,0
+0027E	FAE2		DLXS	DR2,BP+2
+	0002 
+00280	FAF7 		SWAP	DR2
+00281	FA43 		DADD	DR2,DR3
+00282	C7BB 		LX	R7,DP0+R3+11
+00283	8607 		LW R6,R7
+00284	0700 		LI R7,0
+00285	FA43 		DADD	DR2,DR3
+00286	F8A2 		LXI	R0,DR2
+00287	C8B4 		STX	R0,DP0+R3+4
+		; 		if ( valueToSearch == pointedValue )
+00288	8700 		LW	R7,R0
+00289	C6BD 		LX	R6,DP0+R3+13
+0028A	8E07 		CMP R6,R7
+0028B	E302 		JNZ L111
+		; 		{
+		; 			return (mid);
+0028C	C0B5 		LX	R0,DP0+R3+5
+0028D	7831 		SJMP	L98
+		
+0028E		L111
+		; 		}
+		; 		else if ( valueToSearch < pointedValue )
+0028E	830D 		LW	R3,BP
+0028F	2B06 		SBI	R3,6
+00290	C7B4 		LX	R7,DP0+R3+4
+00291	C6BD 		LX	R6,DP0+R3+13
+00292	8E07 		CMP R6,R7
+00293	E003 		JAE L113
+		; 		{
+		; 			max = mid;
+00294	C7B5 		LX	R7,DP0+R3+5
+00295	CFB1 		STX	R7,DP0+R3+1
+		; 		}
+00296	7804 		SJMP L114
+		
+00297		L113
+		; 		else
+		; 		{
+		; 			min = mid;
+00297	830D 		LW	R3,BP
+00298	2B06 		SBI	R3,6
+00299	C7B5 		LX	R7,DP0+R3+5
+0029A	CFB2 		STX	R7,DP0+R3+2
+		; 		}
+		
+0029B		L114
+		; 
+		; 		if ( oldMid == mid )
+0029B	830D 		LW	R3,BP
+0029C	2B06 		SBI	R3,6
+0029D	C7B5 		LX	R7,DP0+R3+5
+0029E	C6B3 		LX	R6,DP0+R3+3
+0029F	8E07 		CMP R6,R7
+002A0	E314 		JNZ L115
+		; 		{
+		; 			if ( valueToSearch > pointedValue )
+002A1	C7B4 		LX	R7,DP0+R3+4
+002A2	C6BD 		LX	R6,DP0+R3+13
+002A3	8E07 		CMP R6,R7
+002A4	E10B 		JB	L119
+002A5	E20A 		JZ	L119
+		; 			{
+		; 				mid++;
+002A6	C7B5 		LX	R7,DP0+R3+5
+002A7	1701 		ADI R7,1
+002A8	CFB5 		STX	R7,DP0+R3+5
+		; 				if (mid>=tableLen)
+002A9	C7BC 		LX	R7,DP0+R3+12
+002AA	C0B5 		LX	R0,DP0+R3+5
+002AB	8807 		CMP	R0,R7
+002AC	E103 		JB L119
+		; 					return (1<<15) | mid;
+002AD	D04C		ORI R0,-32768
+	8000 
+002AF	780F 		SJMP L98
+		
+002B0		L119
+		; 			}
+		
+		; 			return (1<<15) | mid;
+002B0	D2C8		LXS	R0,BP-1
+	FFFF 
+002B2	D04C		ORI R0,-32768
+	8000 
+002B4	780A 		SJMP L98
+		
+002B5		L115
+002B5	830D 		LW	R3,BP
+002B6	2B06 		SBI	R3,6
+002B7	C7B5 		LX	R7,DP0+R3+5
+002B8	CFB3 		STX	R7,DP0+R3+3
+		
+002B9	C7B2 		LX	R7,DP0+R3+2
+002BA	C6B1 		LX	R6,DP0+R3+1
+002BB	9607 		ADD R6,R7
+002BC	F6D1 		SHR	R6,1
+002BD	CEB5 		STX	R6,DP0+R3+5
+002BE	78B8 		SJMP	L107
+		
+		
+002BF		L98
+002BF	D5CE 		XRET 6
+			PUBLIC _sendSysExMessage
+		;         id_val -> BP-1
+		;            msg -> BP+3
+		;             id -> BP+2
+002C0		_sendSysExMessage
+002C0	7D0E 		DECW	XSPL
+		; 		}
+		; 		oldMid = mid;
+		; 	}
+		; }
+		; 
+		; void sendSysExMessage (WORD id, unsigned char msg)
+		; {
+		; 	WORD id_val = ((id>>8) & 0x007f);
+002C1	830D 		LW	R3,BP
+002C2	2B01 		SBI	R3,1
+002C3	C7B3 		LX	R7,DP0+R3+3
+002C4	F7D8 		SHR R7,8
+002C5	1F7F 		ANI R7,127
+002C6	CFB0 		STX	R7,DP0+R3
+		; 
+		; 	Send( 0xF0 );
+002C7	C14C		XPUSHI 240
+	00F0 
+002C9	D7C8		XCALL  _Send
+	0000 RE
+		; 	Send( 0 );
+002CB	C14C		XPUSHI 0
+	0000 
+002CD	D7C8		XCALL  _Send
+	0000 RE
+		; 	Send( 0x20 );
+002CF	C14C		XPUSHI 32
+	0020 
+002D1	D7C8		XCALL  _Send
+	0000 RE
+		; 	Send( 0 );
+002D3	C14C		XPUSHI 0
+	0000 
+002D5	D7C8		XCALL  _Send
+	0000 RE
+		; 	Send( id_val );
+002D7	D2CF		LXS R7,BP-1
+	FFFF 
+002D9	7E07 		XPUSH  R7
+002DA	D7C8		XCALL  _Send
+	0000 RE
+		; 	Send( msg );
+002DC	D2CF		LXS R7,BP+3
+	0003 
+002DE	7E07 		XPUSH  R7
+002DF	D7C8		XCALL  _Send
+	0000 RE
+		; 	Send( 0xF7 );
+002E1	C14C		XPUSHI 247
+	00F7 
+002E3	D7C8		XCALL  _Send
+	0000 RE
+		
+002E5	D5CA 		XRET 2
+002E6	----
+00000			.area bss(RAM,REL,CON)
+			PUBLIC _sysExData
+00000		_sysExData	DS 33
+			PUBLIC _nrpnFunctionPtrTable
+00021		_nrpnFunctionPtrTable	DS 8
+			EXTRN _Send
+			EXTRN _dsp4NrpnHandler
+			EXTRN _dsp3NrpnHandler
+			EXTRN _dsp2NrpnHandler
+			EXTRN _dsp1NrpnHandler
+			EXTRN _dsp
+			EXTRN _dspNrpnHandlerCallback
+			EXTRN	__rdxtmemEx$R5R4$R1R2R3R4R5R6R7
+00029	----
+!0 error(s) 0 warning(s)

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DREAM_DSPDESIGNER_Configuration Version="1.01" SoftwareVersion="1.3.3.9" CreatedWith="1.3.3.9">
+  <DSPs>
+    <DSP Index="1" PositionX="0.14403829416884248" PositionY="0.1487985212569316" ModuleId="1" Name="DSP" nrpn="1">
+      <ProcessConnections>
+        <ProcessConnection ConnectIdx="0" SrcNodeId="1" SrcChnIndex="0" DstNodeId="2" DstChnIndex="1"/>
+        <ProcessConnection ConnectIdx="1" SrcNodeId="3" SrcChnIndex="0" DstNodeId="4" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="2" SrcNodeId="4" SrcChnIndex="0" DstNodeId="1" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="3" SrcNodeId="4" SrcChnIndex="0" DstNodeId="2" DstChnIndex="0"/>
+      </ProcessConnections>
+      <Processes>
+        <Process PositionX="0.26050000000000001" PositionY="0.14444444444444443" Index="0" Name="LevelDetect" InNb="1" OutNb="1" ProcessId="6" NCount="1" MemoryDelay="1" nrpn="4">
+          <CommandList>
+            <Commands C_ect_Attack="00000400" C_ct_Release="00000401"/>
+          </CommandList>
+          <Class name="LevelDetect">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="2" NumberOfFixedControls="2"/>
+                <Controls fixedName1="Attack" fixedNrpn1="16384" fixedName2="Release" fixedNrpn2="16385"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="9476" fixedValue2="8679"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.34000000000000002" PositionY="0.076767676767676762" Index="1" Name="Compressor" InNb="2" OutNb="1" ProcessId="2" NCount="1" MemoryDelay="1" nrpn="5">
+          <CommandList>
+            <Commands C_nReduction="00000500" C_ssor_OnOff="00000501" C__Threshold="00000502" C_ssor_Ratio="00000503" C_ssor_Boost="00000504" C_BoostPhase="00000505"/>
+          </CommandList>
+          <Class name="Compressor">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="5" NumberOfFixedControls="5"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="1" fixedName2="Threshold" fixedNrpn2="16386" fixedName3="Ratio" fixedNrpn3="16387" fixedName4="Boost" fixedNrpn4="16388" fixedName5="180deg" fixedNrpn5="5"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="1" fixedValue2="12841" fixedValue3="6819" fixedValue4="4605" fixedValue5="0"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.079000000000000001" PositionY="0.066161616161616157" Index="2" Name="Gain" InNb="1" OutNb="1" ProcessId="5" NCount="1" MemoryDelay="1" nrpn="1">
+          <CommandList>
+            <Commands C_Gain_Value="00000100" C_Gain_Phase="00000101"/>
+          </CommandList>
+          <Class name="Gain">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="2" NumberOfFixedControls="2"/>
+                <Controls fixedName1="Gain" fixedNrpn1="16384" fixedName2="180deg" fixedNrpn2="1"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="14847" fixedValue2="0"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.183" PositionY="0.069696969696969702" Index="3" Name="Biquad" InNb="1" OutNb="1" ProcessId="513" NCount="6" MemoryDelay="1" nrpn="2">
+          <CommandList>
+            <Commands C_quad_OnOff="00000200" C_nGainPhase="00000201" C_nGainValue="00000202" C_FilterType="00000203" C_SetFilterQ="00000222" C_FilterFreq="00000241" C_FilterGain="00000260"/>
+          </CommandList>
+          <Class name="Biquad">
+            <CountGroup count="6" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="27" NumberOfFixedControls="3"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98" Name13="Type4" Nrpn13="6" Name14="Q4" Nrpn14="16421" Name15="Freq4" Nrpn15="32836" Name16="Gain4" Nrpn16="99" Name17="Type5" Nrpn17="7" Name18="Q5" Nrpn18="16422" Name19="Freq5" Nrpn19="32837" Name20="Gain5" Nrpn20="100" Name21="Type6" Nrpn21="8" Name22="Q6" Nrpn22="16423" Name23="Freq6" Nrpn23="32838" Name24="Gain6" Nrpn24="101"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="1" fixedValue2="0" fixedValue3="11158" Value1="1" Value2="955" Value3="5404984" Value4="84" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64" Value13="1" Value14="955" Value15="81956" Value16="64" Value17="1" Value18="955" Value19="81968" Value20="64" Value21="1" Value22="955" Value23="81980" Value24="64"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+      </Processes>
+      <ProcessPinLabels>
+        <ProcessPinLabel Name="DSPOUT0" IO="0" Channel="0" Node="2"/>
+        <ProcessPinLabel Name="DSPIN0" IO="1" Channel="0" Node="3"/>
+      </ProcessPinLabels>
+    </DSP>
+    <DSP Index="2" PositionX="0.30000001192092896" PositionY="0.15000000596046448" ModuleId="1" Name="DSP" nrpn="2">
+      <ProcessConnections>
+        <ProcessConnection ConnectIdx="0" SrcNodeId="1" SrcChnIndex="0" DstNodeId="4" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="1" SrcNodeId="2" SrcChnIndex="0" DstNodeId="3" DstChnIndex="0"/>
+      </ProcessConnections>
+      <Processes>
+        <Process PositionX="0.095500000000000002" PositionY="0.046969696969696967" Index="0" Name="Delay" InNb="1" OutNb="1" ProcessId="515" NCount="268435457" MemoryDelay="3" nrpn="1">
+          <CommandList>
+            <Commands C_elay_OnOff="00000100" C_ay_SetTime="00000101" C_tGainValue="00000102" C_tGainPhase="00000103"/>
+          </CommandList>
+          <Class name="Delay">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="5" NumberOfFixedControls="5"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="Time" fixedNrpn2="32769" fixedName3="Gain" fixedNrpn3="16386" fixedName4="180deg" fixedNrpn4="3" fixedName5="-/-delay-/-" fixedNrpn5="99282957"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" fixedValue4="0" fixedValue5="0" delayCount="1"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.097500000000000003" PositionY="0.099494949494949497" Index="1" Name="Delay" InNb="1" OutNb="1" ProcessId="515" NCount="268435457" MemoryDelay="3" nrpn="3">
+          <CommandList>
+            <Commands C_elay_OnOff="00000300" C_ay_SetTime="00000301" C_tGainValue="00000302" C_tGainPhase="00000303"/>
+          </CommandList>
+          <Class name="Delay">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="5" NumberOfFixedControls="5"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="Time" fixedNrpn2="32769" fixedName3="Gain" fixedNrpn3="16386" fixedName4="180deg" fixedNrpn4="3" fixedName5="-/-delay-/-" fixedNrpn5="99282957"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" fixedValue4="0" fixedValue5="0" delayCount="1"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.1875" PositionY="0.099494949494949497" Index="2" Name="Biquad" InNb="1" OutNb="1" ProcessId="513" NCount="536870915" MemoryDelay="1" nrpn="4">
+          <CommandList>
+            <Commands C_quad_OnOff="00000400" C_nGainPhase="00000401" C_nGainValue="00000402" C_FilterType="00000403" C_SetFilterQ="00000422" C_FilterFreq="00000441" C_FilterGain="00000460"/>
+          </CommandList>
+          <Class name="Biquad">
+            <CountGroup count="3" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="15" NumberOfFixedControls="3"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="122" Value2="955" Value3="4143663" Value4="55" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.1855" PositionY="0.046969696969696967" Index="3" Name="Biquad" InNb="1" OutNb="1" ProcessId="513" NCount="536870915" MemoryDelay="1" nrpn="2">
+          <CommandList>
+            <Commands C_quad_OnOff="00000200" C_nGainPhase="00000201" C_nGainValue="00000202" C_FilterType="00000203" C_SetFilterQ="00000222" C_FilterFreq="00000241" C_FilterGain="00000260"/>
+          </CommandList>
+          <Class name="Biquad">
+            <CountGroup count="3" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="15" NumberOfFixedControls="3"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="1" fixedValue2="127" fixedValue3="16383" Value1="82" Value2="955" Value3="54643714" Value4="94" Value5="73" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+      </Processes>
+      <ProcessPinLabels>
+        <ProcessPinLabel Name="DSPIN0" IO="1" Channel="0" Node="1"/>
+        <ProcessPinLabel Name="DSPIN0" IO="1" Channel="0" Node="2"/>
+        <ProcessPinLabel Name="DSPOUT1" IO="0" Channel="0" Node="3"/>
+        <ProcessPinLabel Name="DSPOUT0" IO="0" Channel="0" Node="4"/>
+      </ProcessPinLabels>
+    </DSP>
+    <DSP Index="3" PositionX="0.14490861618798956" PositionY="0.400184842883549" ModuleId="1" Name="DSP" nrpn="3">
+      <ProcessConnections>
+        <ProcessConnection ConnectIdx="0" SrcNodeId="1" SrcChnIndex="0" DstNodeId="2" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="1" SrcNodeId="2" SrcChnIndex="0" DstNodeId="3" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="2" SrcNodeId="2" SrcChnIndex="0" DstNodeId="4" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="3" SrcNodeId="3" SrcChnIndex="0" DstNodeId="4" DstChnIndex="1"/>
+      </ProcessConnections>
+      <Processes>
+        <Process PositionX="0.074499999999999997" PositionY="0.066666666666666666" Index="0" Name="Gain" InNb="1" OutNb="1" ProcessId="5" NCount="1" MemoryDelay="1" nrpn="1">
+          <CommandList>
+            <Commands C_Gain_Value="00000100" C_Gain_Phase="00000101"/>
+          </CommandList>
+          <Class name="Gain">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="2" NumberOfFixedControls="2"/>
+                <Controls fixedName1="Gain" fixedNrpn1="16384" fixedName2="180deg" fixedNrpn2="1"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="14847" fixedValue2="0"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.16600000000000001" PositionY="0.068181818181818177" Index="1" Name="Biquad" InNb="1" OutNb="1" ProcessId="513" NCount="536870918" MemoryDelay="1" nrpn="2">
+          <CommandList>
+            <Commands C_quad_OnOff="00000200" C_nGainPhase="00000201" C_nGainValue="00000202" C_FilterType="00000203" C_SetFilterQ="00000222" C_FilterFreq="00000241" C_FilterGain="00000260"/>
+          </CommandList>
+          <Class name="Biquad">
+            <CountGroup count="6" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="27" NumberOfFixedControls="3"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98" Name13="Type4" Nrpn13="6" Name14="Q4" Nrpn14="16421" Name15="Freq4" Nrpn15="32836" Name16="Gain4" Nrpn16="99" Name17="Type5" Nrpn17="7" Name18="Q5" Nrpn18="16422" Name19="Freq5" Nrpn19="32837" Name20="Gain5" Nrpn20="100" Name21="Type6" Nrpn21="8" Name22="Q6" Nrpn22="16423" Name23="Freq6" Nrpn23="32838" Name24="Gain6" Nrpn24="101"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="350550" Value4="43" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64" Value13="0" Value14="955" Value15="81956" Value16="64" Value17="0" Value18="955" Value19="81968" Value20="64" Value21="0" Value22="955" Value23="81980" Value24="64"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.2555" PositionY="0.093434343434343439" Index="2" Name="LevelDetect" InNb="1" OutNb="1" ProcessId="6" NCount="1" MemoryDelay="1" nrpn="4">
+          <CommandList>
+            <Commands C_ect_Attack="00000400" C_ct_Release="00000401"/>
+          </CommandList>
+          <Class name="LevelDetect">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="2" NumberOfFixedControls="2"/>
+                <Controls fixedName1="Attack" fixedNrpn1="16384" fixedName2="Release" fixedNrpn2="16385"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="8192" fixedValue2="8192"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.33950000000000002" PositionY="0.072727272727272724" Index="3" Name="Compressor" InNb="2" OutNb="1" ProcessId="2" NCount="1" MemoryDelay="1" nrpn="5">
+          <CommandList>
+            <Commands C_nReduction="00000500" C_ssor_OnOff="00000501" C__Threshold="00000502" C_ssor_Ratio="00000503" C_ssor_Boost="00000504" C_BoostPhase="00000505"/>
+          </CommandList>
+          <Class name="Compressor">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="5" NumberOfFixedControls="5"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="1" fixedName2="Threshold" fixedNrpn2="16386" fixedName3="Ratio" fixedNrpn3="16387" fixedName4="Boost" fixedNrpn4="16388" fixedName5="180deg" fixedNrpn5="5"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="15143" fixedValue3="6819" fixedValue4="0" fixedValue5="0"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+      </Processes>
+      <ProcessPinLabels>
+        <ProcessPinLabel Name="DSPIN0" IO="1" Channel="0" Node="1"/>
+        <ProcessPinLabel Name="DSPOUT0" IO="0" Channel="0" Node="4"/>
+      </ProcessPinLabels>
+    </DSP>
+    <DSP Index="4" PositionX="0.30000001192092896" PositionY="0.40000000596046448" ModuleId="1" Name="DSP" nrpn="4">
+      <ProcessConnections>
+        <ProcessConnection ConnectIdx="0" SrcNodeId="1" SrcChnIndex="0" DstNodeId="2" DstChnIndex="0"/>
+        <ProcessConnection ConnectIdx="1" SrcNodeId="3" SrcChnIndex="0" DstNodeId="4" DstChnIndex="0"/>
+      </ProcessConnections>
+      <Processes>
+        <Process PositionX="0.091999999999999998" PositionY="0.047979797979797977" Index="0" Name="Delay" InNb="1" OutNb="1" ProcessId="515" NCount="268435457" MemoryDelay="3" nrpn="1">
+          <CommandList>
+            <Commands C_elay_OnOff="00000100" C_ay_SetTime="00000101" C_tGainValue="00000102" C_tGainPhase="00000103"/>
+          </CommandList>
+          <Class name="Delay">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="5" NumberOfFixedControls="5"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="Time" fixedNrpn2="32769" fixedName3="Gain" fixedNrpn3="16386" fixedName4="180deg" fixedNrpn4="3" fixedName5="-/-delay-/-" fixedNrpn5="99282957"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" fixedValue4="0" fixedValue5="0" delayCount="1"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.182" PositionY="0.047474747474747475" Index="1" Name="Biquad" InNb="1" OutNb="1" ProcessId="513" NCount="536870915" MemoryDelay="1" nrpn="2">
+          <CommandList>
+            <Commands C_quad_OnOff="00000200" C_nGainPhase="00000201" C_nGainValue="00000202" C_FilterType="00000203" C_SetFilterQ="00000222" C_FilterFreq="00000241" C_FilterGain="00000260"/>
+          </CommandList>
+          <Class name="Biquad">
+            <CountGroup count="3" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="15" NumberOfFixedControls="3"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="3599856" Value4="64" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.090999999999999998" PositionY="0.10202020202020202" Index="2" Name="Delay" InNb="1" OutNb="1" ProcessId="515" NCount="268435457" MemoryDelay="3" nrpn="3">
+          <CommandList>
+            <Commands C_elay_OnOff="00000300" C_ay_SetTime="00000301" C_tGainValue="00000302" C_tGainPhase="00000303"/>
+          </CommandList>
+          <Class name="Delay">
+            <CountGroup count="1" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="5" NumberOfFixedControls="5"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="Time" fixedNrpn2="32769" fixedName3="Gain" fixedNrpn3="16386" fixedName4="180deg" fixedNrpn4="3" fixedName5="-/-delay-/-" fixedNrpn5="99282957"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" fixedValue4="0" fixedValue5="0" delayCount="1"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+        <Process PositionX="0.17999999999999999" PositionY="0.10303030303030303" Index="3" Name="Biquad" InNb="1" OutNb="1" ProcessId="513" NCount="536870915" MemoryDelay="1" nrpn="4">
+          <CommandList>
+            <Commands C_quad_OnOff="00000400" C_nGainPhase="00000401" C_nGainValue="00000402" C_FilterType="00000403" C_SetFilterQ="00000422" C_FilterFreq="00000441" C_FilterGain="00000460"/>
+          </CommandList>
+          <Class name="Biquad">
+            <CountGroup count="3" TableId="-1">
+              <Preset>
+                <Count NumberOfPresets="1" NumberOfControls="15" NumberOfFixedControls="3"/>
+                <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98"/>
+                <Lists>
+                  <List name="(Last-Saved)" fixedValue1="0" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="6144000" Value4="64" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64"/>
+                </Lists>
+              </Preset>
+            </CountGroup>
+          </Class>
+        </Process>
+      </Processes>
+      <ProcessPinLabels>
+        <ProcessPinLabel Name="DSPIN1" IO="1" Channel="0" Node="1"/>
+        <ProcessPinLabel Name="DSPOUT2" IO="0" Channel="0" Node="2"/>
+        <ProcessPinLabel Name="DSPIN1" IO="1" Channel="0" Node="3"/>
+        <ProcessPinLabel Name="DSPOUT3" IO="0" Channel="0" Node="4"/>
+      </ProcessPinLabels>
+    </DSP>
+  </DSPs>
+  <DSPConnections>
+    <DSPConnection ConnectIdx="0" SrcNodeId="1" SrcChnIndex="0" DstNodeId="2" DstChnIndex="0"/>
+    <DSPConnection ConnectIdx="1" SrcNodeId="3" SrcChnIndex="0" DstNodeId="4" DstChnIndex="0"/>
+  </DSPConnections>
+  <PinLabels>
+    <PinLabel Name="DAAD0L" IO="1" Channel="0" Node="1"/>
+    <PinLabel Name="DABD0L" IO="0" Channel="0" Node="2"/>
+    <PinLabel Name="DABD0R" IO="0" Channel="1" Node="2"/>
+    <PinLabel Name="DAAD0R" IO="1" Channel="0" Node="3"/>
+    <PinLabel Name="DABD1L" IO="0" Channel="0" Node="4"/>
+    <PinLabel Name="DABD1R" IO="0" Channel="1" Node="4"/>
+  </PinLabels>
+  <ProjectSettings Chip="0" Sampling="3" MemorySize="256" ProjectWitdh="1920" ProjectHeight="1080" Directory="."/>
+</DREAM_DSPDESIGNER_Configuration>

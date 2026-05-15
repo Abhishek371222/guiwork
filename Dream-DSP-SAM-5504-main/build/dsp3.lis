@@ -1,0 +1,422 @@
+P16
+00000	----
+00000			.area text(ROM,REL,CON)
+		;*******************************************************************
+		;* Atmel P16 ANSI C Code Generation	Version M-1.8 (Mar 13,2005)
+		;*******************************************************************
+		$CASE
+00000	----
+00000			.area data(RAM,REL,CON)
+			PUBLIC _biquad3ParamAddr2
+00000		_biquad3ParamAddr2	DS	1
+00001	----
+00000			.area idata(ROM,REL,CON)
+00000	000C R		DW	_biquad3Parameters2
+00001	----
+00001			.area data(RAM,REL,CON)
+00001			DS	1
+00002	----
+00001			.area idata(ROM,REL,CON)
+00001	0009 R		DW	_biquad3Type2
+00002	----
+00002			.area data(RAM,REL,CON)
+00002			DS	1
+00003	----
+00002			.area idata(ROM,REL,CON)
+00002	0006 R		DW	_biquad3XoverType2
+00003	----
+00003			.area data(RAM,REL,CON)
+00003			DS	1
+00004	----
+00003			.area idata(ROM,REL,CON)
+00003	0000 R		DW	_biquad3RawFrequency2
+00004	----
+00004			.area data(RAM,REL,CON)
+00004			DS	1
+00005	----
+00004			.area idata(ROM,REL,CON)
+00004	0003 		DW	3
+00005	----
+00005			.area data(RAM,REL,CON)
+00005			DS 1
+00006	----
+00005			.area idata(ROM,REL,CON)
+00005	0000 		DW	0
+00006	----
+00006			.area data(RAM,REL,CON)
+			PUBLIC _dsp3InitAndRoute
+00006	----
+00000			.area text(ROM,REL,CON)
+		;          dspId -> BP-1
+00000		_dsp3InitAndRoute
+00000	7D0E 		DECW	XSPL
+		; #include <system.h>
+		; #include <libFX5000.h>
+		; #include "dspDesigner.h"
+		; #include "custom.h"
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		; #include "midictrl.h"
+		; #endif
+		; #include "BiquadCtrl.h"
+		; #include "shared_nrpn.h"
+		; 
+		; /*
+		;  * DSP #3: Gain -> Biquad (3-band EQ) -> LevelDetect -> Compressor
+		;  * Input:  DSP_IN[0]  (DAAD0R, right input)
+		;  * Output: DSP_OUT[0] (routed to DABD1L via mainbus.c)
+		;  */
+		; 
+		; #define BIQUAD_ITEMCOUNT            1
+		; #define NUMBER_OF_BIQUAD_EXTRAFUNCTION 4
+		; #define BIQUAD2BANDCOUNT            3    /* 3 bands of parametric EQ */
+		; 
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		; 
+		; _FILTER_PARAM biquad3Parameters2[BIQUAD2BANDCOUNT];
+		; WORD          biquad3Type2[BIQUAD2BANDCOUNT];
+		; WORD          biquad3XoverType2[BIQUAD2BANDCOUNT];
+		; DWORD         biquad3RawFrequency2[BIQUAD2BANDCOUNT];
+		; 
+		; BiquadParameters biquad3ParamAddr2 = {
+		;     biquad3Parameters2, biquad3Type2, biquad3XoverType2, biquad3RawFrequency2, BIQUAD2BANDCOUNT
+		; };
+		; 
+		; #endif /* _SKIP_DDD_NRPN_CTRL */
+		; 
+		; WORD dsp3pcs[6];
+		; 
+		; WORD dsp3InitAndRoute(void)
+		; {
+		;     WORD dspId;
+		; 
+		;     dspId = _MixPA_Init();
+00001	D6C8		LCALL	__MixPA_Init$$
+	0000 RE
+00003	D3C8		STXS R0,BP-1
+	FFFF 
+		;     if (dspId == -1) return 0;
+00005	8700 		LW	R7,R0
+00006	D749		CPI R7,-1
+	FFFF 
+00008	E302 		JNZ L18
+00009	0000 		LI R0,0
+0000A	786D 		SJMP	L17
+		
+0000B		L18
+		; 
+		; #ifdef _customPreInitFunction3
+		;     customPreInitFunction3(dspId);
+		; #endif
+		; 
+		;     /* Process #1: Gain */
+		;     dsp3pcs[1] = _MixPA_Gain_Allocate(dspId);
+0000B	D2CC		LXS	R4,BP-1
+	FFFF 
+0000D	D6C8		LCALL	__MixPA_Gain_Allocate$R4$
+	0000 RE
+0000F	D148		LI	R1,_dsp3pcs
+	0024 R
+00011	C891 		STX	R0,DP0+R1+1
+		;     _MixPA_SetProcIN( dspId, GAIN_SAMPLE_IN  | dsp3pcs[1], PCS_DSP_IN | 0 );
+00012	0700 		LI	R7,0
+00013	8100 		LW	R1,R0
+00014	D2CC		LXS	R4,BP-1
+	FFFF 
+00016	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, GAIN_SAMPLE_OUT | dsp3pcs[1], PCS_NODE   | 0 );
+00018	D748		LI	R7,-32768
+	8000 
+0001A	D148		LI	R1,_dsp3pcs
+	0024 R
+0001C	C191 		LX	R1,DP0+R1+1
+0001D	2180 		ORI	R1,128
+0001E	D2CC		LXS	R4,BP-1
+	FFFF 
+00020	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		; 
+		;     /* Process #2: Biquad (3-band) */
+		;     dsp3pcs[2] = _MixPA_Biquad_Allocate(dspId, BIQUAD2BANDCOUNT);
+00022	0103 		LI	R1,3
+00023	D2CC		LXS	R4,BP-1
+	FFFF 
+00025	D6C8		LCALL	__MixPA_Biquad_Allocate$R4R1$
+	0000 RE
+00027	D148		LI	R1,_dsp3pcs
+	0024 R
+00029	C892 		STX	R0,DP0+R1+2
+		;     _MixPA_SetProcIN( dspId, BIQUAD_SAMPLE_IN  | dsp3pcs[2], PCS_NODE   | 0 );
+0002A	D748		LI	R7,-32768
+	8000 
+0002C	8100 		LW	R1,R0
+0002D	D2CC		LXS	R4,BP-1
+	FFFF 
+0002F	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, BIQUAD_SAMPLE_OUT | dsp3pcs[2], PCS_NODE   | 1 );
+00031	D748		LI	R7,-32767
+	8001 
+00033	D148		LI	R1,_dsp3pcs
+	0024 R
+00035	C192 		LX	R1,DP0+R1+2
+00036	2180 		ORI	R1,128
+00037	D2CC		LXS	R4,BP-1
+	FFFF 
+00039	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		; 
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		;     InitDefaultPeqBands(&biquad3ParamAddr2, dspId, dsp3pcs[2]);
+0003B	D148		LI	R1,_dsp3pcs
+	0024 R
+0003D	C792 		LX	R7,DP0+R1+2
+0003E	7E07 		XPUSH  R7
+0003F	D2CF		LXS R7,BP-1
+	FFFF 
+00041	7E07 		XPUSH  R7
+00042	C14C		XPUSHI	_biquad3ParamAddr2
+	0000 R
+00044	D7C8		XCALL  _InitDefaultPeqBands
+	0000 RE
+		; #endif
+		; 
+		;     /* Process #4: LevelDetect (sidechain for compressor) */
+		;     dsp3pcs[4] = _MixPA_LevelDetect_Allocate(dspId);
+00046	D2CC		LXS	R4,BP-1
+	FFFF 
+00048	D6C8		LCALL	__MixPA_LevelDetect_Allocate$R4$
+	0000 RE
+0004A	D148		LI	R1,_dsp3pcs
+	0024 R
+0004C	C894 		STX	R0,DP0+R1+4
+		;     _MixPA_SetProcIN(dspId, LEVELDETECT_SAMPLE_IN | dsp3pcs[4], PCS_NODE | 1);
+0004D	D748		LI	R7,-32767
+	8001 
+0004F	8100 		LW	R1,R0
+00050	D14C		ORI	R1,768
+	0300 
+00052	D2CC		LXS	R4,BP-1
+	FFFF 
+00054	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		; 
+		;     /* Process #5: Compressor */
+		;     dsp3pcs[5] = _MixPA_Compressor_Allocate(dspId);
+00056	D2CC		LXS	R4,BP-1
+	FFFF 
+00058	D6C8		LCALL	__MixPA_Compressor_Allocate$R4$
+	0000 RE
+0005A	D148		LI	R1,_dsp3pcs
+	0024 R
+0005C	C895 		STX	R0,DP0+R1+5
+		;     _MixPA_SetProcIN( dspId, COMPRESSOR_SAMPLE_IN  | dsp3pcs[5], PCS_NODE    | 1 );
+0005D	D748		LI	R7,-32767
+	8001 
+0005F	8100 		LW	R1,R0
+00060	D2CC		LXS	R4,BP-1
+	FFFF 
+00062	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, COMPRESSOR_SAMPLE_OUT | dsp3pcs[5], PCS_DSP_OUT | 0 );
+00064	0700 		LI	R7,0
+00065	D148		LI	R1,_dsp3pcs
+	0024 R
+00067	C195 		LX	R1,DP0+R1+5
+00068	2180 		ORI	R1,128
+00069	D2CC		LXS	R4,BP-1
+	FFFF 
+0006B	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		;     _MixPA_Compressor_ConnectLevel(dspId, dsp3pcs[5], dsp3pcs[4]);
+0006D	D148		LI	R1,_dsp3pcs
+	0024 R
+0006F	C794 		LX	R7,DP0+R1+4
+00070	C295 		LX	R2,DP0+R1+5
+00071	D2CC		LXS	R4,BP-1
+	FFFF 
+00073	8107 		LW	R1,R7
+00074	D6C8		LCALL	__MixPA_Compressor_ConnectLevel$R4R2R1$
+	0000 RE
+		; 
+		; #ifdef _customPostInitFunction3
+		;     customPostInitFunction3(dspId);
+		; #endif
+		; 
+		;     return dspId;
+00076	D2C8		LXS R0,BP-1
+	FFFF 
+		
+00078		L17
+00078	D5C8 		XRET 0
+00079	----
+00079			.area text(ROM,REL,CON)
+			PUBLIC _nrpn3List
+00079	----
+00000			.area const(ROM,REL,CON)
+00000	0100 	_nrpn3List	DW	256
+00001	002F 		DW	47
+00002	0101 		DW	257
+00003	0030 		DW	48
+00004	0200 		DW	512
+00005	0000 		DW	0
+00006	0201 		DW	513
+00007	0001 		DW	1
+00008	0202 		DW	514
+00009	0002 		DW	2
+0000A	0400 		DW	1024
+0000B	0033 		DW	51
+0000C	0401 		DW	1025
+0000D	0034 		DW	52
+0000E	0500 		DW	1280
+0000F	0019 		DW	25
+00010	0501 		DW	1281
+00011	001A 		DW	26
+00012	0502 		DW	1282
+00013	001B 		DW	27
+00014	0503 		DW	1283
+00015	001C 		DW	28
+00016	0504 		DW	1284
+00017	001D 		DW	29
+00018	0505 		DW	1285
+00019	001E 		DW	30
+			PUBLIC _nrpn3BiquadTable
+0001A	0203 	_nrpn3BiquadTable	DW	515
+0001B	4003 		DW	16387
+0001C	0000 R		DW	_biquad3ParamAddr2
+0001D	0222 		DW	546
+0001E	4004 		DW	16388
+0001F	0000 R		DW	_biquad3ParamAddr2
+00020	0241 		DW	577
+00021	4005 		DW	16389
+00022	0000 R		DW	_biquad3ParamAddr2
+00023	0260 		DW	608
+00024	4006 		DW	16390
+00025	0000 R		DW	_biquad3ParamAddr2
+			PUBLIC _dsp3NrpnHandler
+00026	----
+00079			.area text(ROM,REL,CON)
+		;         format -> BP+7
+		;          value -> BP+5
+		;      processId -> BP+4
+		;          dspId -> BP+3
+		;           nrpn -> BP+2
+00079		_dsp3NrpnHandler
+		; }
+		; 
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		; 
+		; /*
+		;  * NRPN command table for DSP #3.
+		;  * Entries sorted ascending by NRPN_base.
+		;  */
+		; const WORD nrpn3List[NUMBEROFCOMMAND3][2] =
+		; {
+		;     { 0x0100, 0x002F }, /* _MixPA_Gain_Value          */
+		;     { 0x0101, 0x0030 }, /* _MixPA_Gain_Phase          */
+		;     { 0x0200, 0x0000 }, /* _MixPA_Biquad_OnOff        */
+		;     { 0x0201, 0x0001 }, /* _MixPA_Biquad_InGainPhase  */
+		;     { 0x0202, 0x0002 }, /* _MixPA_Biquad_InGainValue  */
+		;     { 0x0400, 0x0033 }, /* _MixPA_LevelDetect_Attack  */
+		;     { 0x0401, 0x0034 }, /* _MixPA_LevelDetect_Release */
+		;     { 0x0500, 0x0019 }, /* _MixPA_Compressor_GetGainReduction */
+		;     { 0x0501, 0x001A }, /* _MixPA_Compressor_OnOff    */
+		;     { 0x0502, 0x001B }, /* _MixPA_Compressor_Threshold*/
+		;     { 0x0503, 0x001C }, /* _MixPA_Compressor_Ratio    */
+		;     { 0x0504, 0x001D }, /* _MixPA_Compressor_Boost    */
+		;     { 0x0505, 0x001E }  /* _MixPA_Compressor_BoostPhase */
+		; };
+		; 
+		; #define NB_BIQUAD_COMMAND3 4
+		; 
+		; const BiquadParamsTable nrpn3BiquadTable[NB_BIQUAD_COMMAND3] =
+		; {
+		;     { 0x0203, 0x4003, &biquad3ParamAddr2 },
+		;     { 0x0222, 0x4004, &biquad3ParamAddr2 },
+		;     { 0x0241, 0x4005, &biquad3ParamAddr2 },
+		;     { 0x0260, 0x4006, &biquad3ParamAddr2 }
+		; };
+		; 
+		; WORD dsp3NrpnHandler(WORD nrpn, WORD dspId, WORD processId, DWORD value, WORD format)
+		; {
+		; #ifdef _customPreNrpnFunction3
+		;     if (customPreNrpnFunction3(dspId, nrpn, &value, format))
+		;         return 1;
+		; #endif
+		; 
+		;     if (shared_NrpnDispatch_GainBiquadComp(
+00079	C14C		XPUSHI 4
+	0004 
+0007B	C14C		XPUSHI	_nrpn3BiquadTable
+	001A R
+0007D	C14C		XPUSHI 13
+	000D 
+0007F	C14C		XPUSHI	_nrpn3List
+	0000 R
+00081	C14C		XPUSHI	_dsp3pcs
+	0024 R
+00083	830D 		LW	R3,BP
+00084	C7B7 		LX	R7,DP0+R3+7
+00085	7E07 		XPUSH  R7
+00086	FBE2		DLXS	DR3,BP+5
+	0005 
+00088	FBF7 		SWAP	DR3
+00089	7E06 		XPUSH  R6
+0008A	7E07 		XPUSH	R7
+0008B	C7B4 		LX	R7,DP0+R3+4
+0008C	7E07 		XPUSH  R7
+0008D	C7B3 		LX	R7,DP0+R3+3
+0008E	7E07 		XPUSH  R7
+0008F	C7B2 		LX	R7,DP0+R3+2
+00090	7E07 		XPUSH  R7
+00091	D7C8		XCALL _shared_NrpnDispatch_GainBiquadComp
+	0000 RE
+00093	B002 		JRZ	R0,L35
+		;             nrpn, dspId, processId, value, format,
+		;             dsp3pcs,
+		;             nrpn3List,      NUMBEROFCOMMAND3,
+		;             nrpn3BiquadTable, NB_BIQUAD_COMMAND3))
+		;         return 1;
+00094	0001 		LI R0,1
+00095	7801 		SJMP L34
+		
+00096		L35
+		; 
+		; #ifdef _customPostNrpnFunction3
+		;     {
+		;         WORD val8bit = (WORD)(value >> 8);
+		;         DWORD dvalue = (format == FORMAT_14BIT_PRECISION) ? ((DWORD)value << (DWORD)13) : value;
+		;         if (customPostNrpnFunction3(dspId, nrpn, val8bit, value, dvalue))
+		;             return 1;
+		;     }
+		; #endif
+		; 
+		;     return 0;
+00096	0000 		LI R0,0
+		
+00097		L34
+00097	D5CE 		XRET 6
+00098	----
+00000			.area bss(RAM,REL,CON)
+			PUBLIC _biquad3RawFrequency2
+00000		_biquad3RawFrequency2	DS 6
+			PUBLIC _biquad3XoverType2
+00006		_biquad3XoverType2	DS 3
+			PUBLIC _biquad3Type2
+00009		_biquad3Type2	DS 3
+			PUBLIC _biquad3Parameters2
+0000C		_biquad3Parameters2	DS 24
+			EXTRN _shared_NrpnDispatch_GainBiquadComp
+			EXTRN _InitDefaultPeqBands
+			PUBLIC _dsp3pcs
+00024		_dsp3pcs	DS 6
+			EXTRN	__MixPA_Init$$
+			EXTRN	__MixPA_Gain_Allocate$R4$
+			EXTRN	__MixPA_SetProcIN$R4R1R7$
+			EXTRN	__MixPA_SetProcOUT$R4R1R7$
+			EXTRN	__MixPA_Biquad_Allocate$R4R1$
+			EXTRN	__MixPA_LevelDetect_Allocate$R4$
+			EXTRN	__MixPA_Compressor_Allocate$R4$
+			EXTRN	__MixPA_Compressor_ConnectLevel$R4R2R1$
+0002A	----
+!0 error(s) 0 warning(s)

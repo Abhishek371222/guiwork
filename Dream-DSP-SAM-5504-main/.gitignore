@@ -1,0 +1,9 @@
+# JUCE GUI — build outputs and IDE cache
+SAM5504EvalGUI/Builds/**/x64/
+SAM5504EvalGUI/Builds/**/.vs/
+SAM5504EvalGUI/**/*.vcxproj.user
+SAM5504EvalGUI/**/*.sln.docstates
+
+# OS
+Thumbs.db
+.DS_Store

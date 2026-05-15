@@ -1,0 +1,826 @@
+libcrtp16.a$crtp16.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcrtp16.a]:
+ CRTP16$FATAL$:
+   libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ _Sys_Register1msPollingFuncFar:
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ _Sys_1msPollingFunc_farptr:
+   libsys.a$clearRAMEx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libsys.a$clearRAM.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+ CRTP16$FATAL$Message:
+   libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ __crtP16_FSState:
+   libsys.a$sys_GetFSPinState.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+main.o$main.s[main.o]:
+ _main:
+   libcrtp16.a$crtp16.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcrtp16.a]
+ _Send:
+   midictrl.o$midictrl.s[midictrl.o]
+
+dsp1.o$dsp1.s[dsp1.o]:
+ _dsp1InitAndRoute:
+   mainbus.o$mainbus.s[mainbus.o]
+ _dsp1NrpnHandler:
+   midictrl.o$midictrl.s[midictrl.o]
+
+dsp2.o$dsp2.s[dsp2.o]:
+ _dsp2InitAndRoute:
+   mainbus.o$mainbus.s[mainbus.o]
+ _dsp2NrpnHandler:
+   midictrl.o$midictrl.s[midictrl.o]
+
+dsp3.o$dsp3.s[dsp3.o]:
+ _dsp3InitAndRoute:
+   mainbus.o$mainbus.s[mainbus.o]
+ _dsp3NrpnHandler:
+   midictrl.o$midictrl.s[midictrl.o]
+
+dsp4.o$dsp4.s[dsp4.o]:
+ _dsp4InitAndRoute:
+   mainbus.o$mainbus.s[mainbus.o]
+ _dsp4NrpnHandler:
+   midictrl.o$midictrl.s[midictrl.o]
+
+midictrl.o$midictrl.s[midictrl.o]:
+ _dspDesigner_InitNrpnFunction:
+   main.o$main.s[main.o]
+ _dspDesigner_HandleMidiEvent:
+   main.o$main.s[main.o]
+ _dichotomicSearch:
+   mainbus.o$mainbus.s[mainbus.o]
+ _sendSysExMessage:
+   mainbus.o$mainbus.s[mainbus.o]
+
+BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]:
+ _SetFilterGain:
+   mainbus.o$mainbus.s[mainbus.o]
+ _SetFilterFreq:
+   mainbus.o$mainbus.s[mainbus.o]
+ _SetFilterQ:
+   mainbus.o$mainbus.s[mainbus.o]
+ _SetFilterType:
+   mainbus.o$mainbus.s[mainbus.o]
+ _InitDefaultPeqBands:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp3.o$dsp3.s[dsp3.o]
+   dsp4.o$dsp4.s[dsp4.o]
+
+mainbus.o$mainbus.s[mainbus.o]:
+ _shared_NrpnDispatch_DelayBiquad:
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _shared_NrpnDispatch_GainBiquadComp:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp3.o$dsp3.s[dsp3.o]
+ _dspDesigner_InitAndRoute:
+   main.o$main.s[main.o]
+ _dsp:
+   midictrl.o$midictrl.s[midictrl.o]
+
+dspDesignerWrappers.o$dspDesignerWrappers.s[dspDesignerWrappers.o]:
+ _updateBiquadCallback$R1R0R4R5R6R7$:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+ _dspNrpnHandlerCallback:
+   midictrl.o$midictrl.s[midictrl.o]
+
+libsys.a$clearRAM.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_ClearRAM:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libsys.a$clearRAMEx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_ClearRAMex:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libsys.a$DSPresetAll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ __DSPresetAll$$:
+   main.o$main.s[main.o]
+
+libsys.a$DSPalloc.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _DSPalloc:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libsys.a$DSProutEx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ __DSProutEx$R1R2$R3:
+   mainbus.o$mainbus.s[mainbus.o]
+
+libsys.a$DSProutInEx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ __DSProutInEx$R4R2$R1R7:
+   mainbus.o$mainbus.s[mainbus.o]
+
+libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_MididBGain:
+   libFX5000.a$StandardFunctions.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _Sys_MididBGainToDSP:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libsys.a$convdB.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_ConvdB:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libsys.a$rom_LoadStartP24.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _LoadP24:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _StartP24:
+   libsys.a$DSProutInEx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+ __StartDSP$R4$:
+   mainbus.o$mainbus.s[mainbus.o]
+
+libsys.a$rom_StopP24.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _StopP24:
+   libsys.a$DSPresetAll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libsys.a$DSProutInEx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libsys.a$rom_DIVIDE.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _DIVIDE32:
+   libsys.a$sys_GetSamplingRate.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libsys.a$sys_CalcTimerReload.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libsys.a$sys_CalcTimerReload.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ __Sys_CalcTimerReload$R3R2$:
+   main.o$main.s[main.o]
+
+libsys.a$sys_GetCrystalFreq.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_GetCrystalFreq:
+   libsys.a$sys_GetSystemFreq.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libsys.a$sys_GetSystemFreq.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_GetSystemFreq:
+   libsys.a$sys_GetSamplingRate.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libsys.a$sys_CalcTimerReload.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libsys.a$sys_SwitchPLL.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ __Sys_SwitchPll5xxx$R6R7$:
+   main.o$main.s[main.o]
+
+libsys.a$sys_GetSamplingRate.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_GetSamplingRate:
+   libcp16.a$Filter_CheckParameters.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __Sys_GetSamplingRate$$:
+   libFX5000.a$StandardFunctions.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+ _Sys_InvalidateSamplingRate:
+   libsys.a$sys_SwitchPLL.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libsys.a$sys_GetFSPinState.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]:
+ _Sys_GetFSPinState:
+   libsys.a$sys_GetCrystalFreq.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libUSB.a$usb_Dde5xxxIoctl.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ __USBDDE_SAM5xxx_IOCTL$R5R7R6$:
+   main.o$main.s[main.o]
+ Cusb5xxx_RpcCallback:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ Cusb5xxx_RpcCallbackDefault:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_Core.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ UsbcTraceStop:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbIspAddr:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbFlags:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_CoreHS.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_DrvMidiClass.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbInterruptPort:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbInterruptMask:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ Usb$Activity:
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ IspBusy:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbData:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_Event.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_MidiClass.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_CoreHS.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ UsbCore$HsChanged:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ UsbPoll16$SOF:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ _USB_RegisterP16Polling:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ __USB_Poll$$:
+   main.o$main.s[main.o]
+ UsbPoll$SetPollFunc:
+   libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ UsbEnum$ProcessSetup:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbEnum$BusReset:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ UsbEnum$Suspend:
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_Init.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ UsbInit$CallbackDummy:
+   libUSB.a$usb_P16Poll.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+   libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ __USB_Initialize$$:
+   main.o$main.s[main.o]
+ __USB_InitRegisterEntry$R3R2R7R6$:
+   main.o$main.s[main.o]
+ __USB_InitStartupEx$R3R2R5R4R7R6$:
+   main.o$main.s[main.o]
+
+libUSB.a$usb_Event.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ UsbEvent$HandleEventC:
+   libUSB.a$usb_Enum.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+
+libUSB.a$usb_MidiClass.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ _USBMC_SendMidiEvent:
+   libUSB.a$usb_MidiSendWrp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]
+ __USBMC_PollMidiEvent$R1$:
+   main.o$main.s[main.o]
+ __USBMC_InitSetBuffer$R0R1R6R7$:
+   main.o$main.s[main.o]
+
+libUSB.a$usb_MidiSendWrp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ __USBMC_Send$R7$:
+   main.o$main.s[main.o]
+
+libUSB.a$usb_DrvMidiClass.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ __USBDDE_MidiClass:
+   main.o$main.s[main.o]
+
+libUSB.a$usb_DrvSam5xxx.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a]:
+ __USBDDE_SAM5xxx:
+   main.o$main.s[main.o]
+
+libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]:
+ _MixPA_ResetDSP:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_IsDSPCycleOverflow:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcAdd2:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Biquad_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Biquad_OnOff$R4R1R0$:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Biquad_InGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Biquad_InGainValue$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Biquad_InLinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Biquad_InGainPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Biquad_InGainPhase$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Biquad_UpdateCoeff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Biquad_Update48bitCoeff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Biquad_Flat:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcBiquad:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcBiquadEx:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_BusSendN_GainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_BusSendN_LinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_BusSendN_GainPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcBusSend:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compressor_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_OnOff$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Compressor_Threshold:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_Threshold$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Compressor_Ratio:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_Ratio$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Compressor_ConnectLevel:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_ConnectLevel$R4R2R1$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp3.o$dsp3.s[dsp3.o]
+ _MixPA_Compressor_Boost:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_Boost$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Compressor_BoostPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_BoostPhase$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Compressor_GetGainReduction:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_GetGainReduction$R4R1$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_SetProcCompressor:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_Threshold:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_Threshold2:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_Softness:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_Ratio:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_Ratio2:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_ConnectLevel:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_Boost:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_BoostPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compander_GetGainReduction:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcCompander:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Delay_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Delay_OnOff$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Delay_OutGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Delay_OutGainValue$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Delay_OutLinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Delay_OutGainPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Delay_OutGainPhase$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Delay_SetStartAddr:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Delay_SetStartAddr$R4R1R2R0$:
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _MixPA_Delay_SetTime:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Delay_SetTime$R4R1R7R6$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Delay_GetTime:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcDelay:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcDelay_INTRAM:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Exciter_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Exciter_InGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Exciter_Intensity:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Exciter_LoContourAmount:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Exciter_ThresholdLow:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Exciter_ThresholdHigh:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcExciter:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_Amount:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_SetMaxScale:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_PostHP:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_InGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_InLinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_InGainPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcFreqShifter:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Gain_Value:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Gain_Value$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_Gain_LinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Gain_Phase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Gain_Phase$R4R1R0$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_SetProcGain:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_GainN_Value:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_GainN_LinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_GainN_Phase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcGainN:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_LevelDetect_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_LevelDetect_Allocate$R4$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp3.o$dsp3.s[dsp3.o]
+ _MixPA_SetProcLEVELDETECT2:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_LevelDetect_Attack:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_LevelDetect_Attack$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_LevelDetect_Release:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_LevelDetect_Release$R4R1R7$:
+   mainbus.o$mainbus.s[mainbus.o]
+ _MixPA_LevelDetect_GetLevel:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_MixN_GainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_MixN_GainPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_MixN_LinearGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcMixN:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_InGainValue:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_InGainPhase:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_Threshold:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_Attack:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_Release:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcNoiseGate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_PeakLevel_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_PeakLevel_GetPeak:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcPeakLevel:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_SetDelayStartAddr:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_Level:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_SetDelayTime:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_InputInvertedMode:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_4chOutputMode:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcSpatializer:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcSub2:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_PitchShifter_OnOff:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_PitchShifter_SetPitch:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcPitchShifter:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_SetProcIN:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_SetProcIN$R4R1R7$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp3.o$dsp3.s[dsp3.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _MixPA_SetProcOUT:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_SetProcOUT$R4R1R7$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp3.o$dsp3.s[dsp3.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _MixPA_SetProcIOStep:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Init:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Init$$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp3.o$dsp3.s[dsp3.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _MixPA_Add2_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Biquad_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Biquad_Allocate$R4R1$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp3.o$dsp3.s[dsp3.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _MixPA_BiquadEx_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_BusSendN_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Compressor_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Compressor_Allocate$R4$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp3.o$dsp3.s[dsp3.o]
+ _MixPA_Compander_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Delay_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Delay_Allocate$R4$:
+   dsp2.o$dsp2.s[dsp2.o]
+   dsp4.o$dsp4.s[dsp4.o]
+ _MixPA_Exciter_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_FreqShifter_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Gain_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __MixPA_Gain_Allocate$R4$:
+   dsp1.o$dsp1.s[dsp1.o]
+   dsp3.o$dsp3.s[dsp3.o]
+ _MixPA_GainN_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_MixN_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_NoiseGate_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Spatializer_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_Sub2_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _MixPA_PitchShifter_Allocate:
+   libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libFX5000.a$StandardFunctions.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]:
+ _GetSystemSamplingRateFloat:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _DSPRAM_Clear:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _GetNextParamAddr:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _CheckParameterEnd:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ UpdateModulo4:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _GetNewProcessID:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ __SetALLBYPASS:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _ResetProcessParameter:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _GetProcDataPtr:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _IsDSPCycleOverflow:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _CommonGain_midiTodBGain:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _CommonGain_writeToDSP:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+ _CommonGain_UpdatePhase:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+
+libFX5000.a$MixPA_XW.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]:
+ __MixPA_Biquad_UpdateCoeff:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+   mainbus.o$mainbus.s[mainbus.o]
+ __MixPA_Biquad_Flat:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+   mainbus.o$mainbus.s[mainbus.o]
+
+libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __fexp$R7R6$:
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$5x_ftrunc.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _ftrunc:
+   libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _ffract:
+   libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$5x_fsqrt.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __fsqrt$R5R4$R2R3R4R5R6R7:
+   libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$5x_float.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __float$R7R6$R2R3R4R5R6R7:
+   libFX5000.a$StandardFunctions.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+   libcp16.a$Filter_CheckParameters.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _ftol:
+   libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __ftol$R7R6$R2R3R4R5R6R7:
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fmul$R7R6R5R4$R2R3R4R5R6R7:
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+   libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$5x_ftrig.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$5x_poly.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CheckParameters.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fdiv$R7R6R5R4$R2R3R4R5R6R7:
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+   libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$5x_ftrig.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_AP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$5x_fsqrt.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fadd$R7R6R5R4$R2R3R4R5R6R7:
+   libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libcp16.a$5x_poly.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_1stDenom.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$5x_fsqrt.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+ __fsub$R7R6R5R4$R2R3R4R6R7:
+   libcp16.a$5x_ftrunc.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_AP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fneg$R1R0$R2R3R4R5R6R7:
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fsign$R7R6$R1R2R3R4R5R6R7:
+   libcp16.a$5x_fsqrt.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fgt$R7R6R5R4$R1R2R3R4R5R6R7:
+   libcp16.a$Filter_CheckParameters.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fabs$R1R0$R2R3R4R5R6R7:
+   libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _fgetexp:
+   libcp16.a$5x_ftrunc.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fgetexp$R7R6$R1R2R3R4R5R6R7:
+   libcp16.a$5x_fsqrt.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _fpow2:
+   libcp16.a$5x_fexp.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ __fpow2$R1$R2R3R4R5R6R7:
+   libsys.a$DSPGain.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+   libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$5x_fsqrt.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$5x_ftrig.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __ftan$R7R6$R2R3R4R5R6R7:
+   libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$5x_poly.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __fpolyEx$R7R6R5R4R3$R2R6R7:
+   libcp16.a$5x_ftrig.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$FilterIIR_Base.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FloatToFixCoeff$R2R3R7$:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+ _Biquad$Prewarp:
+   libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_1stDenom.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$Filter_1stDenom.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _Biquad$1stOrder_Denominator:
+   libcp16.a$Filter_HP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_AP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$Filter_CommFact.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _Biquad$CommonFx:
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _Biquad$ScaleddB:
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _Biquad$CommonF0Q:
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _Biquad$CommonAlpha:
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _Biquad$CommonA1A2:
+   libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+ _Biquad$CommonFactor:
+   libcp16.a$Filter_HP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_LP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+   libcp16.a$Filter_AP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$Filter_FltFloatCoeff.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FltFloatCoeff$R1R0R2R3$:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_CheckParameters.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _Biquad_CheckParameters:
+   libcp16.a$Filter_FltFloatCoeff.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$Filter_CheckStability.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _Biquad_CheckStability:
+   libcp16.a$Filter_FltFloatCoeff.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+
+libcp16.a$Filter_AP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterAP1:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_AP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterAP2:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_FLAT.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterFLAT:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_HP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterHP1:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_HP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterHP2:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_HS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterHS1:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_LP1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterLP1:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_LP2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterLP2:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_LS1.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterLS1:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$Filter_PEQ.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ __Biquad_FilterPEQ:
+   BiquadCtrl.o$BiquadCtrl.s[BiquadCtrl.o]
+
+libcp16.a$math_lin2db.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _Math_lin2dB:
+   libFX5000.a$MixPA.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a]
+   libsys.a$convdB.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a]
+
+libcp16.a$math_LN2.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]:
+ _Math_LN2:
+   libcp16.a$math_lin2db.s[C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a]
+

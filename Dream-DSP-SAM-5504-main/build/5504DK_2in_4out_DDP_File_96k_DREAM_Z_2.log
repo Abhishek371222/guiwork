@@ -1,0 +1,6 @@
+---- Building project: 5504DK_2in_4out_DDP_File_96k_DREAM_Z_2 Configuration: <default>  ----
+Defined variables:
+ _SAMVS_VERSION=0x5143 _TARGET_IC=5504 _TARGET_CLASS_5xxx _TARGET_FLAGS=0x09C4
+ _SAM5XXX_P24_RESERVED=0 _SAM_RAM_SIZE=36864 _SAM_CODE_MEM_END=17408
+ _SAM5504_INTRAM_16K__1_EXTQNOR_32M_15_8WS_ _SAMVS_DEBUG _5504DK_
+Build completed 0 Error(s) 0 Warning(s)

@@ -1,0 +1,111 @@
+P16
+		
+		
+			segment code
+M00000	----
+M00000			.area	text(ROM,REL,CON)
+		
+		;-----------------------------------------------------------------------	
+		; Generic callback function for updating biquad coefficient.	
+		;-----------------------------------------------------------------------	
+00000		updateBiquadCallback LFUNC R1:R0=FunctionPointer32:l, R4=dsp:i, R5=proc:i, r6=ptr:i, r7=band:i
+M			PUBLIC	updateBiquadCallback(R1:R0=FunctionPointer32:l,R4=dsp:i,R5=proc:i,r6=ptr:i,r7=band:i)
+M00000		_updateBiquadCallback$R1R0R4R5R6R7$:
+M			PUBLIC	_updateBiquadCallback$R1R0R4R5R6R7$
+		
+00000	D0C9 		push	dp1
+		
+00001	7E07 		xpush	r7
+00002	7E06 		xpush	r6
+00003	7E05 		xpush	r5
+00004	7E04 		xpush	r4
+				
+00005	390B 		stw	r1, dp1h
+00006	F8C6 		xrcall r0
+			
+00007	D0CB 		pop	dp1
+			
+00008	D1CA 		ret
+			ENDFUNC
+		
+		;-----------------------------------------------------------------------	
+		; dsp NRPN callback function 
+		;-----------------------------------------------------------------------	
+00009		dspNrpnHandlerCallback XFUNC FunctionPointer32:l, nrpn:i, dspId:i, processId:i, value:l, format:i
+M			PUBLIC	_dspNrpnHandlerCallback
+		
+00009	D0C9 		push	dp1
+		
+0000A	D2CF		lxs	r7, format
+	0009 
+0000C	7E07 		xpush	r7
+		
+0000D	FBE2		dlxs	dr3, value
+	0007 
+0000F	FBE6 		dxpush dr3
+			
+00010	D2CF		lxs	r7, processId
+	0006 
+00012	7E07 		xpush	r7
+			
+00013	D2CF		lxs	r7, dspId
+	0005 
+00015	7E07 		xpush	r7
+			
+00016	D2CF		lxs	r7, nrpn
+	0004 
+00018	7E07 		xpush	r7
+			
+00019	F8E2		dlxs	dr0, FunctionPointer32
+	0002 
+0001B	380B 		stw	r0, dp1h
+0001C	F9C6 		xrcall r1
+			
+0001D	D0CB 		pop	dp1
+			
+0001E	D5CF		xret	$szparam
+	0008 
+			ENDFUNC	
+					
+		;-----------------------------------------------------------------------	
+		; swap DWORD  
+		;-----------------------------------------------------------------------			
+00020		swapDword LFUNC R1:R0=dword_data:l
+M			PUBLIC	swapDword(R1:R0=dword_data:l)
+M00020		_swapDword$R1R0$:
+M			PUBLIC	_swapDword$R1R0$
+00020	F8F7 		swap	dr0
+00021	D1CA 		ret
+			ENDFUNC
+00022	----
+		;;;P16
+		;;;		; wrapper object file: dspDesignerWrappers_XW.o
+		;;;00000		updateBiquadCallback	XFUNC	FunctionPointer32:l,dsp:i,proc:i,ptr:i,band:i
+		;;;M			PUBLIC	_updateBiquadCallback
+		;;;00000	820D 		LW	R2,BP
+		;;;00001	C1A2 		LX	R1,DP0+R2+2
+		;;;00002	C0A3 		LX	R0,DP0+R2+3
+		;;;00003	C4A4 		LX	R4,DP0+R2+4
+		;;;00004	C5A5 		LX	R5,DP0+R2+5
+		;;;00005	C6A6 		LX	R6,DP0+R2+6
+		;;;00006	C7A7 		LX	R7,DP0+R2+7
+		;;;00007	D6C8		LCALL	updateBiquadCallback
+		;;;	0000 RE
+		;;;00009	D5CE 		XRET	6
+		;;;			ENDFUNC
+		;;;			EXTRN	updateBiquadCallback
+		;;;		
+		;;;0000A		swapDword	XFUNC	dword_data:l
+		;;;M			PUBLIC	_swapDword
+		;;;0000A	820D 		LW	R2,BP
+		;;;0000B	C1A2 		LX	R1,DP0+R2+2
+		;;;0000C	C0A3 		LX	R0,DP0+R2+3
+		;;;0000D	D6C8		LCALL	swapDword
+		;;;	0000 RE
+		;;;0000F	D5CA 		XRET	2
+		;;;			ENDFUNC
+		;;;			EXTRN	swapDword
+		;;;		
+		;;;00010	----
+		;;;!0 error(s) 0 warning(s)
+!0 error(s) 0 warning(s)

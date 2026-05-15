@@ -1,0 +1,938 @@
+C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\bin\dlinkp16 -t5504 -P64 -fflathex,bin -g -m -FFFFF -R -w0:4452,Low($size),High($size),Min($size-400,4000),10000-.12000000/.38400,0000,4000,4000,0000,00F8,0000,0000,0000,0000,003F,4060,7E66,1204,0014,0014,0000 -w@__crtP16_ConfigDataV462:0000,0000,02EC,0179,2090,8000,0000,1120,0000,0000,0000,0,0 -w@__crtP16_SamVSVersion:5143 -w3FF:@__crtP16_AppVersion -LC:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib -lsys -lUSB -lFX5000 -lDreamBoards -lmidi -ulibcrtp16.a -o5504DK_2in_4out_DDP_File_96k_DREAM_Z_2.hex -btext:400 -bconst:@text -bcnstu:@text -bsystab:@text -bidata~2:@text -bdata*2:0[8E80000] -biram:23 -biramh:0100 -bfixd:0 -bfixi:0 -bcst:0 -bbss*2:@data -bstack:@data.400 -bfram:@data -btxth:@text -bcnsth:@txth -d__dp0h:8E8 -dXDATAPAGE:8E8 -dXDATASTART:08E80000 -dXDATABASE:8E80000 -dCODEPAGE:$current_segment -dBASEPAGE:0000 -d__intram_size:9000 -d_nil:0 -d__xsph:8E8 -d__xspl:@__stack_end -dFASTDATAPAGE:08E8 -d__fastdata_start:@__stack_end -d__heap_start:@__fram_end -d__data24_start:6000 -d__data24_page:08E0 -d__data24_base:08E06000 -d___trace_fifo:ffff main.o dsp1.o dsp2.o dsp3.o dsp4.o midictrl.o BiquadCtrl.o mainbus.o dspDesignerWrappers.o
+Executable: C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\bin\dlinkp16.exe V5.140
+argv[0]: C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\bin\dlinkp16
+argv[1]: -t5504
+argv[2]: -P64
+argv[3]: -fflathex,bin
+argv[4]: -g
+argv[5]: -m
+argv[6]: -FFFFF
+argv[7]: -R
+argv[8]: -w0:4452,Low($size),High($size),Min($size-400,4000),10000-.12000000/.38400,0000,4000,4000,0000,00F8,0000,0000,0000,0000,003F,4060,7E66,1204,0014,0014,0000
+argv[9]: -w@__crtP16_ConfigDataV462:0000,0000,02EC,0179,2090,8000,0000,1120,0000,0000,0000,0,0
+argv[10]: -w@__crtP16_SamVSVersion:5143
+argv[11]: -w3FF:@__crtP16_AppVersion
+argv[12]: -LC:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib
+argv[13]: -lsys
+argv[14]: -lUSB
+argv[15]: -lFX5000
+argv[16]: -lDreamBoards
+argv[17]: -lmidi
+argv[18]: -ulibcrtp16.a
+argv[19]: -o5504DK_2in_4out_DDP_File_96k_DREAM_Z_2.hex
+argv[20]: -btext:400
+argv[21]: -bconst:@text
+argv[22]: -bcnstu:@text
+argv[23]: -bsystab:@text
+argv[24]: -bidata~2:@text
+argv[25]: -bdata*2:0[8E80000]
+argv[26]: -biram:23
+argv[27]: -biramh:0100
+argv[28]: -bfixd:0
+argv[29]: -bfixi:0
+argv[30]: -bcst:0
+argv[31]: -bbss*2:@data
+argv[32]: -bstack:@data.400
+argv[33]: -bfram:@data
+argv[34]: -btxth:@text
+argv[35]: -bcnsth:@txth
+argv[36]: -d__dp0h:8E8
+argv[37]: -dXDATAPAGE:8E8
+argv[38]: -dXDATASTART:08E80000
+argv[39]: -dXDATABASE:8E80000
+argv[40]: -dCODEPAGE:$current_segment
+argv[41]: -dBASEPAGE:0000
+argv[42]: -d__intram_size:9000
+argv[43]: -d_nil:0
+argv[44]: -d__xsph:8E8
+argv[45]: -d__xspl:@__stack_end
+argv[46]: -dFASTDATAPAGE:08E8
+argv[47]: -d__fastdata_start:@__stack_end
+argv[48]: -d__heap_start:@__fram_end
+argv[49]: -d__data24_start:6000
+argv[50]: -d__data24_page:08E0
+argv[51]: -d__data24_base:08E06000
+argv[52]: -d___trace_fifo:ffff
+argv[53]: main.o
+argv[54]: dsp1.o
+argv[55]: dsp2.o
+argv[56]: dsp3.o
+argv[57]: dsp4.o
+argv[58]: midictrl.o
+argv[59]: BiquadCtrl.o
+argv[60]: mainbus.o
+argv[61]: dspDesignerWrappers.o
+[ 0.00] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcrtp16.a [2024-10-24 18:04 V5.135]
+[ 0.00] Used Variant crtp16.s (_TARGET_IC==5???)
+[ 0.00] libcrtp16.a$crtp16.s: Aligning Segment data by 1 to 2 Words
+[ 0.00] libcrtp16.a$crtp16.s: Aligning Segment bss by 1 to 68 Words
+[ 0.00] libcrtp16.a$crtp16.s: Aligning Segment idata by 1 to 2 Words
+[ 0.00] Used Variant crtP16_QsrInit_23LC.s (_TARGET_IC==5???)
+[ 0.00] Used Variant crtP16_QsrInit_APS.s (_TARGET_IC==5???)
+[ 0.00] Used Variant crtP16_QsrInit_NONE.s (_TARGET_IC==5???)
+[ 0.00] Used Variant crtp16_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant crtP16_QsrInit_23LC_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant crtP16_QsrInit_APS_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant crtP16_QsrInit_NONE_XW.s (_TARGET_IC==5???)
+[ 0.00] Reading main.o [2026-05-15 14:08]
+[ 0.00] Reading dsp1.o [2026-05-15 14:08]
+[ 0.00] Reading dsp2.o [2026-05-15 14:08]
+[ 0.00] dsp2.o$dsp2.s: Aligning Segment bss by 1 to 78 Words
+[ 0.00] Reading dsp3.o [2026-05-15 14:08]
+[ 0.00] Reading dsp4.o [2026-05-15 16:56]
+[ 0.00] dsp4.o$dsp4.s: Aligning Segment bss by 1 to 78 Words
+[ 0.00] Reading midictrl.o [2026-05-15 14:08]
+[ 0.00] midictrl.o$midictrl.s: Aligning Segment bss by 1 to 42 Words
+[ 0.00] midictrl.o[271]: Created _anon1 for compound type .9
+[ 0.00] Reading BiquadCtrl.o [2026-05-15 14:08]
+[ 0.00] BiquadCtrl.o$BiquadCtrl.s: Aligning Segment data by 1 to 2 Words
+[ 0.00] BiquadCtrl.o$BiquadCtrl.s: Aligning Segment idata by 1 to 2 Words
+[ 0.00] Reading mainbus.o [2026-05-15 14:08]
+[ 0.00] Reading dspDesignerWrappers.o [2026-05-15 14:08]
+[ 0.00] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libsys.a [2025-06-10 17:07 V4.650]
+[ 0.00] Used Variant rdmem24.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdwrxtmem_5xxx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdfar_5xxx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant wrmem24.s (_TARGET_IC==5???)
+[ 0.00] Used Variant fatal_5xxx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant inline_5xxx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant adler32.s (_TARGET_IC==5???)
+[ 0.00] Used Variant lmemcpy.s (_TARGET_IC==5???)
+[ 0.00] Used Variant lmemset.s (_TARGET_IC==5???)
+[ 0.00] Used Variant lmemcmp.s (_TARGET_IC==5???)
+[ 0.00] Used Variant std_utos.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_inflate.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_inflateInfo.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_inflateBuf.s (_TARGET_IC==5???)
+[ 0.00] Used Variant clearRAM.s (_TARGET_IC==5???)
+[ 0.00] Used Variant clearRAMEx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_RunStartup.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_bsearch.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_Find.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_IdentifierFind.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_GetCount.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_ElementSize.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_checkSBK.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testSAM.s (_TARGET_IC==5?04)
+[ 0.00] Used Variant testFir.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testROM.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testTone.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPresetAll.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPalloc.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPunload.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProut.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProutIN.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProutEx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProutInEx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPGain.s (_TARGET_IC==5???)
+[ 0.00] Used Variant convdB.s (_TARGET_IC==5???)
+[ 0.00] Used Variant wrP24eg.s (_TARGET_IC==5???)
+[ 0.00] Used Variant compCurv.s (_TARGET_IC==5???)
+[ 0.00] Used Variant comprConvLin.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mute.s (_TARGET_IC==5???)
+[ 0.00] Used Variant Sys_GetData24Base.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_P24CyclesPerFrame.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rom_LoadStartP24.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_StopP24.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_PauseResumeP24.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_MOVSW.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_MOVSB.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_MOVSBW.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_MOVSWB.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_SCASW.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_SCASB.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_STOSW.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_LBSL.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_STBSL.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_SCASIB.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_SCASIWM.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_SETBIT.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_CLRBIT.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_BITINDEX.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_SCANBIT.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_DIVIDE.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_BufSwapBytes.s _TARGET_IC==5???
+[ 0.00] Used Variant sys_IsrMcFifo.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mc_ccb.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mc.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mc_stream.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamex.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamex_rb.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamex_wb.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_rb.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_wb.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_c.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamEvent.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mpu.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_MpuFlush.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_uart.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_uart2.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_UartFlush.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Uart2Flush.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_I2C.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_dma.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_CalcTimerReload.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Timer0Reload.s (_TARGET_IC==3???)||(_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Timer1Reload.s (_TARGET_IC==3???)||(_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Timer2Reload.s (_TARGET_IC==3???)||(_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetBitrateFromReload.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetCrystalFreq.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetSystemFreq.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SwitchPLL.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_5xxxClock.s _TARGET_IC==5???
+[ 0.00] libsys.a$Sys_5xxxClock.s: Aligning Segment data by 1 to 4 Words
+[ 0.00] libsys.a$Sys_5xxxClock.s: Aligning Segment idata by 1 to 4 Words
+[ 0.00] Used Variant Sys_5xxxPWM.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_5xxxPwmCorr.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SetCrystalFS.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetSamplingRate.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetPllMul.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_timestamp.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_timestampP24.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_reset.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_VerifyAndRunFirmware.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_VerifyDownloadAndRunFirmware.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_VerifyAndRunFromRAM.s (_TARGET_IC==5?04)
+[ 0.00] Used Variant sys_VerifyFirmware.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBase.s (_TARGET_IC==5???)
+[ 0.00] libsys.a$sys_DfBase.s: Aligning Segment bss by 1 to 8 Words
+[ 0.00] Used Variant sys_DfDetectInit.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfVerify.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfDownloadRun.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfByteWord.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBinaryMode.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBlock.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBuffer.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfPage.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfErasePages.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SchedRt.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SchedBase.s (_TARGET_IC==5???)
+[ 0.00] libsys.a$sys_SchedBase.s: Aligning Segment data by 1 to 4 Words
+[ 0.00] libsys.a$sys_SchedBase.s: Aligning Segment idata by 1 to 4 Words
+[ 0.00] Used Variant sys_TogglePortRt.s (_TARGET_IC==5???)
+[ 0.00] libsys.a$sys_TogglePortRt.s: Aligning Segment bss by 1 to 2 Words
+[ 0.00] Used Variant sys_QSPI_Detect.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Program.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Spansion.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_ReadTable.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Generic4k3Addr.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Generic4k4Addr.s (_TARGET_IC==5???)
+[ 0.00] Used Variant Sys_CRC16.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_CRC32.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_CRC64.s _TARGET_IC==5???
+[ 0.00] Used Variant sys_ccb_wrapper.s (_TARGET_IC==5???)
+[ 0.00] Used Variant pollingFunc.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_ControlPort.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_interrupt.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_FarHeap.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SbGetName.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SbGetVersion.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_NandLoadBootsector.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetTimer2Rate.s (_TARGET_IC==5???)
+[ 0.00] Used Variant Sys_FatalHandler.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_FatalContextExpand.s _TARGET_IC==5???
+[ 0.00] Used Variant andio_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant orio_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdio_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant wrio_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdtr0_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdtr1_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdt0_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdt1_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdfifo_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant P16mul_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rotL_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rotR_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdiram_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdmem24_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdwrxtmem_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rdfar_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant wriram_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant wrmem24_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant fatal_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant inline_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant adler32_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant memcpy_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant lmemcpy_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant lmemset_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant memset_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant memswap_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant lmemcmp_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant memcmp_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant std_utos_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_inflate_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_inflateInfo_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_inflateBuf_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant clearRAM_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant clearRAMEx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_RunStartup_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_bsearch_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_Find_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_IdentifierFind_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_GetCount_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant SysTab_ElementSize_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_checkSBK_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testSAM_XW.s (_TARGET_IC==5?04)
+[ 0.00] Used Variant testRAM_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testFir_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testROM_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant testTone_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPresetAll_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPalloc_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPunload_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProut_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProutIN_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProutEx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSProutInEx_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant DSPGain_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant convdB_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant wrP24eg_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mute_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant Sys_GetData24Base_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_P24CyclesPerFrame_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant rom_LoadStartP24_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant rom_PauseResumeP24_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant sys_mc_ccb_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mc_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mc_stream_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamex_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamex_rb_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamex_wb_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_rb_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_wb_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_stream_c_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_streamEvent_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_mpu_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_MpuFlush_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_uart_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_uart2_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_UartFlush_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Uart2Flush_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_I2C_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_dma_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_CalcTimerReload_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Timer0Reload_XW.s (_TARGET_IC==3???)||(_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Timer1Reload_XW.s (_TARGET_IC==3???)||(_TARGET_IC==5???)
+[ 0.00] Used Variant sys_Timer2Reload_XW.s (_TARGET_IC==3???)||(_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetBitrateFromReload_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetCrystalFreq_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetSystemFreq_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SwitchPLL_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_5xxxClock_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_5xxxPWM_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_5xxxPwmCorr_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SetCrystalFS_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetSamplingRate_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetPllMul_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_timestamp_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_timestampP24_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_reset_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_VerifyAndRunFirmware_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_VerifyDownloadAndRunFirmware_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_VerifyAndRunFromRAM_XW.s (_TARGET_IC==5?04)
+[ 0.00] Used Variant sys_VerifyFirmware_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBase_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfDetectInit_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfVerify_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfDownloadRun_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfByteWord_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBinaryMode_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBlock_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfBuffer_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfPage_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_DfErasePages_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SchedRt_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SchedBase_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_TogglePortRt_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Detect_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Program_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Spansion_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_ReadTable_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Generic4k3Addr_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_QSPI_Generic4k4Addr_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant Sys_CRC16_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_CRC32_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_CRC64_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant pollingFunc_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetFSPinState_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_ControlPort_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_interrupt_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_FarHeap_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SbGetName_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_SbGetVersion_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_NandLoadBootsector_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant sys_GetTimer2Rate_XW.s (_TARGET_IC==5???)
+[ 0.00] Used Variant Sys_FatalHandler_XW.s _TARGET_IC==5???
+[ 0.00] Used Variant Sys_FatalContextExpand_XW.s _TARGET_IC==5???
+[ 0.00] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libUSB.a [2024-11-07 17:13 V4.643]
+[ 0.00] Used Variant usb_Dde5xxxRpc.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Rpc.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_Rpc.s: Aligning Segment data by 1 to 6 Words
+[ 0.00] libUSB.a$usb_Rpc.s: Aligning Segment idata by 1 to 6 Words
+[ 0.00] Used Variant usb_Dde5xxxIoctl.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Dde5xxxAcRpc.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_VendorRequest.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Core.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_Core.s: Aligning Segment bss by 1 to 370 Words
+[ 0.00] Used Variant usb_CoreHS.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_P16Poll.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Poll.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Enum.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Init.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Event.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_AudioGetPeak.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_DriverHook.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_AudioClass.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_Ac_SamplerateHook.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_MidiClass.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_MidiSendWrp.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_MidiQueue.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_ProcessMidiQueue.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_DrvMidiClass.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_DrvMidiClass.s: Aligning Segment bss by 1 to 12 Words
+[ 0.00] Used Variant usb_DrvSam5xxxAC16.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_DrvSam5xxxAC16.s: Aligning Segment bss by 1 to 2 Words
+[ 0.00] Used Variant usb_DrvSam5xxxAC24.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_DrvSam5xxxAC24.s: Aligning Segment bss by 1 to 2 Words
+[ 0.00] Used Variant usb_DrvSam5xxxAC-SRC.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_DrvSam5xxxAC-SRC.s: Aligning Segment bss by 1 to 2 Words
+[ 0.00] Used Variant usb_DrvSam5xxx.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usb_DrvSam5xxxAC.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usb_DrvSam5xxxAC.s: Aligning Segment bss by 1 to 2 Words
+[ 0.00] Used Variant usbh5x_Base.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usbh5x_Midi.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usbh5x_Midi.s: Aligning Segment bss by 1 to 556 Words
+[ 0.00] Used Variant usbh5x_MidiSendWrp.s (_TARGET_IC==5???)
+[ 0.00] Used Variant usbh5x_Storage.s (_TARGET_IC==5???)
+[ 0.00] libUSB.a$usbh5x_Storage.s: Aligning Segment bss by 1 to 460 Words
+[ 0.00] Used Variant usbh5x_StorageIo.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh_Drv5xxx.s (_TARGET_IC==5704)||(_TARGET_IC==55??)
+[ 0.01] libUSB.a$usbh_Drv5xxx.s: Aligning Segment idata by 1 to 6 Words
+[ 0.01] libUSB.a$usbh_Drv5xxx.s: Aligning Segment data by 1 to 6 Words
+[ 0.01] Used Variant usb_Dde5xxxRpc_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Rpc_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Dde5xxxIoctl_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Dde5xxxAcRpc_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_VendorRequest_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Core_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_P16Poll_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Poll_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Enum_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Init_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_Event_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_AudioGetPeak_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_DriverHook_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_getversion_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_AudioClass_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_MidiClass_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_MidiSendWrp_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_MidiQueue_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_ProcessMidiQueue_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usb_DrvSam5xxxAC_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh5x_Base_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh5x_Midi_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh5x_MidiSendWrp_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh5x_Storage_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh5x_StorageIo_XW.s (_TARGET_IC==5???)
+[ 0.01] Used Variant usbh_Drv5xxx_XW.s (_TARGET_IC==5704)||(_TARGET_IC==55??)
+[ 0.01] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libFX5000.a [2025-07-29 18:00 V4.630]
+[ 0.01] Used Variant MixPA.s (_TARGET_IC==5???)
+[ 0.01] Used Variant LiveMic.s (_TARGET_IC==5???)
+[ 0.01] Used Variant AudioTrack.s (_TARGET_IC==5???)
+[ 0.01] Used Variant FBCancel.s (_TARGET_IC==5???)
+[ 0.01] Used Variant VReverb.s (_TARGET_IC==5???)
+[ 0.01] Used Variant VoiceProcessor.s _TARGET_IC==5???
+[ 0.01] Used Variant VoiceProcessorExt.s (_TARGET_IC==5???)
+[ 0.01] Used Variant note2period.s (_TARGET_IC==5???)
+[ 0.01] Used Variant StandardFunctions.s (_TARGET_IC==5???)
+[ 0.01] Used Variant SPDIFBestSR.s (_TARGET_IC==5???)
+[ 0.01] Used Variant SPDIF.s (_TARGET_IC==5???)
+[ 0.01] Used Variant SPDIF_OutInit.s (_TARGET_IC==5???)
+[ 0.01] Used Variant SPDIF_Init.s (_TARGET_IC==5???)
+[ 0.01] Used Variant SPDIF_InInit.s (_TARGET_IC==5???)
+[ 0.01] Used Variant MixSPDIFOut.s (_TARGET_IC==5???)
+[ 0.02] Used Variant SPDIFFunctions.s (_TARGET_IC==5???)
+[ 0.02] Used Variant SPDIFOutStatusFunctions.s (_TARGET_IC==5???)
+[ 0.02] Used Variant ASRC8I2S.s (_TARGET_IC==5???)
+[ 0.02] Used Variant MultiFX.s (_TARGET_IC==5???)
+[ 0.02] Used Variant SpringReverb.s (_TARGET_IC==5???)
+[ 0.02] Used Variant LiveMicDualEcho.s (_TARGET_IC==5???)
+[ 0.02] Used Variant GM2Eff5x.s (_TARGET_IC==5???)
+[ 0.02] Used Variant MixPaXT.s (_TARGET_IC==5???)
+[ 0.03] Used Variant InstrumentFX.s _TARGET_IC==5???
+[ 0.03] libFX5000.a$InstrumentFX.s: Aligning Segment bss by 1 to 116 Words
+[ 0.03] Used Variant MixPA_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant LiveMic_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant AudioTrack_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant FBCancel_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant VReverb_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant VoiceProcessor_XW.s _TARGET_IC==5???
+[ 0.03] Used Variant VoiceProcessorExt_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant StandardFunctions_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant SPDIFBestSR_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant SPDIF_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant SPDIF_OutInit_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant SPDIF_Init_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant SPDIF_InInit_XW.s (_TARGET_IC==5???)
+[ 0.03] Used Variant MixSPDIFOut_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant SPDIFFunctions_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant SPDIFOutStatusFunctions_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant ASRC8I2S_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant MultiFX_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant SpringReverb_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant LiveMicDualEcho_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant GM2Eff5x_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant MixPaXT_XW.s (_TARGET_IC==5???)
+[ 0.04] Used Variant InstrumentFX_XW.s _TARGET_IC==5???
+[ 0.05] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libDreamBoards.a [2017-08-05 12:11 V4.500]
+[ 0.05] Used Variant AK4384.s (_TARGET_IC==5???)
+[ 0.05] Used Variant AK4384_XW.s (_TARGET_IC==5???)
+[ 0.05] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libmidi.a [2025-04-07 16:55 V4.610]
+[ 0.05] Used Variant midiInit.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiInitEx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiReceive.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxEvent.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiEvent.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiSend.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiSendEvent.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiStreamEvent_5xxx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpu.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpuEvent.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpuSend.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpuSendEvent.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiProcessByte.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxProcessByte_5xxx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxSysEx_5xxx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiFetch7_5xxx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxCommonEvent_5xxx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiSysExPack_5xxx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiInit_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiInitEx_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiReceive_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxEvent_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiEvent_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiSend_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiSendEvent_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiStreamEvent_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpu_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpuEvent_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpuSend_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant mpuSendEvent_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiProcessByte_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxProcessByte_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxSysEx_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiFetch7_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiCtxCommonEvent_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant midiSysExPack_5xxx_XW.s (_TARGET_IC==5???)
+[ 0.05] Reading C:\Users\abhis\AppData\Local\Programs\DREAM\SamVS-C\lib\libcp16.a [2025-03-17 13:17 V4.632]
+[ 0.05] Used Variant 5x_cdiv16.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cdiv32.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cmod16.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cmod32.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cudiv16.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cudiv32.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cumod16.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_cumod32.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_div16.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_div32.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_bsearch32.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_qsort.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_rand.s (_TARGET_IC==5???)
+[ 0.05] Used Variant xcall.s <default>
+[ 0.05] Used Variant xpopR0R3.s <default>
+[ 0.05] Used Variant xpopR4R6.s <default>
+[ 0.05] Used Variant xpopR7.s <default>
+[ 0.05] Used Variant xpush.s <default>
+[ 0.05] Used Variant xpushpopall.s (_TARGET_IC==5???)
+[ 0.05] Used Variant xret.s <default>
+[ 0.05] Used Variant 5x_flog.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_fexp.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_ftrunc.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_NoteFreq.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_fsqrt.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_fsincos.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_float.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_ftrig.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_atrig.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_poly.s (_TARGET_IC==5???)
+[ 0.05] Used Variant FilterIIR_Base.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_1stDenom.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_CommFact.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_CommShelf2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_FltFloatCoeff.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_IIRCoeff.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_IIRFloatCoeff.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_CheckParameters.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_CheckStability.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_WriteBqP24.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_AP1.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_AP2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_BP2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_BS2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_FLAT.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_HP1.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_HP2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_HS1.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_HS2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_LP1.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_LP2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_LS1.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_LS2.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_PBS.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_PEQ.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_BqUpdate.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math32_muldiv.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math64_addsub.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math64_muldiv.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math16_div.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math_2powx.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math_db2lin.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math_exp.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math_lin2db.s (_TARGET_IC==5???)
+[ 0.05] Used Variant math_pow.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_bsearch32_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_qsort_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_rand_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_flog_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_fexp_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_ftrunc_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_NoteFreq_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_fsqrt_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_fsincos_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_float_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_ftrig_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_atrig_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant 5x_poly_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant FilterIIR_Base_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_FltFloatCoeff_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_IIRCoeff_XW.s (_TARGET_IC==5???)
+[ 0.05] Used Variant Filter_IIRFloatCoeff_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant Filter_CheckParameters_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant Filter_CheckStability_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant Filter_BqUpdate_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math32_muldiv_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math64_addsub_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math64_muldiv_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math16_div_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_2powx_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_db2lin_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_exp_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_lin2db_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_LN2_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_pow_XW.s (_TARGET_IC==5???)
+[ 0.06] Used Variant math_recip_XW.s (_TARGET_IC==5???)
+[ 0.06] Files loaded, resolving dependencies...
+[ 0.06] Aliasing __lowlevel_prepare_default to __lowlevel_prepare!!!
+[ 0.06] Aliasing __lowlevel_init_default to __lowlevel_init!!!
+[ 0.06] Resolving Patch dependencies...
+[ 0.06] text: Consolidating with segment const
+[ 0.06] text: Module libcrtp16.a$crtp16.s using 512 Words at 00400
+[ 0.06] const: Module libcrtp16.a$crtp16.s using 6 Words at 00000
+[ 0.06] text: Module main.o$main.s using 152 Words at 00600
+[ 0.06] const: Module main.o$main.s using 140 Words at 00006
+[ 0.06] text: Module dsp1.o$dsp1.s using 152 Words at 00698
+[ 0.06] const: Module dsp1.o$dsp1.s using 38 Words at 00092
+[ 0.06] text: Module dsp2.o$dsp2.s using 193 Words at 00730
+[ 0.06] const: Module dsp2.o$dsp2.s using 52 Words at 000B8
+[ 0.06] text: Module dsp3.o$dsp3.s using 152 Words at 007F1
+[ 0.06] const: Module dsp3.o$dsp3.s using 38 Words at 000EC
+[ 0.06] text: Module dsp4.o$dsp4.s using 194 Words at 00889
+[ 0.06] const: Module dsp4.o$dsp4.s using 52 Words at 00112
+[ 0.06] text: Module midictrl.o$midictrl.s using 742 Words at 0094B
+[ 0.06] text: Module BiquadCtrl.o$BiquadCtrl.s using 2036 Words at 00C31
+[ 0.06] const: Module BiquadCtrl.o$BiquadCtrl.s using 158 Words at 00146
+[ 0.06] text: Module mainbus.o$mainbus.s using 1043 Words at 01425
+[ 0.06] const: Module mainbus.o$mainbus.s using 68 Words at 001E4
+[ 0.06] text: Module dspDesignerWrappers.o$dspDesignerWrappers.s using 34 Words at 01838
+[ 0.06] text: Module libsys.a$clearRAM.s using 21 Words at 0185A
+[ 0.06] text: Module libsys.a$clearRAMEx.s using 28 Words at 0186F
+[ 0.06] text: Module libsys.a$DSPresetAll.s using 34 Words at 0188B
+[ 0.06] text: Module libsys.a$DSPalloc.s using 42 Words at 018AD
+[ 0.06] text: Module libsys.a$DSProutEx.s using 12 Words at 018D7
+[ 0.06] text: Module libsys.a$DSProutInEx.s using 26 Words at 018E3
+[ 0.06] text: Module libsys.a$DSPGain.s using 85 Words at 018FD
+[ 0.06] text: Module libsys.a$convdB.s using 29 Words at 01952
+[ 0.06] text: Module libsys.a$rom_LoadStartP24.s using 56 Words at 0196F
+[ 0.06] text: Module libsys.a$rom_StopP24.s using 12 Words at 019A7
+[ 0.06] text: Module libsys.a$rom_DIVIDE.s using 27 Words at 019B3
+[ 0.06] text: Module libsys.a$sys_CalcTimerReload.s using 22 Words at 019CE
+[ 0.06] text: Module libsys.a$sys_GetCrystalFreq.s using 8 Words at 019E4
+[ 0.06] const: Module libsys.a$sys_GetCrystalFreq.s using 8 Words at 00228
+[ 0.06] text: Module libsys.a$sys_GetSystemFreq.s using 10 Words at 019EC
+[ 0.06] text: Module libsys.a$sys_SwitchPLL.s using 42 Words at 019F6
+[ 0.06] text: Module libsys.a$sys_GetSamplingRate.s using 36 Words at 01A20
+[ 0.06] const: Module libsys.a$sys_GetSamplingRate.s using 4 Words at 00230
+[ 0.06] text: Module libsys.a$sys_GetFSPinState.s using 4 Words at 01A44
+[ 0.06] text: Module libUSB.a$usb_Dde5xxxIoctl.s using 54 Words at 01A48
+[ 0.06] text: Module libUSB.a$usb_Core.s using 8 Words at 01A7E
+[ 0.06] text: Module libUSB.a$usb_CoreHS.s using 4 Words at 01A86
+[ 0.06] text: Module libUSB.a$usb_P16Poll.s using 118 Words at 01A8A
+[ 0.06] text: Module libUSB.a$usb_Poll.s using 12 Words at 01B00
+[ 0.06] text: Module libUSB.a$usb_Enum.s using 653 Words at 01B0C
+[ 0.06] const: Module libUSB.a$usb_Enum.s using 22 Words at 00234
+[ 0.06] text: Module libUSB.a$usb_Init.s using 11 Words at 01D99
+[ 0.06] text: Module libUSB.a$usb_Event.s using 19 Words at 01DA4
+[ 0.06] text: Module libUSB.a$usb_MidiClass.s using 18 Words at 01DB7
+[ 0.06] text: Module libUSB.a$usb_MidiSendWrp.s using 105 Words at 01DC9
+[ 0.06] text: Module libUSB.a$usb_DrvMidiClass.s using 176 Words at 01E32
+[ 0.06] const: Module libUSB.a$usb_DrvMidiClass.s using 16 Words at 0024A
+[ 0.06] text: Module libUSB.a$usb_DrvSam5xxx.s using 661 Words at 01EE2
+[ 0.06] const: Module libUSB.a$usb_DrvSam5xxx.s using 42 Words at 0025A
+[ 0.06] text: Module libFX5000.a$MixPA.s using 2515 Words at 02177
+[ 0.06] const: Module libFX5000.a$MixPA.s using 48 Words at 00284
+[ 0.06] text: Module libFX5000.a$StandardFunctions.s using 153 Words at 02B4A
+[ 0.06] text: Module libFX5000.a$MixPA_XW.s using 774 Words at 02BE3
+[ 0.06] text: Module libcp16.a$5x_fexp.s using 92 Words at 02EE9
+[ 0.06] const: Module libcp16.a$5x_fexp.s using 10 Words at 002B4
+[ 0.06] text: Module libcp16.a$5x_ftrunc.s using 20 Words at 02F45
+[ 0.06] text: Module libcp16.a$5x_fsqrt.s using 52 Words at 02F59
+[ 0.06] text: Module libcp16.a$5x_float.s using 609 Words at 02F8D
+[ 0.06] const: Module libcp16.a$5x_float.s using 78 Words at 002BE
+[ 0.06] text: Module libcp16.a$5x_ftrig.s using 119 Words at 031EE
+[ 0.06] const: Module libcp16.a$5x_ftrig.s using 26 Words at 0030C
+[ 0.06] text: Module libcp16.a$5x_poly.s using 35 Words at 03265
+[ 0.06] text: Module libcp16.a$FilterIIR_Base.s using 50 Words at 03288
+[ 0.06] text: Module libcp16.a$Filter_1stDenom.s using 15 Words at 032BA
+[ 0.06] text: Module libcp16.a$Filter_CommFact.s using 98 Words at 032C9
+[ 0.06] text: Module libcp16.a$Filter_FltFloatCoeff.s using 11 Words at 0332B
+[ 0.06] text: Module libcp16.a$Filter_CheckParameters.s using 58 Words at 03336
+[ 0.06] text: Module libcp16.a$Filter_CheckStability.s using 61 Words at 03370
+[ 0.06] text: Module libcp16.a$Filter_AP1.s using 36 Words at 033AD
+[ 0.06] text: Module libcp16.a$Filter_AP2.s using 23 Words at 033D1
+[ 0.06] text: Module libcp16.a$Filter_FLAT.s using 20 Words at 033E8
+[ 0.06] text: Module libcp16.a$Filter_HP1.s using 42 Words at 033FC
+[ 0.06] text: Module libcp16.a$Filter_HP2.s using 29 Words at 03426
+[ 0.06] text: Module libcp16.a$Filter_HS1.s using 77 Words at 03443
+[ 0.06] text: Module libcp16.a$Filter_LP1.s using 37 Words at 03490
+[ 0.06] text: Module libcp16.a$Filter_LP2.s using 54 Words at 034B5
+[ 0.06] text: Module libcp16.a$Filter_LS1.s using 88 Words at 034EB
+[ 0.06] text: Module libcp16.a$Filter_PEQ.s using 61 Words at 03543
+[ 0.06] text: Module libcp16.a$math_lin2db.s using 13 Words at 03580
+[ 0.06] text: Module libcp16.a$math_LN2.s using 38 Words at 0358D
+[ 0.06] Building Segment text:
+[ 0.06] libcrtp16.a$crtp16.s: text 512 Words at 00400
+[ 0.06] main.o$main.s: text 152 Words at 00600
+[ 0.06] dsp1.o$dsp1.s: text 152 Words at 00698
+[ 0.06] dsp2.o$dsp2.s: text 193 Words at 00730
+[ 0.06] dsp3.o$dsp3.s: text 152 Words at 007F1
+[ 0.06] dsp4.o$dsp4.s: text 194 Words at 00889
+[ 0.06] midictrl.o$midictrl.s: text 742 Words at 0094B
+[ 0.06] BiquadCtrl.o$BiquadCtrl.s: text 2036 Words at 00C31
+[ 0.06] mainbus.o$mainbus.s: text 1043 Words at 01425
+[ 0.06] dspDesignerWrappers.o$dspDesignerWrappers.s: text 34 Words at 01838
+[ 0.06] libsys.a$clearRAM.s: text 21 Words at 0185A
+[ 0.06] libsys.a$clearRAMEx.s: text 28 Words at 0186F
+[ 0.06] libsys.a$DSPresetAll.s: text 34 Words at 0188B
+[ 0.06] libsys.a$DSPalloc.s: text 42 Words at 018AD
+[ 0.06] libsys.a$DSProutEx.s: text 12 Words at 018D7
+[ 0.06] libsys.a$DSProutInEx.s: text 26 Words at 018E3
+[ 0.06] libsys.a$DSPGain.s: text 85 Words at 018FD
+[ 0.06] libsys.a$convdB.s: text 29 Words at 01952
+[ 0.06] libsys.a$rom_LoadStartP24.s: text 56 Words at 0196F
+[ 0.06] libsys.a$rom_StopP24.s: text 12 Words at 019A7
+[ 0.06] libsys.a$rom_DIVIDE.s: text 27 Words at 019B3
+[ 0.06] libsys.a$sys_CalcTimerReload.s: text 22 Words at 019CE
+[ 0.06] libsys.a$sys_GetCrystalFreq.s: text 8 Words at 019E4
+[ 0.06] libsys.a$sys_GetSystemFreq.s: text 10 Words at 019EC
+[ 0.06] libsys.a$sys_SwitchPLL.s: text 42 Words at 019F6
+[ 0.06] libsys.a$sys_GetSamplingRate.s: text 36 Words at 01A20
+[ 0.06] libsys.a$sys_GetFSPinState.s: text 4 Words at 01A44
+[ 0.06] libUSB.a$usb_Dde5xxxIoctl.s: text 54 Words at 01A48
+[ 0.06] libUSB.a$usb_Core.s: text 8 Words at 01A7E
+[ 0.06] libUSB.a$usb_CoreHS.s: text 4 Words at 01A86
+[ 0.06] libUSB.a$usb_P16Poll.s: text 118 Words at 01A8A
+[ 0.06] libUSB.a$usb_Poll.s: text 12 Words at 01B00
+[ 0.06] libUSB.a$usb_Enum.s: text 653 Words at 01B0C
+[ 0.06] libUSB.a$usb_Init.s: text 11 Words at 01D99
+[ 0.06] libUSB.a$usb_Event.s: text 19 Words at 01DA4
+[ 0.06] libUSB.a$usb_MidiClass.s: text 18 Words at 01DB7
+[ 0.06] libUSB.a$usb_MidiSendWrp.s: text 105 Words at 01DC9
+[ 0.06] libUSB.a$usb_DrvMidiClass.s: text 176 Words at 01E32
+[ 0.06] libUSB.a$usb_DrvSam5xxx.s: text 661 Words at 01EE2
+[ 0.06] libFX5000.a$MixPA.s: text 2515 Words at 02177
+[ 0.06] libFX5000.a$StandardFunctions.s: text 153 Words at 02B4A
+[ 0.06] libFX5000.a$MixPA_XW.s: text 774 Words at 02BE3
+[ 0.06] libcp16.a$5x_fexp.s: text 92 Words at 02EE9
+[ 0.06] libcp16.a$5x_ftrunc.s: text 20 Words at 02F45
+[ 0.06] libcp16.a$5x_fsqrt.s: text 52 Words at 02F59
+[ 0.06] libcp16.a$5x_float.s: text 609 Words at 02F8D
+[ 0.06] libcp16.a$5x_ftrig.s: text 119 Words at 031EE
+[ 0.06] libcp16.a$5x_poly.s: text 35 Words at 03265
+[ 0.06] libcp16.a$FilterIIR_Base.s: text 50 Words at 03288
+[ 0.06] libcp16.a$Filter_1stDenom.s: text 15 Words at 032BA
+[ 0.06] libcp16.a$Filter_CommFact.s: text 98 Words at 032C9
+[ 0.06] libcp16.a$Filter_FltFloatCoeff.s: text 11 Words at 0332B
+[ 0.06] libcp16.a$Filter_CheckParameters.s: text 58 Words at 03336
+[ 0.06] libcp16.a$Filter_CheckStability.s: text 61 Words at 03370
+[ 0.06] libcp16.a$Filter_AP1.s: text 36 Words at 033AD
+[ 0.06] libcp16.a$Filter_AP2.s: text 23 Words at 033D1
+[ 0.06] libcp16.a$Filter_FLAT.s: text 20 Words at 033E8
+[ 0.06] libcp16.a$Filter_HP1.s: text 42 Words at 033FC
+[ 0.06] libcp16.a$Filter_HP2.s: text 29 Words at 03426
+[ 0.06] libcp16.a$Filter_HS1.s: text 77 Words at 03443
+[ 0.06] libcp16.a$Filter_LP1.s: text 37 Words at 03490
+[ 0.06] libcp16.a$Filter_LP2.s: text 54 Words at 034B5
+[ 0.06] libcp16.a$Filter_LS1.s: text 88 Words at 034EB
+[ 0.06] libcp16.a$Filter_PEQ.s: text 61 Words at 03543
+[ 0.06] libcp16.a$math_lin2db.s: text 13 Words at 03580
+[ 0.06] libcp16.a$math_LN2.s: text 38 Words at 0358D
+[ 0.06] Allocating text[0] to CODE at 00400
+[ 0.06] text: 00400..035B3 (12723 Words, 12723 initialized)
+[ 0.06] Building Segment const:
+[ 0.06] libcrtp16.a$crtp16.s: const 6 Words at 035B3
+[ 0.06] main.o$main.s: const 140 Words at 035B9
+[ 0.06] dsp1.o$dsp1.s: const 38 Words at 03645
+[ 0.06] dsp2.o$dsp2.s: const 52 Words at 0366B
+[ 0.06] dsp3.o$dsp3.s: const 38 Words at 0369F
+[ 0.06] dsp4.o$dsp4.s: const 52 Words at 036C5
+[ 0.06] BiquadCtrl.o$BiquadCtrl.s: const 158 Words at 036F9
+[ 0.06] mainbus.o$mainbus.s: const 68 Words at 03797
+[ 0.06] libsys.a$sys_GetCrystalFreq.s: const 8 Words at 037DB
+[ 0.06] libsys.a$sys_GetSamplingRate.s: const 4 Words at 037E3
+[ 0.06] libUSB.a$usb_Enum.s: const 22 Words at 037E7
+[ 0.06] libUSB.a$usb_DrvMidiClass.s: const 16 Words at 037FD
+[ 0.06] libUSB.a$usb_DrvSam5xxx.s: const 42 Words at 0380D
+[ 0.06] libFX5000.a$MixPA.s: const 48 Words at 03837
+[ 0.06] libcp16.a$5x_fexp.s: const 10 Words at 03867
+[ 0.06] libcp16.a$5x_float.s: const 78 Words at 03871
+[ 0.06] libcp16.a$5x_ftrig.s: const 26 Words at 038BF
+[ 0.06] Allocating const[0] to CODE at 035B3
+[ 0.06] const: 035B3..038D9 (806 Words, 806 initialized)
+[ 0.06] Building Segment cnstu:
+[ 0.06] libUSB.a$usb_Enum.s: cnstu 24 Words at 038D9
+[ 0.06] Allocating cnstu[0] to CODE at 038D9
+[ 0.06] cnstu: 038D9..038F1 (24 Words, 24 initialized)
+[ 0.06] Building Segment systab:
+[ 0.06] Allocating systab[FFFFFFFF] to DATA at 00000
+[ 0.06] systab: 038F1 not used
+[ 0.06] Building Segment idata:
+[ 0.06] libcrtp16.a$crtp16.s: idata 2 Words at 038F1
+[ 0.06] dsp1.o$dsp1.s: idata 6 Words at 038F3
+[ 0.06] dsp2.o$dsp2.s: idata 12 Words at 038F9
+[ 0.06] dsp3.o$dsp3.s: idata 6 Words at 03905
+[ 0.06] dsp4.o$dsp4.s: idata 12 Words at 0390B
+[ 0.06] midictrl.o$midictrl.s: idata 32 Words at 03917
+[ 0.06] BiquadCtrl.o$BiquadCtrl.s: idata 2 Words at 03937
+[ 0.06] libsys.a$sys_GetSamplingRate.s: idata 2 Words at 03939
+[ 0.06] Allocating idata[40] to CODE at 038F1
+[ 0.06] idata: 038F1..0393B (74 Words, 74 initialized)
+[ 0.06] Building Segment data:
+[ 0.06] libcrtp16.a$crtp16.s: data 2 Words at 00000
+[ 0.06] dsp1.o$dsp1.s: data 6 Words at 00002
+[ 0.06] dsp2.o$dsp2.s: data 12 Words at 00008
+[ 0.06] dsp3.o$dsp3.s: data 6 Words at 00014
+[ 0.06] dsp4.o$dsp4.s: data 12 Words at 0001A
+[ 0.06] midictrl.o$midictrl.s: data 32 Words at 00026
+[ 0.06] BiquadCtrl.o$BiquadCtrl.s: data 2 Words at 00046
+[ 0.06] libsys.a$sys_GetSamplingRate.s: data 2 Words at 00048
+[ 0.06] Allocating data[20] to DATA at 00000
+[ 0.06] data: 00000..0004A (74 Words, 0 initialized)
+[ 0.06] Building Segment iram:
+[ 0.06] libcrtp16.a$crtp16.s: iram 6 Words at 00023
+[ 0.06] libUSB.a$usb_Dde5xxxIoctl.s: iram 4 Words at 00029
+[ 0.06] libUSB.a$usb_Core.s: iram 6 Words at 0002D
+[ 0.06] libUSB.a$usb_MidiSendWrp.s: iram 4 Words at 00033
+[ 0.06] libUSB.a$usb_DrvSam5xxx.s: iram 3 Words at 00037
+[ 0.06] Allocating iram[20] to DATA at 0004A
+[ 0.06] iram: 00023..0003A (23 Words, 0 initialized)
+[ 0.06] Building Segment iramh:
+[ 0.06] Allocating iramh[20] to DATA at 0004A
+[ 0.06] iramh: 00100 not used
+[ 0.06] Building Segment fixd:
+[ 0.06] Allocating fixd[FFFFFFFF] to DATA at 0004A
+[ 0.06] fixd: 00000 not used
+[ 0.06] Building Segment fixi:
+[ 0.06] Allocating fixi[FFFFFFFF] to DATA at 0004A
+[ 0.06] fixi: 00000 not used
+[ 0.06] Building Segment cst:
+[ 0.06] Allocating cst[80] to CODE at 0393B
+[ 0.06] cst: 00000 not used
+[ 0.06] Building Segment bss:
+[ 0.06] libcrtp16.a$crtp16.s: bss 68 Words at 0004A
+[ 0.06] main.o$main.s: bss 412 Words at 0008E
+[ 0.06] dsp1.o$dsp1.s: bss 42 Words at 0022A
+[ 0.06] dsp2.o$dsp2.s: bss 78 Words at 00254
+[ 0.06] dsp3.o$dsp3.s: bss 42 Words at 002A2
+[ 0.06] dsp4.o$dsp4.s: bss 78 Words at 002CC
+[ 0.06] midictrl.o$midictrl.s: bss 42 Words at 0031A
+[ 0.06] mainbus.o$mainbus.s: bss 4 Words at 00344
+[ 0.06] libUSB.a$usb_Core.s: bss 370 Words at 00348
+[ 0.06] libUSB.a$usb_Poll.s: bss 2 Words at 004BA
+[ 0.06] libUSB.a$usb_DrvMidiClass.s: bss 12 Words at 004BC
+[ 0.06] Allocating bss[20] to DATA at 0004A
+[ 0.06] bss: 0004A..004C8 (1150 Words, 0 initialized)
+[ 0.06] Building Segment stack:
+[ 0.06] Allocating stack[FFFFFFFF] to DATA at 004C8
+[ 0.06] stack: 004C8..008C8 (1024 Words, 0 initialized)
+[ 0.06] fram: Fixup 00000000
+[ 0.06] Building Segment fram:
+[ 0.06] Allocating fram[FFFFFFFF] to DATA at 008C8
+[ 0.06] fram: 008C8 not used
+[ 0.06] txth: Consolidating with segment cnsth
+[ 0.06] txth: Module libUSB.a$usb_Init.s using 227 Words at 0393B
+[ 0.06] txth: Module libUSB.a$usb_DrvMidiClass.s using 12 Words at 03A1E
+[ 0.06] txth: Module libUSB.a$usb_DrvSam5xxx.s using 36 Words at 03A2A
+[ 0.06] txth: Module libFX5000.a$MixPA.s using 2469 Words at 03A4E
+[ 0.06] Building Segment txth:
+[ 0.06] libUSB.a$usb_Init.s: txth 227 Words at 0393B
+[ 0.06] libUSB.a$usb_DrvMidiClass.s: txth 12 Words at 03A1E
+[ 0.06] libUSB.a$usb_DrvSam5xxx.s: txth 36 Words at 03A2A
+[ 0.06] libFX5000.a$MixPA.s: txth 2469 Words at 03A4E
+[ 0.06] Allocating txth[0] to CODE at 0393B
+[ 0.06] txth: 0393B..043F3 (2744 Words, 2744 initialized)
+[ 0.06] Building Segment cnsth:
+[ 0.06] Allocating cnsth[0] to CODE at 043F3
+[ 0.06] cnsth: 043F3 not used
+[ 0.06] Modules allocated, binding Symbols...
+[ 0.06] Symbols fixed, creating Code...
+[ 0.06] Creating Flat Image (34816 Bytes)...
+[ 0.06] Writing Segment text [12723 Words to Address 0400h]...
+[ 0.06] Writing Segment const [806 Words to Address 35B3h]...
+[ 0.06] Writing Segment cnstu [24 Words to Address 38D9h]...
+[ 0.06] Writing Segment idata [74 Words to Address 38F1h]...
+[ 0.06] Writing Segment txth [2744 Words to Address 393Bh]...
+[ 0.06] Writing absolute Patches to Image...
+[ 0.06] 0000 = 4452
+[ 0.06] 0001 = 4400 <= Low($size)
+[ 0.06] 0002 = 0000 <= High($size)
+[ 0.06] 0003 = 4000 <= Min($size-400,4000)
+[ 0.06] 0004 = FEC8 <= 10000-.12000000/.38400
+[ 0.06] 0005 = 0000
+[ 0.06] 0006 = 4000
+[ 0.06] 0007 = 4000
+[ 0.06] 0008 = 0000
+[ 0.06] 0009 = 00F8
+[ 0.06] 000A = 0000
+[ 0.06] 000B = 0000
+[ 0.06] 000C = 0000
+[ 0.06] 000D = 0000
+[ 0.06] 000E = 003F
+[ 0.06] 000F = 4060
+[ 0.06] 0010 = 7E66
+[ 0.06] 0011 = 1204
+[ 0.06] 0012 = 0014
+[ 0.06] 0013 = 0014
+[ 0.06] 0014 = 0000
+[ 0.06] 0401 = 0000
+[ 0.06] 0402 = 0000
+[ 0.06] 0403 = 02EC
+[ 0.06] 0404 = 0179
+[ 0.06] 0405 = 2090
+[ 0.06] 0406 = 8000
+[ 0.06] 0407 = 0000
+[ 0.06] 0408 = 1120
+[ 0.06] 0409 = 0000
+[ 0.06] 040A = 0000
+[ 0.06] 040B = 0000
+[ 0.06] 040C = 0000
+[ 0.06] 040D = 0000
+[ 0.06] 35B6 = 5143
+[ 0.06] 03FF = 35B3
+[ 0.06] Checksum [0000..43FE] written to 43FF: 58CA (summing to 0000)
+[ 0.06] Writing MapFile...
+[ 0.06] Writing DbgFile...
+[ 0.07] Writing DepFile...
+[ 0.07] Used 16825 Allocations in 1334570 Bytes
+[ 0.07] Done!

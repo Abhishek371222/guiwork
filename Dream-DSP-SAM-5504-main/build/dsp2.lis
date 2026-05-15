@@ -1,0 +1,536 @@
+P16
+00000	----
+00000			.area text(ROM,REL,CON)
+		;*******************************************************************
+		;* Atmel P16 ANSI C Code Generation	Version M-1.8 (Mar 13,2005)
+		;*******************************************************************
+		$CASE
+00000	----
+00000			.area data(RAM,REL,CON)
+			PUBLIC _biquad2ParamAddr2
+00000		_biquad2ParamAddr2	DS	1
+00001	----
+00000			.area idata(ROM,REL,CON)
+00000	0030 R		DW	_biquad2Parameters2
+00001	----
+00001			.area data(RAM,REL,CON)
+00001			DS	1
+00002	----
+00001			.area idata(ROM,REL,CON)
+00001	0015 R		DW	_biquad2Type2
+00002	----
+00002			.area data(RAM,REL,CON)
+00002			DS	1
+00003	----
+00002			.area idata(ROM,REL,CON)
+00002	000F R		DW	_biquad2XoverType2
+00003	----
+00003			.area data(RAM,REL,CON)
+00003			DS	1
+00004	----
+00003			.area idata(ROM,REL,CON)
+00003	0006 R		DW	_biquad2RawFrequency2
+00004	----
+00004			.area data(RAM,REL,CON)
+00004			DS	1
+00005	----
+00004			.area idata(ROM,REL,CON)
+00004	0003 		DW	3
+00005	----
+00005			.area data(RAM,REL,CON)
+00005			DS 1
+00006	----
+00005			.area idata(ROM,REL,CON)
+00005	0000 		DW	0
+00006	----
+00006			.area data(RAM,REL,CON)
+			PUBLIC _biquad2ParamAddr4
+00006		_biquad2ParamAddr4	DS	1
+00007	----
+00006			.area idata(ROM,REL,CON)
+00006	0018 R		DW	_biquad2Parameters4
+00007	----
+00007			.area data(RAM,REL,CON)
+00007			DS	1
+00008	----
+00007			.area idata(ROM,REL,CON)
+00007	0012 R		DW	_biquad2Type4
+00008	----
+00008			.area data(RAM,REL,CON)
+00008			DS	1
+00009	----
+00008			.area idata(ROM,REL,CON)
+00008	000C R		DW	_biquad2XoverType4
+00009	----
+00009			.area data(RAM,REL,CON)
+00009			DS	1
+0000A	----
+00009			.area idata(ROM,REL,CON)
+00009	0000 R		DW	_biquad2RawFrequency4
+0000A	----
+0000A			.area data(RAM,REL,CON)
+0000A			DS	1
+0000B	----
+0000A			.area idata(ROM,REL,CON)
+0000A	0003 		DW	3
+0000B	----
+0000B			.area data(RAM,REL,CON)
+0000B			DS 1
+0000C	----
+0000B			.area idata(ROM,REL,CON)
+0000B	0000 		DW	0
+0000C	----
+0000C			.area data(RAM,REL,CON)
+			PUBLIC _dsp2InitAndRoute
+0000C	----
+00000			.area text(ROM,REL,CON)
+		;          dspId -> BP-1
+00000		_dsp2InitAndRoute
+00000	7D0E 		DECW	XSPL
+		; #include <system.h>
+		; #include <libFX5000.h>
+		; #include "dspDesigner.h"
+		; #include "custom.h"
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		; #include "midictrl.h"
+		; #endif
+		; #include "BiquadCtrl.h"
+		; #include "memorymap.h"
+		; #include "shared_nrpn.h"
+		; 
+		; /*
+		;  * DSP #2: Delay -> Biquad (ch A) and Delay -> Biquad (ch B)
+		;  * Input:  DSP_IN[1] (ch A), DSP_IN[0] (ch B)
+		;  * Output: DSP_OUT[0] (DABD0L), DSP_OUT[1] (DABD0R) via mainbus.c
+		;  *
+		;  * Note: input assignments are intentionally swapped vs DSP #4 to
+		;  * implement the crossover topology defined in mainbus.c.
+		;  */
+		; 
+		; #define BIQUAD_ITEMCOUNT            2
+		; #define NUMBER_OF_BIQUAD_EXTRAFUNCTION 4
+		; #define BIQUAD2BANDCOUNT            3    /* 3 bands on channel A biquad */
+		; #define BIQUAD4BANDCOUNT            3    /* 3 bands on channel B biquad */
+		; 
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		; 
+		; _FILTER_PARAM biquad2Parameters2[BIQUAD2BANDCOUNT], biquad2Parameters4[BIQUAD4BANDCOUNT];
+		; WORD          biquad2Type2[BIQUAD2BANDCOUNT],        biquad2Type4[BIQUAD4BANDCOUNT];
+		; WORD          biquad2XoverType2[BIQUAD2BANDCOUNT],   biquad2XoverType4[BIQUAD4BANDCOUNT];
+		; DWORD         biquad2RawFrequency2[BIQUAD2BANDCOUNT],biquad2RawFrequency4[BIQUAD4BANDCOUNT];
+		; 
+		; BiquadParameters biquad2ParamAddr2 = {
+		;     biquad2Parameters2, biquad2Type2, biquad2XoverType2, biquad2RawFrequency2, BIQUAD2BANDCOUNT
+		; };
+		; BiquadParameters biquad2ParamAddr4 = {
+		;     biquad2Parameters4, biquad2Type4, biquad2XoverType4, biquad2RawFrequency4, BIQUAD4BANDCOUNT
+		; };
+		; 
+		; #endif /* _SKIP_DDD_NRPN_CTRL */
+		; 
+		; WORD dsp2pcs[5];
+		; 
+		; WORD dsp2InitAndRoute(void)
+		; {
+		;     WORD dspId;
+		; 
+		;     dspId = _MixPA_Init();
+00001	D6C8		LCALL	__MixPA_Init$$
+	0000 RE
+00003	D3C8		STXS R0,BP-1
+	FFFF 
+		;     if (dspId == -1) return 0;
+00005	8700 		LW	R7,R0
+00006	D749		CPI R7,-1
+	FFFF 
+00008	E303 		JNZ L18
+00009	0000 		LI R0,0
+0000A	D0CE		LJMP L17
+	00A1 R
+		
+0000C		L18
+		; 
+		; #ifdef _customPreInitFunction2
+		;     customPreInitFunction2(dspId);
+		; #endif
+		; 
+		;     /* Process #1: Delay (ch A) */
+		;     dsp2pcs[1] = _MixPA_Delay_Allocate(dspId);
+0000C	D2CC		LXS	R4,BP-1
+	FFFF 
+0000E	D6C8		LCALL	__MixPA_Delay_Allocate$R4$
+	0000 RE
+00010	D148		LI	R1,_dsp2pcs
+	0048 R
+00012	C891 		STX	R0,DP0+R1+1
+		;     _MixPA_SetProcIN( dspId, DELAY_SAMPLE_IN  | dsp2pcs[1], PCS_DSP_IN | 1 );
+00013	0701 		LI	R7,1
+00014	8100 		LW	R1,R0
+00015	D14C		ORI	R1,512
+	0200 
+00017	D2CC		LXS	R4,BP-1
+	FFFF 
+00019	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, DELAY_SAMPLE_OUT | dsp2pcs[1], PCS_NODE   | 0 );
+0001B	D748		LI	R7,-32768
+	8000 
+0001D	D148		LI	R1,_dsp2pcs
+	0048 R
+0001F	C191 		LX	R1,DP0+R1+1
+00020	D14C		ORI	R1,640
+	0280 
+00022	D2CC		LXS	R4,BP-1
+	FFFF 
+00024	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		;     _MixPA_Delay_SetStartAddr(dspId, dsp2pcs[1], MEMADDR_DSP02_PCS00PAR02);
+00026	0000 		LI	R0,0
+00027	D748		LI R7,2272
+	08E0 
+00029	C74D 		PUSH	R7
+0002A	D148		LI	R1,_dsp2pcs
+	0048 R
+0002C	C191 		LX	R1,DP0+R1+1
+0002D	D2CC		LXS	R4,BP-1
+	FFFF 
+0002F	C24F 		POP	R2
+00030	D6C8		LCALL	__MixPA_Delay_SetStartAddr$R4R1R2R0$
+	0000 RE
+		; 
+		;     /* Process #3: Delay (ch B) */
+		;     dsp2pcs[3] = _MixPA_Delay_Allocate(dspId);
+00032	D2CC		LXS	R4,BP-1
+	FFFF 
+00034	D6C8		LCALL	__MixPA_Delay_Allocate$R4$
+	0000 RE
+00036	D148		LI	R1,_dsp2pcs
+	0048 R
+00038	C893 		STX	R0,DP0+R1+3
+		;     _MixPA_SetProcIN( dspId, DELAY_SAMPLE_IN  | dsp2pcs[3], PCS_DSP_IN | 0 );
+00039	0700 		LI	R7,0
+0003A	8100 		LW	R1,R0
+0003B	D14C		ORI	R1,512
+	0200 
+0003D	D2CC		LXS	R4,BP-1
+	FFFF 
+0003F	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, DELAY_SAMPLE_OUT | dsp2pcs[3], PCS_NODE   | 1 );
+00041	D748		LI	R7,-32767
+	8001 
+00043	D148		LI	R1,_dsp2pcs
+	0048 R
+00045	C193 		LX	R1,DP0+R1+3
+00046	D14C		ORI	R1,640
+	0280 
+00048	D2CC		LXS	R4,BP-1
+	FFFF 
+0004A	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		;     _MixPA_Delay_SetStartAddr(dspId, dsp2pcs[3], MEMADDR_DSP02_PCS01PAR02);
+0004C	D048		LI	R0,512
+	0200 
+0004E	D748		LI R7,2272
+	08E0 
+00050	C74D 		PUSH	R7
+00051	D148		LI	R1,_dsp2pcs
+	0048 R
+00053	C193 		LX	R1,DP0+R1+3
+00054	D2CC		LXS	R4,BP-1
+	FFFF 
+00056	C24F 		POP	R2
+00057	D6C8		LCALL	__MixPA_Delay_SetStartAddr$R4R1R2R0$
+	0000 RE
+		; 
+		;     /* Process #2: Biquad (ch A, 3-band) */
+		;     dsp2pcs[2] = _MixPA_Biquad_Allocate(dspId, BIQUAD2BANDCOUNT);
+00059	0103 		LI	R1,3
+0005A	D2CC		LXS	R4,BP-1
+	FFFF 
+0005C	D6C8		LCALL	__MixPA_Biquad_Allocate$R4R1$
+	0000 RE
+0005E	D148		LI	R1,_dsp2pcs
+	0048 R
+00060	C892 		STX	R0,DP0+R1+2
+		;     _MixPA_SetProcIN( dspId, BIQUAD_SAMPLE_IN  | dsp2pcs[2], PCS_NODE    | 0 );
+00061	D748		LI	R7,-32768
+	8000 
+00063	8100 		LW	R1,R0
+00064	D2CC		LXS	R4,BP-1
+	FFFF 
+00066	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, BIQUAD_SAMPLE_OUT | dsp2pcs[2], PCS_DSP_OUT | 0 );
+00068	0700 		LI	R7,0
+00069	D148		LI	R1,_dsp2pcs
+	0048 R
+0006B	C192 		LX	R1,DP0+R1+2
+0006C	2180 		ORI	R1,128
+0006D	D2CC		LXS	R4,BP-1
+	FFFF 
+0006F	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		; 
+		;     /* Process #4: Biquad (ch B, 3-band) */
+		;     dsp2pcs[4] = _MixPA_Biquad_Allocate(dspId, BIQUAD4BANDCOUNT);
+00071	0103 		LI	R1,3
+00072	D2CC		LXS	R4,BP-1
+	FFFF 
+00074	D6C8		LCALL	__MixPA_Biquad_Allocate$R4R1$
+	0000 RE
+00076	D148		LI	R1,_dsp2pcs
+	0048 R
+00078	C894 		STX	R0,DP0+R1+4
+		;     _MixPA_SetProcIN( dspId, BIQUAD_SAMPLE_IN  | dsp2pcs[4], PCS_NODE    | 1 );
+00079	D748		LI	R7,-32767
+	8001 
+0007B	8100 		LW	R1,R0
+0007C	D2CC		LXS	R4,BP-1
+	FFFF 
+0007E	D6C8		LCALL	__MixPA_SetProcIN$R4R1R7$
+	0000 RE
+		;     _MixPA_SetProcOUT(dspId, BIQUAD_SAMPLE_OUT | dsp2pcs[4], PCS_DSP_OUT | 1 );
+00080	0701 		LI	R7,1
+00081	D148		LI	R1,_dsp2pcs
+	0048 R
+00083	C194 		LX	R1,DP0+R1+4
+00084	2180 		ORI	R1,128
+00085	D2CC		LXS	R4,BP-1
+	FFFF 
+00087	D6C8		LCALL	__MixPA_SetProcOUT$R4R1R7$
+	0000 RE
+		; 
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		;     InitDefaultPeqBands(&biquad2ParamAddr2, dspId, dsp2pcs[2]);
+00089	D148		LI	R1,_dsp2pcs
+	0048 R
+0008B	C792 		LX	R7,DP0+R1+2
+0008C	7E07 		XPUSH  R7
+0008D	D2CF		LXS R7,BP-1
+	FFFF 
+0008F	7E07 		XPUSH  R7
+00090	C14C		XPUSHI	_biquad2ParamAddr2
+	0000 R
+00092	D7C8		XCALL  _InitDefaultPeqBands
+	0000 RE
+		;     InitDefaultPeqBands(&biquad2ParamAddr4, dspId, dsp2pcs[4]);
+00094	D148		LI	R1,_dsp2pcs
+	0048 R
+00096	C794 		LX	R7,DP0+R1+4
+00097	7E07 		XPUSH  R7
+00098	D2CF		LXS R7,BP-1
+	FFFF 
+0009A	7E07 		XPUSH  R7
+0009B	C14C		XPUSHI	_biquad2ParamAddr4
+	0006 R
+0009D	D7C8		XCALL  _InitDefaultPeqBands
+	0000 RE
+		; #endif
+		; 
+		; #ifdef _customPostInitFunction2
+		;     customPostInitFunction2(dspId);
+		; #endif
+		; 
+		;     return dspId;
+0009F	D2C8		LXS R0,BP-1
+	FFFF 
+		
+000A1		L17
+000A1	D5C8 		XRET 0
+000A2	----
+000A2			.area text(ROM,REL,CON)
+			PUBLIC _nrpn2List
+000A2	----
+00000			.area const(ROM,REL,CON)
+00000	0100 	_nrpn2List	DW	256
+00001	001F 		DW	31
+00002	0101 		DW	257
+00003	0020 		DW	32
+00004	0102 		DW	258
+00005	0021 		DW	33
+00006	0103 		DW	259
+00007	0022 		DW	34
+00008	0200 		DW	512
+00009	0000 		DW	0
+0000A	0201 		DW	513
+0000B	0001 		DW	1
+0000C	0202 		DW	514
+0000D	0002 		DW	2
+0000E	0300 		DW	768
+0000F	001F 		DW	31
+00010	0301 		DW	769
+00011	0020 		DW	32
+00012	0302 		DW	770
+00013	0021 		DW	33
+00014	0303 		DW	771
+00015	0022 		DW	34
+00016	0400 		DW	1024
+00017	0000 		DW	0
+00018	0401 		DW	1025
+00019	0001 		DW	1
+0001A	0402 		DW	1026
+0001B	0002 		DW	2
+			PUBLIC _nrpn2BiquadTable
+0001C	0203 	_nrpn2BiquadTable	DW	515
+0001D	4003 		DW	16387
+0001E	0000 R		DW	_biquad2ParamAddr2
+0001F	0222 		DW	546
+00020	4004 		DW	16388
+00021	0000 R		DW	_biquad2ParamAddr2
+00022	0241 		DW	577
+00023	4005 		DW	16389
+00024	0000 R		DW	_biquad2ParamAddr2
+00025	0260 		DW	608
+00026	4006 		DW	16390
+00027	0000 R		DW	_biquad2ParamAddr2
+00028	0403 		DW	1027
+00029	4003 		DW	16387
+0002A	0006 R		DW	_biquad2ParamAddr4
+0002B	0422 		DW	1058
+0002C	4004 		DW	16388
+0002D	0006 R		DW	_biquad2ParamAddr4
+0002E	0441 		DW	1089
+0002F	4005 		DW	16389
+00030	0006 R		DW	_biquad2ParamAddr4
+00031	0460 		DW	1120
+00032	4006 		DW	16390
+00033	0006 R		DW	_biquad2ParamAddr4
+			PUBLIC _dsp2NrpnHandler
+00034	----
+000A2			.area text(ROM,REL,CON)
+		;         format -> BP+7
+		;          value -> BP+5
+		;      processId -> BP+4
+		;          dspId -> BP+3
+		;           nrpn -> BP+2
+000A2		_dsp2NrpnHandler
+		; }
+		; 
+		; #ifndef    _SKIP_DDD_NRPN_CTRL
+		; 
+		; /*
+		;  * NRPN command table for DSP #2.
+		;  * Entries sorted ascending by NRPN_base.
+		;  */
+		; const WORD nrpn2List[NUMBEROFCOMMAND2][2] =
+		; {
+		;     { 0x0100, 0x001F }, /* _MixPA_Delay_OnOff        (proc 1) */
+		;     { 0x0101, 0x0020 }, /* _MixPA_Delay_SetTime      (proc 1) */
+		;     { 0x0102, 0x0021 }, /* _MixPA_Delay_OutGainValue (proc 1) */
+		;     { 0x0103, 0x0022 }, /* _MixPA_Delay_OutGainPhase (proc 1) */
+		;     { 0x0200, 0x0000 }, /* _MixPA_Biquad_OnOff       (proc 2) */
+		;     { 0x0201, 0x0001 }, /* _MixPA_Biquad_InGainPhase (proc 2) */
+		;     { 0x0202, 0x0002 }, /* _MixPA_Biquad_InGainValue (proc 2) */
+		;     { 0x0300, 0x001F }, /* _MixPA_Delay_OnOff        (proc 3) */
+		;     { 0x0301, 0x0020 }, /* _MixPA_Delay_SetTime      (proc 3) */
+		;     { 0x0302, 0x0021 }, /* _MixPA_Delay_OutGainValue (proc 3) */
+		;     { 0x0303, 0x0022 }, /* _MixPA_Delay_OutGainPhase (proc 3) */
+		;     { 0x0400, 0x0000 }, /* _MixPA_Biquad_OnOff       (proc 4) */
+		;     { 0x0401, 0x0001 }, /* _MixPA_Biquad_InGainPhase (proc 4) */
+		;     { 0x0402, 0x0002 }  /* _MixPA_Biquad_InGainValue (proc 4) */
+		; };
+		; 
+		; #define NB_BIQUAD_COMMAND2 8
+		; 
+		; const BiquadParamsTable nrpn2BiquadTable[NB_BIQUAD_COMMAND2] =
+		; {
+		;     { 0x0203, 0x4003, &biquad2ParamAddr2 },
+		;     { 0x0222, 0x4004, &biquad2ParamAddr2 },
+		;     { 0x0241, 0x4005, &biquad2ParamAddr2 },
+		;     { 0x0260, 0x4006, &biquad2ParamAddr2 },
+		;     { 0x0403, 0x4003, &biquad2ParamAddr4 },
+		;     { 0x0422, 0x4004, &biquad2ParamAddr4 },
+		;     { 0x0441, 0x4005, &biquad2ParamAddr4 },
+		;     { 0x0460, 0x4006, &biquad2ParamAddr4 }
+		; };
+		; 
+		; WORD dsp2NrpnHandler(WORD nrpn, WORD dspId, WORD processId, DWORD value, WORD format)
+		; {
+		; #ifdef _customPreNrpnFunction2
+		;     if (customPreNrpnFunction2(dspId, nrpn, &value, format))
+		;         return 1;
+		; #endif
+		; 
+		;     if (shared_NrpnDispatch_DelayBiquad(
+000A2	C14C		XPUSHI 8
+	0008 
+000A4	C14C		XPUSHI	_nrpn2BiquadTable
+	001C R
+000A6	C14C		XPUSHI 14
+	000E 
+000A8	C14C		XPUSHI	_nrpn2List
+	0000 R
+000AA	C14C		XPUSHI	_dsp2pcs
+	0048 R
+000AC	830D 		LW	R3,BP
+000AD	C7B7 		LX	R7,DP0+R3+7
+000AE	7E07 		XPUSH  R7
+000AF	FBE2		DLXS	DR3,BP+5
+	0005 
+000B1	FBF7 		SWAP	DR3
+000B2	7E06 		XPUSH  R6
+000B3	7E07 		XPUSH	R7
+000B4	C7B4 		LX	R7,DP0+R3+4
+000B5	7E07 		XPUSH  R7
+000B6	C7B3 		LX	R7,DP0+R3+3
+000B7	7E07 		XPUSH  R7
+000B8	C7B2 		LX	R7,DP0+R3+2
+000B9	7E07 		XPUSH  R7
+000BA	D7C8		XCALL _shared_NrpnDispatch_DelayBiquad
+	0000 RE
+000BC	B002 		JRZ	R0,L37
+		;             nrpn, dspId, processId, value, format,
+		;             dsp2pcs,
+		;             nrpn2List,      NUMBEROFCOMMAND2,
+		;             nrpn2BiquadTable, NB_BIQUAD_COMMAND2))
+		;         return 1;
+000BD	0001 		LI R0,1
+000BE	7801 		SJMP L36
+		
+000BF		L37
+		; 
+		; #ifdef _customPostNrpnFunction2
+		;     {
+		;         WORD val8bit = (WORD)(value >> 8);
+		;         DWORD dvalue = (format == FORMAT_14BIT_PRECISION) ? ((DWORD)value << (DWORD)13) : value;
+		;         if (customPostNrpnFunction2(dspId, nrpn, val8bit, value, dvalue))
+		;             return 1;
+		;     }
+		; #endif
+		; 
+		;     return 0;
+000BF	0000 		LI R0,0
+		
+000C0		L36
+000C0	D5CE 		XRET 6
+000C1	----
+00000			.area bss(RAM,REL,CON)
+			PUBLIC _biquad2RawFrequency4
+00000		_biquad2RawFrequency4	DS 6
+			PUBLIC _biquad2RawFrequency2
+00006		_biquad2RawFrequency2	DS 6
+			PUBLIC _biquad2XoverType4
+0000C		_biquad2XoverType4	DS 3
+			PUBLIC _biquad2XoverType2
+0000F		_biquad2XoverType2	DS 3
+			PUBLIC _biquad2Type4
+00012		_biquad2Type4	DS 3
+			PUBLIC _biquad2Type2
+00015		_biquad2Type2	DS 3
+			PUBLIC _biquad2Parameters4
+00018		_biquad2Parameters4	DS 24
+			PUBLIC _biquad2Parameters2
+00030		_biquad2Parameters2	DS 24
+			EXTRN _shared_NrpnDispatch_DelayBiquad
+			EXTRN _InitDefaultPeqBands
+			PUBLIC _dsp2pcs
+00048		_dsp2pcs	DS 5
+			EXTRN	__MixPA_Init$$
+			EXTRN	__MixPA_Delay_Allocate$R4$
+			EXTRN	__MixPA_SetProcIN$R4R1R7$
+			EXTRN	__MixPA_SetProcOUT$R4R1R7$
+			EXTRN	__MixPA_Delay_SetStartAddr$R4R1R2R0$
+			EXTRN	__MixPA_Biquad_Allocate$R4R1$
+0004D	----
+!0 error(s) 0 warning(s)

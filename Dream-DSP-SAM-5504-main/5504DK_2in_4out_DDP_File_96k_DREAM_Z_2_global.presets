@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PRESETS Version="1.01" NumberOfTableId="6">
+  <PresetList>
+    <Class name="LevelDetect">
+      <CountGroup count="1" TableId="0">
+        <Preset>
+          <Count NumberOfPresets="2" NumberOfControls="2" NumberOfFixedControls="2"/>
+          <Controls fixedName1="Attack" fixedNrpn1="16384" fixedName2="Release" fixedNrpn2="16385"/>
+          <Lists>
+            <List name="GlobalPresetA_DSP01-PCS04" fixedValue1="9476" fixedValue2="8679"/>
+            <List name="GlobalPresetA_DSP03-PCS04" fixedValue1="8192" fixedValue2="8192"/>
+          </Lists>
+        </Preset>
+      </CountGroup>
+    </Class>
+    <Class name="Compressor">
+      <CountGroup count="1" TableId="1">
+        <Preset>
+          <Count NumberOfPresets="3" NumberOfControls="5" NumberOfFixedControls="5"/>
+          <Controls fixedName1="ON/OFF" fixedNrpn1="1" fixedName2="Threshold" fixedNrpn2="16386" fixedName3="Ratio" fixedNrpn3="16387" fixedName4="Boost" fixedNrpn4="16388" fixedName5="180deg" fixedNrpn5="5"/>
+          <Lists>
+            <List name="GlobalPresetA_DSP01-PCS05" fixedValue1="1" fixedValue2="12841" fixedValue3="6819" fixedValue4="4605" fixedValue5="0"/>
+            <List name="GlobalPresetA_DSP03-PCS05" fixedValue1="1" fixedValue2="15143" fixedValue3="6819" fixedValue4="0" fixedValue5="0"/>
+            <List name="GlobalPresetB_DSP03-PCS05" fixedValue1="0" fixedValue2="15143" fixedValue3="6819" fixedValue4="0" fixedValue5="0"/>
+          </Lists>
+        </Preset>
+      </CountGroup>
+    </Class>
+    <Class name="Gain">
+      <CountGroup count="1" TableId="2">
+        <Preset>
+          <Count NumberOfPresets="1" NumberOfControls="2" NumberOfFixedControls="2"/>
+          <Controls fixedName1="Gain" fixedNrpn1="16384" fixedName2="180deg" fixedNrpn2="1"/>
+          <Lists>
+            <List name="GlobalPresetA_DSP01-PCS01" fixedValue1="14847" fixedValue2="0"/>
+          </Lists>
+        </Preset>
+      </CountGroup>
+    </Class>
+    <Class name="Biquad">
+      <CountGroup count="6" TableId="3">
+        <Preset>
+          <Count NumberOfPresets="4" NumberOfControls="27" NumberOfFixedControls="3"/>
+          <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98" Name13="Type4" Nrpn13="6" Name14="Q4" Nrpn14="16421" Name15="Freq4" Nrpn15="32836" Name16="Gain4" Nrpn16="99" Name17="Type5" Nrpn17="7" Name18="Q5" Nrpn18="16422" Name19="Freq5" Nrpn19="32837" Name20="Gain5" Nrpn20="100" Name21="Type6" Nrpn21="8" Name22="Q6" Nrpn22="16423" Name23="Freq6" Nrpn23="32838" Name24="Gain6" Nrpn24="101"/>
+          <Lists>
+            <List name="GlobalPresetA_DSP01-PCS02" fixedValue1="1" fixedValue2="0" fixedValue3="11158" Value1="1" Value2="955" Value3="5404984" Value4="84" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64" Value13="1" Value14="955" Value15="81956" Value16="64" Value17="1" Value18="955" Value19="81968" Value20="64" Value21="1" Value22="955" Value23="81980" Value24="64"/>
+            <List name="GlobalPresetA_DSP03-PCS02" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="350550" Value4="43" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64" Value13="0" Value14="955" Value15="81956" Value16="64" Value17="0" Value18="955" Value19="81968" Value20="64" Value21="0" Value22="955" Value23="81980" Value24="64"/>
+            <List name="GlobalPresetB_DSP03-PCS02" fixedValue1="0" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="350550" Value4="43" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64" Value13="0" Value14="955" Value15="81956" Value16="64" Value17="0" Value18="955" Value19="81968" Value20="64" Value21="0" Value22="955" Value23="81980" Value24="64"/>
+            <List name="GlobalPresetC_DSP03-PCS02" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="1" Value2="955" Value3="350550" Value4="43" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64" Value13="1" Value14="955" Value15="81956" Value16="64" Value17="1" Value18="955" Value19="81968" Value20="64" Value21="1" Value22="955" Value23="81980" Value24="64"/>
+          </Lists>
+        </Preset>
+      </CountGroup>
+      <CountGroup count="3" TableId="5">
+        <Preset>
+          <Count NumberOfPresets="8" NumberOfControls="15" NumberOfFixedControls="3"/>
+          <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="180deg" fixedNrpn2="1" fixedName3="Gain" fixedNrpn3="16386" Name1="Type1" Nrpn1="3" Name2="Q1" Nrpn2="16418" Name3="Freq1" Nrpn3="32833" Name4="Gain1" Nrpn4="96" Name5="Type2" Nrpn5="4" Name6="Q2" Nrpn6="16419" Name7="Freq2" Nrpn7="32834" Name8="Gain2" Nrpn8="97" Name9="Type3" Nrpn9="5" Name10="Q3" Nrpn10="16420" Name11="Freq3" Nrpn11="32835" Name12="Gain3" Nrpn12="98"/>
+          <Lists>
+            <List name="GlobalPresetA_DSP02-PCS04" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="122" Value2="955" Value3="4143663" Value4="55" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetA_DSP02-PCS02" fixedValue1="1" fixedValue2="127" fixedValue3="16383" Value1="82" Value2="955" Value3="54643714" Value4="94" Value5="73" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetA_DSP04-PCS02" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="3599856" Value4="64" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetA_DSP04-PCS04" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="6144000" Value4="64" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetB_DSP04-PCS02" fixedValue1="0" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="3599856" Value4="64" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetB_DSP04-PCS04" fixedValue1="0" fixedValue2="0" fixedValue3="14847" Value1="0" Value2="955" Value3="6144000" Value4="64" Value5="0" Value6="955" Value7="81932" Value8="64" Value9="0" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetC_DSP04-PCS02" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="1" Value2="955" Value3="3599856" Value4="64" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64"/>
+            <List name="GlobalPresetC_DSP04-PCS04" fixedValue1="1" fixedValue2="0" fixedValue3="14847" Value1="1" Value2="955" Value3="6144000" Value4="64" Value5="1" Value6="955" Value7="81932" Value8="64" Value9="1" Value10="955" Value11="81944" Value12="64"/>
+          </Lists>
+        </Preset>
+      </CountGroup>
+    </Class>
+    <Class name="Delay">
+      <CountGroup count="1" TableId="4">
+        <Preset>
+          <Count NumberOfPresets="2" NumberOfControls="5" NumberOfFixedControls="5"/>
+          <Controls fixedName1="ON/OFF" fixedNrpn1="0" fixedName2="Time" fixedNrpn2="32769" fixedName3="Gain" fixedNrpn3="16386" fixedName4="180deg" fixedNrpn4="3" fixedName5="-/-delay-/-" fixedNrpn5="99282957"/>
+          <Lists>
+            <List name="GlobalPresetA_DSP02-PCS01" fixedValue1="0" fixedValue2="0" fixedValue3="14847" fixedValue4="0" fixedValue5="1" delayCount="1"/>
+            <List name="GlobalPresetA_DSP04-PCS01" fixedValue1="1" fixedValue2="0" fixedValue3="14847" fixedValue4="0" fixedValue5="1" delayCount="1"/>
+          </Lists>
+        </Preset>
+      </CountGroup>
+    </Class>
+  </PresetList>
+  <GLOBAL_PRESETS NumberOfGlobalPreset="3">
+    <List name="GlobalPresetA" NumberOfDsp="4">
+      <DSPDefinition dspId="1" numberOfProcess="4" processPreset1="4" processPreset2="1048581" processPreset3="2097153" processPreset4="3145730"/>
+      <DSPDefinition dspId="2" numberOfProcess="4" processPreset1="4194305" processPreset2="4194307" processPreset3="5242884" processPreset4="5243138"/>
+      <DSPDefinition dspId="3" numberOfProcess="4" processPreset1="2097153" processPreset2="3145986" processPreset3="260" processPreset4="1048837"/>
+      <DSPDefinition dspId="4" numberOfProcess="4" processPreset1="4194561" processPreset2="5243394" processPreset3="4194563" processPreset4="5243652"/>
+    </List>
+    <List name="GlobalPresetB" NumberOfDsp="4">
+      <DSPDefinition dspId="1" numberOfProcess="4" processPreset1="4" processPreset2="1048581" processPreset3="2097153" processPreset4="3145730"/>
+      <DSPDefinition dspId="2" numberOfProcess="4" processPreset1="4194305" processPreset2="4194307" processPreset3="5242884" processPreset4="5243138"/>
+      <DSPDefinition dspId="3" numberOfProcess="4" processPreset1="2097153" processPreset2="3146242" processPreset3="260" processPreset4="1049093"/>
+      <DSPDefinition dspId="4" numberOfProcess="4" processPreset1="4194305" processPreset2="5243906" processPreset3="4194307" processPreset4="5244164"/>
+    </List>
+    <List name="GlobalPresetC" NumberOfDsp="4">
+      <DSPDefinition dspId="1" numberOfProcess="4" processPreset1="4" processPreset2="1048581" processPreset3="2097153" processPreset4="3145730"/>
+      <DSPDefinition dspId="2" numberOfProcess="4" processPreset1="4194305" processPreset2="4194307" processPreset3="5242884" processPreset4="5243138"/>
+      <DSPDefinition dspId="3" numberOfProcess="4" processPreset1="2097153" processPreset2="3146498" processPreset3="260" processPreset4="1048837"/>
+      <DSPDefinition dspId="4" numberOfProcess="4" processPreset1="4194561" processPreset2="5244418" processPreset3="4194563" processPreset4="5244676"/>
+    </List>
+  </GLOBAL_PRESETS>
+</PRESETS>

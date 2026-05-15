@@ -1,0 +1,3280 @@
+P16
+00000	----
+00000			.area text(ROM,REL,CON)
+		;*******************************************************************
+		;* Atmel P16 ANSI C Code Generation	Version M-1.8 (Mar 13,2005)
+		;*******************************************************************
+		$CASE
+00000	----
+00000			.area text(ROM,REL,CON)
+			PUBLIC _TAB_BUTTERWORTH
+00000	----
+00000			.area const(ROM,REL,CON)
+00000	3F35 	_TAB_BUTTERWORTH	DW   16181,1267
+00001	04F3 
+00002	0000 		DW   0,0
+00003	0000 
+00004	0000 		DW   0,0
+00005	0000 
+00006	0000 		DW   0,0
+00007	0000 
+00008	3F80 		DW   16256,0
+00009	0000 
+0000A	0000 		DW   0,1
+0000B	0001 
+0000C	0000 		DW   0,0
+0000D	0000 
+0000E	0000 		DW   0,0
+0000F	0000 
+00010	3F0A 		DW   16138,35861
+00011	8C15 
+00012	3FA7 		DW   16295,15204
+00013	3B64 
+00014	0000 		DW   0,0
+00015	0000 
+00016	0000 		DW   0,0
+00017	0000 
+00018	3F04 		DW   16132,34813
+00019	87FD 
+0001A	3F35 		DW   16181,1153
+0001B	0481 
+0001C	3FF7 		DW   16375,19399
+0001D	4BC7 
+0001E	0000 		DW   0,0
+0001F	0000 
+00020	3F02 		DW   16130,33345
+00021	8241 
+00022	3F19 		DW   16153,61132
+00023	EECC 
+00024	3F66 		DW   16230,24537
+00025	5FD9 
+00026	4024 		DW   16420,1258
+00027	04EA 
+			PUBLIC _TAB_BESSEL
+00028	3FA3 	_TAB_BESSEL	DW   16291,1363
+00029	0553 
+0002A	3F13 		DW   16147,51695
+0002B	C9EF 
+0002C	0000 		DW   0,0
+0002D	0000 
+0002E	0000 		DW   0,0
+0002F	0000 
+00030	0000 		DW   0,0
+00031	0000 
+00032	0000 		DW   0,0
+00033	0000 
+00034	0000 		DW   0,0
+00035	0000 
+00036	0000 		DW   0,0
+00037	0000 
+00038	3FB9 		DW   16313,59454
+00039	E83E 
+0003A	3F30 		DW   16176,58720
+0003B	E560 
+0003C	3FA9 		DW   16297,56099
+0003D	DB23 
+0003E	0000 		DW   0,1
+0003F	0001 
+00040	0000 		DW   0,0
+00041	0000 
+00042	0000 		DW   0,0
+00043	0000 
+00044	0000 		DW   0,0
+00045	0000 
+00046	0000 		DW   0,0
+00047	0000 
+00048	3FB5 		DW   16309,43096
+00049	A858 
+0004A	3F05 		DW   16133,39741
+0004B	9B3D 
+0004C	3FCB 		DW   16331,44145
+0004D	AC71 
+0004E	3F4E 		DW   16206,13631
+0004F	353F 
+00050	0000 		DW   0,0
+00051	0000 
+00052	0000 		DW   0,0
+00053	0000 
+00054	0000 		DW   0,0
+00055	0000 
+00056	0000 		DW   0,0
+00057	0000 
+00058	3FCD 		DW   16333,37224
+00059	9168 
+0005A	3F02 		DW   16130,41733
+0005B	A305 
+0005C	3FD8 		DW   16344,31877
+0005D	7C85 
+0005E	3F1C 		DW   16156,30618
+0005F	779A 
+00060	3FF4 		DW   16372,7130
+00061	1BDA 
+00062	3F82 		DW   16258,65221
+00063	FEC5 
+00064	0000 		DW   0,0
+00065	0000 
+00066	0000 		DW   0,0
+00067	0000 
+00068	3FE4 		DW   16356,20552
+00069	5048 
+0006A	3F01 		DW   16129,35127
+0006B	8937 
+0006C	400C 		DW   16396,32716
+0006D	7FCC 
+0006E	3F9C 		DW   16284,59140
+0006F	E704 
+00070	3FFA 		DW   16378,50122
+00071	C3CA 
+00072	3F35 		DW   16181,64907
+00073	FD8B 
+00074	3FEB 		DW   16363,13946
+00075	367A 
+00076	3F0F 		DW   16143,16882
+00077	41F2 
+			PUBLIC _TAB_LINKRILEY
+00078	3F00 	_TAB_LINKRILEY	DW   16128,0
+00079	0000 
+0007A	0000 		DW   0,0
+0007B	0000 
+0007C	0000 		DW   0,0
+0007D	0000 
+0007E	0000 		DW   0,0
+0007F	0000 
+00080	3F35 		DW   16181,1267
+00081	04F3 
+00082	3F35 		DW   16181,1267
+00083	04F3 
+00084	0000 		DW   0,0
+00085	0000 
+00086	0000 		DW   0,0
+00087	0000 
+00088	3F00 		DW   16128,0
+00089	0000 
+0008A	3F80 		DW   16256,0
+0008B	0000 
+0008C	3F80 		DW   16256,0
+0008D	0000 
+0008E	0000 		DW   0,0
+0008F	0000 
+00090	3F0A 		DW   16138,35861
+00091	8C15 
+00092	3FA7 		DW   16295,15204
+00093	3B64 
+00094	3F0A 		DW   16138,35861
+00095	8C15 
+00096	3FA7 		DW   16295,15204
+00097	3B64 
+00098	----
+00000			.area data(RAM,REL,CON)
+00000		_isLoadingPreset	DS	1
+00001	----
+00000			.area idata(ROM,REL,CON)
+00000	0000 		DW	0
+00001	----
+00001			.area data(RAM,REL,CON)
+			PUBLIC _biquadSetLoadingPreset
+00001	----
+00000			.area text(ROM,REL,CON)
+		;          value -> BP+2
+00000		_biquadSetLoadingPreset
+		; #include <system.h>
+		; #include <libfx5000.h>
+		; #include "dspDesigner.h"
+		; #include "BiquadCtrl.h"
+		; #include "custom.h"
+		; 
+		; // Butterworth Q table
+		; const FLOAT TAB_BUTTERWORTH[5][4] = {	 {0x3f3504f3 ,0x00000000 ,0x00000000 ,0x00000000 },
+		; 								 {0x3f800000 ,0x00000001 ,0x00000000 ,0x00000000 },
+		; 								 {0x3f0a8c15 ,0x3fa73b64 ,0x00000000 ,0x00000000 },
+		; 								 {0x3F0487FD ,0x3F350481 ,0x3FF74BC7 ,0x00000000 },
+		; 								 {0x3f028241 ,0x3f19eecc ,0x3f665fd9 ,0x402404ea}};
+		; 
+		; // Bessel FSF/Q table
+		; const FLOAT TAB_BESSEL[5][8] = { 	{0x3fa30553 ,0x3f13c9ef ,0x00000000 ,0x00000000 ,0x00000000  ,0x00000000  ,0x00000000  ,0x00000000  },
+		; 							{0x3fb9e83e ,0x3f30e560 ,0x3fa9db23 ,0x00000001 ,0x00000000  ,0x00000000  ,0x00000000  ,0x00000000  },
+		; 							{0x3fb5a858 ,0x3f059b3d ,0x3fcbac71 ,0x3f4e353f ,0x00000000  ,0x00000000  ,0x00000000  ,0x00000000  },
+		; 							{0x3FCD9168 ,0x3F02A305 ,0x3FD87C85 ,0x3F1C779A ,0x3FF41BDA  ,0x3F82FEC5  ,0x00000000  ,0x00000000  },
+		;  							{0x3fe45048 ,0x3f018937 ,0x400c7fcc ,0x3f9ce704 ,0x3ffac3ca  ,0x3f35fd8b  ,0x3feb367a  ,0x3f0f41f2 }};
+		; 
+		; // Linkwitz-Riley Q table
+		; const FLOAT TAB_LINKRILEY[4][4] = {{0x3f000000 ,0x00000000 ,0x00000000 ,0x00000000  },
+		; 							 {0x3f3504f3 ,0x3f3504f3 ,0x00000000 ,0x00000000  },
+		; 							 {0x3f000000 ,0x3f800000 ,0x3f800000 ,0x00000000  },
+		; 							 {0x3f0a8c15 ,0x3fa73b64 ,0x3f0a8c15 ,0x3fa73b64}};
+		; 
+		; // If "isLoadingPreset" flag is set a Biquad filter band will only be updated once after all filter parameters are loaded.
+		; // In case of single band filters (PEQ etc.) it is done after having received the filter Gain parameter (is last in preset storing order).
+		; // In case of Xover filters it is done after having received the filter Frequency parameter (Q & Gain are ignored).
+		; static WORD isLoadingPreset = 0;
+		; 
+		; // Functions used for biquad preset loading
+		; void biquadSetLoadingPreset( WORD value )
+		; {
+		; 	isLoadingPreset = value;
+00000	D2CF		LXS R7,BP+2
+	0002 
+00002	FF90		STXA	R7,DP0,_isLoadingPreset
+	0000 R
+		
+00004	D5C9 		XRET 1
+			PUBLIC _SetButterworthType
+		;      bandCount -> BP-2
+		;              i -> BP-1
+		;      xoverType -> BP+9
+		;     FilterType -> BP+8
+		;    FilterParam -> BP+7
+		;             f0 -> BP+5
+		;   ButterFilter -> BP+4
+		;        maxBand -> BP+3
+		;    ButterSlope -> BP+2
+00005		_SetButterworthType
+00005	C04C		SXSP  3
+	0003 
+		; }
+		; 
+		; #define XOVER_READ_BANDNB	255	//special value for "maxBand" used for special case of reading number of XOver filter bands used
+		; 
+		; // Butterworth filter type
+		; WORD SetButterworthType( XOverButterworthType ButterSlope, WORD maxBand, WORD ButterFilter, FLOAT f0, _FILTER_PARAM *FilterParam, WORD *FilterType, WORD *xoverType )
+		; {
+		; 	WORD bandCount,i;
+		; 	// switch case ButterSlope
+		; 	switch (ButterSlope)
+00007	830D 		LW	R3,BP
+00008	2B03 		SBI	R3,3
+00009	C7B5 		LX	R7,DP0+R3+5
+0000A	CFB0 		STX	R7,DP0+R3
+0000B	0F01 		CPI R7,1
+0000C	E20B 		JZ L21
+0000D	0F02 		CPI R7,2
+0000E	E20D 		JZ L22
+0000F	0F03 		CPI R7,3
+00010	E20F 		JZ L23
+00011	0F04 		CPI R7,4
+00012	E211 		JZ L24
+00013	0F05 		CPI R7,5
+00014	E213 		JZ L25
+00015	0F06 		CPI R7,6
+00016	E215 		JZ L26
+00017	7818 		SJMP L18
+		
+		; 	{
+		
+00018		L21
+		; 		case XOVER_BUTTER_1ST:
+		; 			bandCount = 1;// number of 2nd order band used.
+00018	0701 		LI R7,1
+00019	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+0001B	7817 		SJMP L19
+		
+0001C		L22
+		; 			
+		; 		case XOVER_BUTTER_2ND:
+		; 			bandCount = 1;// number of 2nd order band used.
+0001C	0701 		LI R7,1
+0001D	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+0001F	7813 		SJMP L19
+		
+00020		L23
+		; 			
+		; 		case XOVER_BUTTER_3RD:	
+		; 			bandCount = 2;// number of 2nd order band used.
+00020	0702 		LI R7,2
+00021	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+00023	780F 		SJMP L19
+		
+00024		L24
+		; 			
+		; 		case XOVER_BUTTER_4TH:	
+		; 			bandCount = 2;// number of 2nd order band used.
+00024	0702 		LI R7,2
+00025	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+00027	780B 		SJMP L19
+		
+00028		L25
+		; 			
+		; 		case XOVER_BUTTER_6TH:	
+		; 			bandCount = 3;// number of 2nd order band used.
+00028	0703 		LI R7,3
+00029	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+0002B	7807 		SJMP L19
+		
+0002C		L26
+		; 
+		; 		case XOVER_BUTTER_8TH:	
+		; 			bandCount = 4;// number of 2nd order band used.
+0002C	0704 		LI R7,4
+0002D	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+0002F	7803 		SJMP L19
+		
+00030		L18
+		; 
+		; 		default : return -1;	// invalid type
+00030	D048		LI R0,-1
+	FFFF 
+00032	787D 		SJMP	L17
+		
+00033		L19
+		; 	}
+		; 	
+		; 	if ( maxBand == XOVER_READ_BANDNB )		//special function call to only get number of bands used
+00033	830D 		LW	R3,BP
+00034	2B03 		SBI	R3,3
+00035	C7B6 		LX	R7,DP0+R3+6
+00036	0FFF 		CPI R7,255
+00037	E302 		JNZ L27
+		; 		return bandCount;
+00038	C0B1 		LX	R0,DP0+R3+1
+00039	7876 		SJMP	L17
+		
+0003A		L27
+		; 
+		; 	if (bandCount>maxBand)
+0003A	830D 		LW	R3,BP
+0003B	2B03 		SBI	R3,3
+0003C	C7B6 		LX	R7,DP0+R3+6
+0003D	C6B1 		LX	R6,DP0+R3+1
+0003E	8E07 		CMP R6,R7
+0003F	E104 		JB L29
+00040	E203 		JZ L29
+		; 		return -1;		// not fit
+00041	D048		LI R0,-1
+	FFFF 
+00043	786C 		SJMP	L17
+		
+00044		L29
+		; 
+		; 	for ( i = 0; i < bandCount; i++ )
+00044	0700 		LI R7,0
+00045	D3CF		STXS R7,BP-1
+	FFFF 
+00047	7862 		SJMP	L34
+		
+00048		L31
+		; 	{
+		; 		xoverType[i] = (i<<8) | ButterSlope;
+00048	830D 		LW	R3,BP
+00049	2B03 		SBI	R3,3
+0004A	C7B5 		LX	R7,DP0+R3+5
+0004B	C6B2 		LX	R6,DP0+R3+2
+0004C	F698 		SHL R6,8
+0004D	A607 		OR R6,R7
+0004E	C7BC 		LX	R7,DP0+R3+12
+0004F	C1B2 		LX	R1,DP0+R3+2
+00050	9107 		ADD R1,R7
+00051	CE90 		STX R6,DP0+R1
+		; 		// Load *FilterParam with Butterworth Q table and f0.
+		; 		FilterParam[i].f0 = f0;
+00052	C7BA 		LX	R7,DP0+R3+10
+00053	C1B2 		LX	R1,DP0+R3+2
+00054	F193 		SHL	R1,3
+00055	9107 		ADD R1,R7
+00056	FBE2		DLXS	DR3,BP+5
+	0005 
+00058	FBF7 		SWAP	DR3
+00059	CE91 		STX R6,DP0+R1+1
+0005A	CF90 		STX R7,DP0+R1
+		; 		FilterParam[i].Q = TAB_BUTTERWORTH[(ButterSlope&7)-2][i]; 
+0005B	C6B5 		LX	R6,DP0+R3+5
+0005C	1E07 		ANI R6,7
+0005D	2E02 		SBI R6,2
+0005E	F693 		SHL R6,3
+0005F	D64A		ADI	R6,_TAB_BUTTERWORTH
+	0000 R
+00061	C1B2 		LX	R1,DP0+R3+2
+00062	F191 		SHL	R1,1
+00063	9106 		ADD R1,R6
+00064	FB85 		DLX	DR3,DP1+R1
+00065	FBF7 		SWAP	DR3
+00066	C5BA 		LX	R5,DP0+R3+10
+00067	C1B2 		LX	R1,DP0+R3+2
+00068	F193 		SHL	R1,3
+00069	9105 		ADD	R1,R5
+0006A	1104 		ADI R1,4
+0006B	CE91 		STX R6,DP0+R1+1
+0006C	CF90 		STX R7,DP0+R1
+		; 		// Load Type Filter ( 0 = LP ; 1 = HP )
+		; 		// Special case for 3rd order Butter Filter
+		; 		if( FilterParam[i].Q==(FLOAT)1) // 1st order filter?
+0006D	C7BA 		LX	R7,DP0+R3+10
+0006E	C1B2 		LX	R1,DP0+R3+2
+0006F	F193 		SHL	R1,3
+00070	9107 		ADD	R1,R7
+00071	1104 		ADI R1,4
+00072	FB81 		DLX	DR3,DP0+R1
+00073	FBF7 		SWAP	DR3
+00074	FAF0		DLIS	DR2,1
+	0001 
+00076	FB12 		DCMP	DR3,DR2
+00077	E316 		JNZ L35
+		; 		{
+		; 			if ( ButterFilter == XOVER_LP) FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP1_FILTER;
+00078	C7B7 		LX	R7,DP0+R3+7
+00079	BF09 		JRNZ	R7,L37
+0007A	C7BB 		LX	R7,DP0+R3+11
+0007B	C1B2 		LX	R1,DP0+R3+2
+0007C	9107 		ADD	R1,R7
+0007D	C790 		LX R7,DP0+R1
+0007E	D74B		ANI R7,-32768
+	8000 
+00080	2743 		ORI R7,67
+00081	CF90 		STX R7,DP0+R1
+00082	7822 		SJMP	L40
+		
+00083		L37
+		; 			else FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP1_FILTER;
+00083	830D 		LW	R3,BP
+00084	2B03 		SBI	R3,3
+00085	C7BB 		LX	R7,DP0+R3+11
+00086	C1B2 		LX	R1,DP0+R3+2
+00087	9107 		ADD	R1,R7
+00088	C790 		LX R7,DP0+R1
+00089	D74B		ANI R7,-32768
+	8000 
+0008B	2742 		ORI R7,66
+0008C	CF90 		STX R7,DP0+R1
+		; 		}
+0008D	7817 		SJMP	L40
+		
+0008E		L35
+		; 		else
+		; 		{
+		; 			if ( ButterFilter == XOVER_LP) FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP2_FILTER;
+0008E	830D 		LW	R3,BP
+0008F	2B03 		SBI	R3,3
+00090	C7B7 		LX	R7,DP0+R3+7
+00091	BF09 		JRNZ	R7,L39
+00092	C7BB 		LX	R7,DP0+R3+11
+00093	C1B2 		LX	R1,DP0+R3+2
+00094	9107 		ADD	R1,R7
+00095	C790 		LX R7,DP0+R1
+00096	D74B		ANI R7,-32768
+	8000 
+00098	2745 		ORI R7,69
+00099	CF90 		STX R7,DP0+R1
+0009A	780A 		SJMP L40
+		
+0009B		L39
+		; 			else FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP2_FILTER;
+0009B	830D 		LW	R3,BP
+0009C	2B03 		SBI	R3,3
+0009D	C7BB 		LX	R7,DP0+R3+11
+0009E	C1B2 		LX	R1,DP0+R3+2
+0009F	9107 		ADD	R1,R7
+000A0	C790 		LX R7,DP0+R1
+000A1	D74B		ANI R7,-32768
+	8000 
+000A3	2744 		ORI R7,68
+000A4	CF90 		STX R7,DP0+R1
+		
+000A5		L40
+		; 		}
+		
+		
+000A5	830D 		LW	R3,BP
+000A6	2B03 		SBI	R3,3
+000A7	C7B2 		LX	R7,DP0+R3+2
+000A8	1701 		ADI R7,1
+000A9	CFB2 		STX	R7,DP0+R3+2
+		
+000AA		L34
+000AA	D2C8		LXS	R0,BP-2
+	FFFE 
+000AC	D2CE		LXS R6,BP-1
+	FFFF 
+000AE	8E00 		CMP	R6,R0
+000AF	E198 		JB	L31
+		; 	}
+		; 
+		; 	// return number of 2nd order band which will be used 
+		; 	return bandCount; 
+		
+000B0		L17
+000B0	D5CF		XRET 8
+	0008 
+			PUBLIC _GetBesselFrequency
+		;           fret -> BP-2
+		;             f0 -> BP+5
+		;           band -> BP+4
+		;     FilterType -> BP+3
+		;    BesselSlope -> BP+2
+000B2		_GetBesselFrequency
+000B2	C04C		SXSP  2
+	0002 
+		; }
+		; 
+		; FLOAT GetBesselFrequency( XOverBesselType BesselSlope, WORD FilterType, WORD band, FLOAT f0 )
+		; {
+		; 	FLOAT fret;
+		; 	if ( ( (FilterType&(BIQUAD_MSB_USED-1)) == UPDATE_HP2_FILTER ) || ( (FilterType&(BIQUAD_MSB_USED-1)) == UPDATE_HP1_FILTER) ) 
+000B4	D2CF		LXS R7,BP+3
+	0003 
+000B6	D74B		ANI R7,16383
+	3FFF 
+000B8	0F44 		CPI R7,68
+000B9	E202 		JZ L44
+000BA	0F42 		CPI R7,66
+000BB	E31B 		JNZ L42
+		
+000BC		L44
+		; 		fret = _fdiv( f0, (TAB_BESSEL[(BesselSlope&7)-1][(2*band)]) );  // f0 = f0/FSF for highpass 
+000BC	830D 		LW	R3,BP
+000BD	C6B2 		LX	R6,DP0+R3+2
+000BE	1E07 		ANI R6,7
+000BF	2E01 		SBI R6,1
+000C0	F694 		SHL R6,4
+000C1	D64A		ADI	R6,_TAB_BESSEL
+	0028 R
+000C3	C1B4 		LX	R1,DP0+R3+4
+000C4	F191 		SHL	R1,1
+000C5	F191 		SHL	R1,1
+000C6	9106 		ADD R1,R6
+000C7	FB85 		DLX	DR3,DP1+R1
+000C8	FBF7 		SWAP	DR3
+000C9	C64D 		PUSH	R6
+000CA	C74D 		PUSH	R7
+000CB	FBE2		DLXS	DR3,BP+5
+	0005 
+000CD	FBF7 		SWAP	DR3
+000CE	C54F 		POP	R5
+000CF	C44F 		POP	R4
+000D0	D6C8		LCALL	__fdiv$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+000D2	D3C8		STXS R0,BP-1
+	FFFF 
+000D4	D3C9		STXS R1,BP-2
+	FFFE 
+000D6	781A 		SJMP L43
+		
+000D7		L42
+		; 	else 
+		; 		fret = _fmul( f0, (TAB_BESSEL[(BesselSlope&7)-1][(2*band)]) );  // f0 = f0*FSF for lowpass
+000D7	830D 		LW	R3,BP
+000D8	C6B2 		LX	R6,DP0+R3+2
+000D9	1E07 		ANI R6,7
+000DA	2E01 		SBI R6,1
+000DB	F694 		SHL R6,4
+000DC	D64A		ADI	R6,_TAB_BESSEL
+	0028 R
+000DE	C1B4 		LX	R1,DP0+R3+4
+000DF	F191 		SHL	R1,1
+000E0	F191 		SHL	R1,1
+000E1	9106 		ADD R1,R6
+000E2	FB85 		DLX	DR3,DP1+R1
+000E3	FBF7 		SWAP	DR3
+000E4	C64D 		PUSH	R6
+000E5	C74D 		PUSH	R7
+000E6	FBE2		DLXS	DR3,BP+5
+	0005 
+000E8	FBF7 		SWAP	DR3
+000E9	C54F 		POP	R5
+000EA	C44F 		POP	R4
+000EB	D6C8		LCALL	__fmul$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+000ED	D3C8		STXS R0,BP-1
+	FFFF 
+000EF	D3C9		STXS R1,BP-2
+	FFFE 
+		
+000F1		L43
+		; 	return fret;
+000F1	F8E2		DLXS	DR0,BP-2
+	FFFE 
+000F3	F8F7 		SWAP	DR0
+		
+000F4	D5CD 		XRET 5
+			PUBLIC _SetBesselType
+		;      bandCount -> BP-2
+		;              i -> BP-1
+		;      xoverType -> BP+9
+		;     FilterType -> BP+8
+		;    FilterParam -> BP+7
+		;             f0 -> BP+5
+		;   BesselFilter -> BP+4
+		;        maxBand -> BP+3
+		;    BesselSlope -> BP+2
+000F5		_SetBesselType
+000F5	C04C		SXSP  3
+	0003 
+		; }
+		; 
+		; // Bessel filter type
+		; WORD SetBesselType( XOverBesselType BesselSlope, WORD maxBand, WORD BesselFilter, FLOAT f0, _FILTER_PARAM *FilterParam, WORD *FilterType, WORD *xoverType )
+		; {
+		; 	WORD bandCount,i;
+		; 	// switch case BesselSlope
+		; 	switch (BesselSlope)
+000F7	830D 		LW	R3,BP
+000F8	2B03 		SBI	R3,3
+000F9	C7B5 		LX	R7,DP0+R3+5
+000FA	CFB0 		STX	R7,DP0+R3
+000FB	0F09 		CPI R7,9
+000FC	E209 		JZ L49
+000FD	0F0A 		CPI R7,10
+000FE	E20B 		JZ L50
+000FF	0F0B 		CPI R7,11
+00100	E20D 		JZ L51
+00101	0F0C 		CPI R7,12
+00102	E20F 		JZ L52
+00103	0F0D 		CPI R7,13
+00104	E211 		JZ L53
+00105	7814 		SJMP L46
+		
+		; 	{
+		
+00106		L49
+		; 		case XOVER_BESSEL_2ND:
+		; 			bandCount = 1;// number of 2nd order band used.
+00106	0701 		LI R7,1
+00107	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+00109	7813 		SJMP L47
+		
+0010A		L50
+		; 
+		; 		case XOVER_BESSEL_3RD:
+		; 			bandCount = 2;// number of 2nd order band used.
+0010A	0702 		LI R7,2
+0010B	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+0010D	780F 		SJMP L47
+		
+0010E		L51
+		; 			
+		; 		case XOVER_BESSEL_4TH:	
+		; 			bandCount = 2;// number of 2nd order band used.
+0010E	0702 		LI R7,2
+0010F	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+00111	780B 		SJMP L47
+		
+00112		L52
+		; 			
+		; 		case XOVER_BESSEL_6TH:	
+		; 			bandCount = 3;// number of 2nd order band used.
+00112	0703 		LI R7,3
+00113	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+00115	7807 		SJMP L47
+		
+00116		L53
+		; 
+		; 		case XOVER_BESSEL_8TH:	
+		; 			bandCount = 4;// number of 2nd order band used.
+00116	0704 		LI R7,4
+00117	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+00119	7803 		SJMP L47
+		
+0011A		L46
+		; 
+		; 		default : return -1;	// invalid type
+0011A	D048		LI R0,-1
+	FFFF 
+0011C	787F 		SJMP	L45
+		
+0011D		L47
+		; 	}
+		; 	
+		; 	if ( maxBand == XOVER_READ_BANDNB )		//special function call to only get number of bands used
+0011D	830D 		LW	R3,BP
+0011E	2B03 		SBI	R3,3
+0011F	C7B6 		LX	R7,DP0+R3+6
+00120	0FFF 		CPI R7,255
+00121	E302 		JNZ L54
+		; 		return bandCount;
+00122	C0B1 		LX	R0,DP0+R3+1
+00123	7878 		SJMP	L45
+		
+00124		L54
+		; 
+		; 	if (bandCount>maxBand)
+00124	830D 		LW	R3,BP
+00125	2B03 		SBI	R3,3
+00126	C7B6 		LX	R7,DP0+R3+6
+00127	C6B1 		LX	R6,DP0+R3+1
+00128	8E07 		CMP R6,R7
+00129	E104 		JB L56
+0012A	E203 		JZ L56
+		; 		return -1;		// not fit
+0012B	D048		LI R0,-1
+	FFFF 
+0012D	786E 		SJMP	L45
+		
+0012E		L56
+		; 
+		; 	for ( i = 0; i < bandCount; i++ ) 
+0012E	0700 		LI R7,0
+0012F	D3CF		STXS R7,BP-1
+	FFFF 
+00131	7864 		SJMP	L61
+		
+00132		L58
+		; 	{
+		; 		xoverType[i] = (i<<8) | BesselSlope;
+00132	830D 		LW	R3,BP
+00133	2B03 		SBI	R3,3
+00134	C7B5 		LX	R7,DP0+R3+5
+00135	C6B2 		LX	R6,DP0+R3+2
+00136	F698 		SHL R6,8
+00137	A607 		OR R6,R7
+00138	C7BC 		LX	R7,DP0+R3+12
+00139	C1B2 		LX	R1,DP0+R3+2
+0013A	9107 		ADD R1,R7
+0013B	CE90 		STX R6,DP0+R1
+		; 		FilterParam[i].f0 = f0;
+0013C	C7BA 		LX	R7,DP0+R3+10
+0013D	C1B2 		LX	R1,DP0+R3+2
+0013E	F193 		SHL	R1,3
+0013F	9107 		ADD R1,R7
+00140	FBE2		DLXS	DR3,BP+5
+	0005 
+00142	FBF7 		SWAP	DR3
+00143	CE91 		STX R6,DP0+R1+1
+00144	CF90 		STX R7,DP0+R1
+		; 		// Load *FilterParam with Bessel Q table
+		; 		FilterParam[i].Q = TAB_BESSEL[(BesselSlope&7)-1][(2*i)+1]; 
+00145	C6B5 		LX	R6,DP0+R3+5
+00146	1E07 		ANI R6,7
+00147	2E01 		SBI R6,1
+00148	F694 		SHL R6,4
+00149	D64A		ADI	R6,_TAB_BESSEL
+	0028 R
+0014B	C1B2 		LX	R1,DP0+R3+2
+0014C	F191 		SHL	R1,1
+0014D	1101 		ADI	R1,1
+0014E	F191 		SHL	R1,1
+0014F	9106 		ADD R1,R6
+00150	FB85 		DLX	DR3,DP1+R1
+00151	FBF7 		SWAP	DR3
+00152	C5BA 		LX	R5,DP0+R3+10
+00153	C1B2 		LX	R1,DP0+R3+2
+00154	F193 		SHL	R1,3
+00155	9105 		ADD	R1,R5
+00156	1104 		ADI R1,4
+00157	CE91 		STX R6,DP0+R1+1
+00158	CF90 		STX R7,DP0+R1
+		; 		if( FilterParam[i].Q==(FLOAT)1) // 1st order filter?
+00159	C7BA 		LX	R7,DP0+R3+10
+0015A	C1B2 		LX	R1,DP0+R3+2
+0015B	F193 		SHL	R1,3
+0015C	9107 		ADD	R1,R7
+0015D	1104 		ADI R1,4
+0015E	FB81 		DLX	DR3,DP0+R1
+0015F	FBF7 		SWAP	DR3
+00160	FAF0		DLIS	DR2,1
+	0001 
+00162	FB12 		DCMP	DR3,DR2
+00163	E316 		JNZ L62
+		; 		{
+		; 			if ( BesselFilter == XOVER_LP) 
+00164	C7B7 		LX	R7,DP0+R3+7
+00165	BF09 		JRNZ	R7,L64
+		; 				FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP1_FILTER;
+00166	C7BB 		LX	R7,DP0+R3+11
+00167	C1B2 		LX	R1,DP0+R3+2
+00168	9107 		ADD	R1,R7
+00169	C790 		LX R7,DP0+R1
+0016A	D74B		ANI R7,-32768
+	8000 
+0016C	2743 		ORI R7,67
+0016D	CF90 		STX R7,DP0+R1
+0016E	7822 		SJMP	L67
+		
+0016F		L64
+		; 			else 
+		; 				FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP1_FILTER;
+0016F	830D 		LW	R3,BP
+00170	2B03 		SBI	R3,3
+00171	C7BB 		LX	R7,DP0+R3+11
+00172	C1B2 		LX	R1,DP0+R3+2
+00173	9107 		ADD	R1,R7
+00174	C790 		LX R7,DP0+R1
+00175	D74B		ANI R7,-32768
+	8000 
+00177	2742 		ORI R7,66
+00178	CF90 		STX R7,DP0+R1
+		; 		}
+00179	7817 		SJMP	L67
+		
+0017A		L62
+		; 		else
+		; 		{
+		; 			if ( BesselFilter == XOVER_LP) 
+0017A	830D 		LW	R3,BP
+0017B	2B03 		SBI	R3,3
+0017C	C7B7 		LX	R7,DP0+R3+7
+0017D	BF09 		JRNZ	R7,L66
+		; 				FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP2_FILTER;
+0017E	C7BB 		LX	R7,DP0+R3+11
+0017F	C1B2 		LX	R1,DP0+R3+2
+00180	9107 		ADD	R1,R7
+00181	C790 		LX R7,DP0+R1
+00182	D74B		ANI R7,-32768
+	8000 
+00184	2745 		ORI R7,69
+00185	CF90 		STX R7,DP0+R1
+00186	780A 		SJMP L67
+		
+00187		L66
+		; 			else 
+		; 				FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP2_FILTER;
+00187	830D 		LW	R3,BP
+00188	2B03 		SBI	R3,3
+00189	C7BB 		LX	R7,DP0+R3+11
+0018A	C1B2 		LX	R1,DP0+R3+2
+0018B	9107 		ADD	R1,R7
+0018C	C790 		LX R7,DP0+R1
+0018D	D74B		ANI R7,-32768
+	8000 
+0018F	2744 		ORI R7,68
+00190	CF90 		STX R7,DP0+R1
+		
+00191		L67
+		; 		}		
+		
+		
+00191	830D 		LW	R3,BP
+00192	2B03 		SBI	R3,3
+00193	C7B2 		LX	R7,DP0+R3+2
+00194	1701 		ADI R7,1
+00195	CFB2 		STX	R7,DP0+R3+2
+		
+00196		L61
+00196	D2C8		LXS	R0,BP-2
+	FFFE 
+00198	D2CE		LXS R6,BP-1
+	FFFF 
+0019A	8E00 		CMP	R6,R0
+0019B	E196 		JB	L58
+		; 	}
+		; 
+		; 	// return number of 2nd order band which will be used 
+		; 	return bandCount; 		
+		
+0019C		L45
+0019C	D5CF		XRET 8
+	0008 
+			PUBLIC _SetLinkwitzRileyType
+		;      bandCount -> BP-2
+		;              i -> BP-1
+		;      xoverType -> BP+9
+		;     FilterType -> BP+8
+		;    FilterParam -> BP+7
+		;             f0 -> BP+5
+		; LinkwitzRileyFilter -> BP+4
+		;        maxBand -> BP+3
+		; LinkwitzRileySlope -> BP+2
+0019E		_SetLinkwitzRileyType
+0019E	C04C		SXSP  3
+	0003 
+		; }
+		; 
+		; // Linkwitz-Riley type
+		; WORD SetLinkwitzRileyType( XOverLinkwitzRileyType LinkwitzRileySlope, WORD maxBand, WORD LinkwitzRileyFilter, FLOAT f0, _FILTER_PARAM *FilterParam, WORD *FilterType, WORD *xoverType )
+		; {
+		; 	WORD bandCount,i;
+		; 	
+		; 	// switch case LinkwitzRileySlope
+		; 	switch (LinkwitzRileySlope)
+001A0	830D 		LW	R3,BP
+001A1	2B03 		SBI	R3,3
+001A2	C7B5 		LX	R7,DP0+R3+5
+001A3	CFB0 		STX	R7,DP0+R3
+001A4	0F11 		CPI R7,17
+001A5	E207 		JZ L72
+001A6	0F12 		CPI R7,18
+001A7	E209 		JZ L73
+001A8	0F13 		CPI R7,19
+001A9	E20B 		JZ L74
+001AA	0F14 		CPI R7,20
+001AB	E20D 		JZ L75
+001AC	7810 		SJMP L69
+		
+		; 	{
+		
+001AD		L72
+		; 		case XOVER_LINKRILEY_2ND:
+		; 			bandCount = 1;// number of 2nd order band used.
+001AD	0701 		LI R7,1
+001AE	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+001B0	780F 		SJMP L70
+		
+001B1		L73
+		; 			
+		; 		case XOVER_LINKRILEY_4TH:	
+		; 			bandCount = 2;// number of 2nd order band used.
+001B1	0702 		LI R7,2
+001B2	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+001B4	780B 		SJMP L70
+		
+001B5		L74
+		; 			
+		; 		case XOVER_LINKRILEY_6TH:	
+		; 			bandCount = 3;// number of 2nd order band used.
+001B5	0703 		LI R7,3
+001B6	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+001B8	7807 		SJMP L70
+		
+001B9		L75
+		; 
+		; 		case XOVER_LINKRILEY_8TH:	
+		; 			bandCount = 4;// number of 2nd order band used.
+001B9	0704 		LI R7,4
+001BA	D3CF		STXS R7,BP-2
+	FFFE 
+		; 			break;
+001BC	7803 		SJMP L70
+		
+001BD		L69
+		; 
+		; 		default : return -1;	// invalid type
+001BD	D048		LI R0,-1
+	FFFF 
+001BF	787D 		SJMP	L68
+		
+001C0		L70
+		; 	}
+		; 
+		; 	if ( maxBand == XOVER_READ_BANDNB )		//special function call to only get number of bands used
+001C0	830D 		LW	R3,BP
+001C1	2B03 		SBI	R3,3
+001C2	C7B6 		LX	R7,DP0+R3+6
+001C3	0FFF 		CPI R7,255
+001C4	E302 		JNZ L76
+		; 		return bandCount;
+001C5	C0B1 		LX	R0,DP0+R3+1
+001C6	7876 		SJMP	L68
+		
+001C7		L76
+		; 
+		; 	if (bandCount>maxBand)
+001C7	830D 		LW	R3,BP
+001C8	2B03 		SBI	R3,3
+001C9	C7B6 		LX	R7,DP0+R3+6
+001CA	C6B1 		LX	R6,DP0+R3+1
+001CB	8E07 		CMP R6,R7
+001CC	E104 		JB L78
+001CD	E203 		JZ L78
+		; 		return -1;		// not fit
+001CE	D048		LI R0,-1
+	FFFF 
+001D0	786C 		SJMP	L68
+		
+001D1		L78
+		; 
+		; 	for ( i = 0; i < bandCount; i++ ) 
+001D1	0700 		LI R7,0
+001D2	D3CF		STXS R7,BP-1
+	FFFF 
+001D4	7862 		SJMP	L83
+		
+001D5		L80
+		; 	{
+		; 		xoverType[i] = (i<<8) | LinkwitzRileySlope;
+001D5	830D 		LW	R3,BP
+001D6	2B03 		SBI	R3,3
+001D7	C7B5 		LX	R7,DP0+R3+5
+001D8	C6B2 		LX	R6,DP0+R3+2
+001D9	F698 		SHL R6,8
+001DA	A607 		OR R6,R7
+001DB	C7BC 		LX	R7,DP0+R3+12
+001DC	C1B2 		LX	R1,DP0+R3+2
+001DD	9107 		ADD R1,R7
+001DE	CE90 		STX R6,DP0+R1
+		; 		// Load *FilterParam with LinkwitzRiley Q table and f0.
+		; 		FilterParam[i].f0 = f0;
+001DF	C7BA 		LX	R7,DP0+R3+10
+001E0	C1B2 		LX	R1,DP0+R3+2
+001E1	F193 		SHL	R1,3
+001E2	9107 		ADD R1,R7
+001E3	FBE2		DLXS	DR3,BP+5
+	0005 
+001E5	FBF7 		SWAP	DR3
+001E6	CE91 		STX R6,DP0+R1+1
+001E7	CF90 		STX R7,DP0+R1
+		; 		FilterParam[i].Q = TAB_LINKRILEY[(LinkwitzRileySlope&7)-1][i]; 
+001E8	C6B5 		LX	R6,DP0+R3+5
+001E9	1E07 		ANI R6,7
+001EA	2E01 		SBI R6,1
+001EB	F693 		SHL R6,3
+001EC	D64A		ADI	R6,_TAB_LINKRILEY
+	0078 R
+001EE	C1B2 		LX	R1,DP0+R3+2
+001EF	F191 		SHL	R1,1
+001F0	9106 		ADD R1,R6
+001F1	FB85 		DLX	DR3,DP1+R1
+001F2	FBF7 		SWAP	DR3
+001F3	C5BA 		LX	R5,DP0+R3+10
+001F4	C1B2 		LX	R1,DP0+R3+2
+001F5	F193 		SHL	R1,3
+001F6	9105 		ADD	R1,R5
+001F7	1104 		ADI R1,4
+001F8	CE91 		STX R6,DP0+R1+1
+001F9	CF90 		STX R7,DP0+R1
+		; 		if( FilterParam[i].Q==(FLOAT)1) // 1st order filter?
+001FA	C7BA 		LX	R7,DP0+R3+10
+001FB	C1B2 		LX	R1,DP0+R3+2
+001FC	F193 		SHL	R1,3
+001FD	9107 		ADD	R1,R7
+001FE	1104 		ADI R1,4
+001FF	FB81 		DLX	DR3,DP0+R1
+00200	FBF7 		SWAP	DR3
+00201	FAF0		DLIS	DR2,1
+	0001 
+00203	FB12 		DCMP	DR3,DR2
+00204	E316 		JNZ L84
+		; 		{
+		; 			if ( LinkwitzRileyFilter == XOVER_LP) FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP1_FILTER;
+00205	C7B7 		LX	R7,DP0+R3+7
+00206	BF09 		JRNZ	R7,L86
+00207	C7BB 		LX	R7,DP0+R3+11
+00208	C1B2 		LX	R1,DP0+R3+2
+00209	9107 		ADD	R1,R7
+0020A	C790 		LX R7,DP0+R1
+0020B	D74B		ANI R7,-32768
+	8000 
+0020D	2743 		ORI R7,67
+0020E	CF90 		STX R7,DP0+R1
+0020F	7822 		SJMP	L89
+		
+00210		L86
+		; 			else FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP1_FILTER;
+00210	830D 		LW	R3,BP
+00211	2B03 		SBI	R3,3
+00212	C7BB 		LX	R7,DP0+R3+11
+00213	C1B2 		LX	R1,DP0+R3+2
+00214	9107 		ADD	R1,R7
+00215	C790 		LX R7,DP0+R1
+00216	D74B		ANI R7,-32768
+	8000 
+00218	2742 		ORI R7,66
+00219	CF90 		STX R7,DP0+R1
+		; 		}
+0021A	7817 		SJMP	L89
+		
+0021B		L84
+		; 		else
+		; 		{
+		; 			if ( LinkwitzRileyFilter == XOVER_LP) FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP2_FILTER;
+0021B	830D 		LW	R3,BP
+0021C	2B03 		SBI	R3,3
+0021D	C7B7 		LX	R7,DP0+R3+7
+0021E	BF09 		JRNZ	R7,L88
+0021F	C7BB 		LX	R7,DP0+R3+11
+00220	C1B2 		LX	R1,DP0+R3+2
+00221	9107 		ADD	R1,R7
+00222	C790 		LX R7,DP0+R1
+00223	D74B		ANI R7,-32768
+	8000 
+00225	2745 		ORI R7,69
+00226	CF90 		STX R7,DP0+R1
+00227	780A 		SJMP L89
+		
+00228		L88
+		; 			else FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP2_FILTER;
+00228	830D 		LW	R3,BP
+00229	2B03 		SBI	R3,3
+0022A	C7BB 		LX	R7,DP0+R3+11
+0022B	C1B2 		LX	R1,DP0+R3+2
+0022C	9107 		ADD	R1,R7
+0022D	C790 		LX R7,DP0+R1
+0022E	D74B		ANI R7,-32768
+	8000 
+00230	2744 		ORI R7,68
+00231	CF90 		STX R7,DP0+R1
+		
+00232		L89
+		; 		}
+		
+		
+00232	830D 		LW	R3,BP
+00233	2B03 		SBI	R3,3
+00234	C7B2 		LX	R7,DP0+R3+2
+00235	1701 		ADI R7,1
+00236	CFB2 		STX	R7,DP0+R3+2
+		
+00237		L83
+00237	D2C8		LXS	R0,BP-2
+	FFFE 
+00239	D2CE		LXS R6,BP-1
+	FFFF 
+0023B	8E00 		CMP	R6,R0
+0023C	E198 		JB	L80
+		; 	}
+		; 
+		; 	// return number of 2nd order band which will be used 
+		; 	return bandCount; 
+		
+0023D		L68
+0023D	D5CF		XRET 8
+	0008 
+			PUBLIC _Set1stOrder
+		;              i -> BP-1
+		;      xoverType -> BP+8
+		;     FilterType -> BP+7
+		;    FilterParam -> BP+6
+		;             f0 -> BP+4
+		;        maxBand -> BP+3
+		;  F1stOrderType -> BP+2
+0023F		_Set1stOrder
+0023F	7D0E 		DECW	XSPL
+		; }
+		; 
+		; WORD Set1stOrder( WORD F1stOrderType, WORD maxBand, FLOAT f0, _FILTER_PARAM *FilterParam, WORD *FilterType, WORD *xoverType )
+		; {
+		; 	WORD i;
+		; 
+		; 	if ( maxBand == XOVER_READ_BANDNB )		//special function call to only get number of bands used
+00240	D2CF		LXS R7,BP+3
+	0003 
+00242	0FFF 		CPI R7,255
+00243	E302 		JNZ L91
+		; 		return 1;
+00244	0001 		LI R0,1
+00245	784B 		SJMP	L90
+		
+00246		L91
+		; 
+		; 	if (maxBand<1)
+00246	D2CE		LXS R6,BP+3
+	0003 
+00248	0E01 		CPI	R6,1
+00249	E003 		JAE L93
+		; 		return -1;		// not fit
+0024A	D048		LI R0,-1
+	FFFF 
+0024C	7844 		SJMP	L90
+		
+0024D		L93
+		; 
+		; 	for ( i = 0; i < 1; i++ )
+0024D	0700 		LI R7,0
+0024E	D3CF		STXS R7,BP-1
+	FFFF 
+00250	7835 		SJMP	L98
+		
+00251		L95
+		; 	{
+		; 		xoverType[i] = (i<<8) | F1stOrderType;
+00251	830D 		LW	R3,BP
+00252	2B01 		SBI	R3,1
+00253	C7B3 		LX	R7,DP0+R3+3
+00254	C6B0 		LX	R6,DP0+R3
+00255	F698 		SHL R6,8
+00256	A607 		OR R6,R7
+00257	C7B9 		LX	R7,DP0+R3+9
+00258	C1B0 		LX	R1,DP0+R3
+00259	9107 		ADD R1,R7
+0025A	CE90 		STX R6,DP0+R1
+		; 		FilterParam[i].f0 = f0;
+0025B	C7B7 		LX	R7,DP0+R3+7
+0025C	C1B0 		LX	R1,DP0+R3
+0025D	F193 		SHL	R1,3
+0025E	9107 		ADD R1,R7
+0025F	FBE2		DLXS	DR3,BP+4
+	0004 
+00261	FBF7 		SWAP	DR3
+00262	CE91 		STX R6,DP0+R1+1
+00263	CF90 		STX R7,DP0+R1
+		; 		FilterParam[i].Q = 0; 
+00264	C7B7 		LX	R7,DP0+R3+7
+00265	C1B0 		LX	R1,DP0+R3
+00266	F193 		SHL	R1,3
+00267	9107 		ADD	R1,R7
+00268	1104 		ADI R1,4
+00269	FB63 		DXOR	DR3,DR3
+0026A	CE91 		STX R6,DP0+R1+1
+0026B	CF90 		STX R7,DP0+R1
+		; 		if ( F1stOrderType == XOVER_LP) 
+0026C	C7B3 		LX	R7,DP0+R3+3
+0026D	BF09 		JRNZ	R7,L99
+		; 			FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_LP1_FILTER;
+0026E	C7B8 		LX	R7,DP0+R3+8
+0026F	C1B0 		LX	R1,DP0+R3
+00270	9107 		ADD	R1,R7
+00271	C790 		LX R7,DP0+R1
+00272	D74B		ANI R7,-32768
+	8000 
+00274	2743 		ORI R7,67
+00275	CF90 		STX R7,DP0+R1
+00276	780A 		SJMP L100
+		
+00277		L99
+		; 		else
+		; 			FilterType[i] = (FilterType[i]&(BIQUAD_EX_FLAG)) | UPDATE_HP1_FILTER;
+00277	830D 		LW	R3,BP
+00278	2B01 		SBI	R3,1
+00279	C7B8 		LX	R7,DP0+R3+8
+0027A	C1B0 		LX	R1,DP0+R3
+0027B	9107 		ADD	R1,R7
+0027C	C790 		LX R7,DP0+R1
+0027D	D74B		ANI R7,-32768
+	8000 
+0027F	2742 		ORI R7,66
+00280	CF90 		STX R7,DP0+R1
+		
+00281		L100
+		
+00281	830D 		LW	R3,BP
+00282	2B01 		SBI	R3,1
+00283	C7B0 		LX	R7,DP0+R3
+00284	1701 		ADI R7,1
+00285	CFB0 		STX	R7,DP0+R3
+		
+00286		L98
+00286	830D 		LW	R3,BP
+00287	2B01 		SBI	R3,1
+00288	C6B0 		LX	R6,DP0+R3
+00289	0E01 		CPI	R6,1
+0028A	E1C6 		JB	L95
+		; 	}
+		; 	FilterParam[0].Q = 1;
+0028B	0001 		LI	R0,1
+0028C	0700 		LI R7,0
+0028D	C1B7 		LX	R1,DP0+R3+7
+0028E	1104 		ADI R1,4
+0028F	C891 		STX	R0,DP0+R1+1
+00290	CF90 		STX R7,DP0+R1
+		; 	return 1; // 1 band
+		
+00291		L90
+00291	D5CF		XRET 7
+	0007 
+			PUBLIC _SetFlat
+		;              i -> BP-1
+		; xoverTypeTable -> BP+4
+		;    FilterParam -> BP+3
+		;        maxBand -> BP+2
+00293		_SetFlat
+00293	7D0E 		DECW	XSPL
+		; }
+		; 
+		; WORD SetFlat( WORD maxBand, _FILTER_PARAM *FilterParam, WORD *xoverTypeTable )
+		; {
+		; 	WORD i;
+		; 
+		; 	if ( maxBand == XOVER_READ_BANDNB )		//special function call to only get number of bands used
+00294	D2CF		LXS R7,BP+2
+	0002 
+00296	0FFF 		CPI R7,255
+00297	E302 		JNZ L102
+		; 		return 1;
+00298	0001 		LI R0,1
+00299	781B 		SJMP L101
+		
+0029A		L102
+		; 
+		; 	for ( i = 0; i < 1; i++ )
+0029A	0700 		LI R7,0
+0029B	D3CF		STXS R7,BP-1
+	FFFF 
+0029D	7812 		SJMP L107
+		
+0029E		L104
+0029E	830D 		LW	R3,BP
+0029F	2B01 		SBI	R3,1
+002A0	C7B5 		LX	R7,DP0+R3+5
+002A1	C1B0 		LX	R1,DP0+R3
+002A2	9107 		ADD R1,R7
+002A3	0700 		LI R7,0
+002A4	CF90 		STX R7,DP0+R1
+002A5	C7B4 		LX	R7,DP0+R3+4
+002A6	C1B0 		LX	R1,DP0+R3
+002A7	F193 		SHL	R1,3
+002A8	9107 		ADD	R1,R7
+002A9	1104 		ADI R1,4
+002AA	FB63 		DXOR	DR3,DR3
+002AB	CE91 		STX R6,DP0+R1+1
+002AC	CF90 		STX R7,DP0+R1
+		
+002AD	C7B0 		LX	R7,DP0+R3
+002AE	1701 		ADI R7,1
+002AF	CFB0 		STX	R7,DP0+R3
+		
+002B0		L107
+002B0	D2CE		LXS R6,BP-1
+	FFFF 
+002B2	0E01 		CPI	R6,1
+002B3	E1EA 		JB L104
+		; 	{
+		; 		// Load *FilterParam with Q=0.
+		; 		xoverTypeTable[i] = 0;
+		; 		FilterParam[i].Q = 0; 
+		; 	}
+		; 	return 1; // 1 band
+002B4	0001 		LI R0,1
+		
+002B5		L101
+002B5	D5CB 		XRET 3
+			PUBLIC _SetXOverFilterType
+		;            ret -> BP-1
+		; xoverTypeTable -> BP+7
+		;             FP -> BP+6
+		;          iirFP -> BP+5
+		;      xoverType -> BP+4
+		;        maxBand -> BP+3
+		;      xOverLPHP -> BP+2
+002B6		_SetXOverFilterType
+002B6	7D0E 		DECW	XSPL
+		; }
+		; 
+		; /*-------------------------------------------------------------------------------------------------------
+		; Function: SetXOverFilterType
+		; 
+		; Input: 
+		; 	xOverLPHP: 	xover filter type low pass or high pass(XOVER_LP | XOVER_HP)
+		; 	maxBand: 	number of band allowed for the xover filter
+		; 	xoverType:	xover filter type, subtype value from following enums: XOverButterworthType, XOverBesselworthType, XOverLinkwitzRileyType.
+		; 	
+		; Output:
+		; 	iirFP & FP are updated with correct parameters according to input parameters.
+		; 	return -1 if failed, else number of bands used.
+		; */
+		; WORD SetXOverFilterType( WORD xOverLPHP, WORD maxBand, WORD xoverType, _FILTER_PARAM *iirFP, WORD *FP, WORD *xoverTypeTable )
+		; {
+		; 	WORD ret=(WORD)-1;
+002B7	D748		LI R7,-1
+	FFFF 
+002B9	830D 		LW	R3,BP
+002BA	2B01 		SBI	R3,1
+002BB	CFB0 		STX	R7,DP0+R3
+		; 	if ( !xoverType )	ret=SetFlat( maxBand, iirFP, xoverTypeTable ); // set Flat
+002BC	C7B5 		LX	R7,DP0+R3+5
+002BD	BF0B 		JRNZ	R7,L109
+002BE	C7B8 		LX	R7,DP0+R3+8
+002BF	7E07 		XPUSH  R7
+002C0	C7B6 		LX	R7,DP0+R3+6
+002C1	7E07 		XPUSH  R7
+002C2	C7B4 		LX	R7,DP0+R3+4
+002C3	7E07 		XPUSH  R7
+002C4	D7C8		XCALL _SetFlat
+	0293 R
+002C6	D3C8		STXS R0,BP-1
+	FFFF 
+002C8	7862 		SJMP	L116
+		
+002C9		L109
+		; 	else if (xoverType == 1)	ret=Set1stOrder( xOverLPHP, maxBand, iirFP->f0, iirFP, FP, xoverTypeTable );
+002C9	830D 		LW	R3,BP
+002CA	2B01 		SBI	R3,1
+002CB	C7B5 		LX	R7,DP0+R3+5
+002CC	0F01 		CPI R7,1
+002CD	E313 		JNZ L111
+002CE	C7B8 		LX	R7,DP0+R3+8
+002CF	7E07 		XPUSH  R7
+002D0	C7B7 		LX	R7,DP0+R3+7
+002D1	7E07 		XPUSH  R7
+002D2	C1B6 		LX	R1,DP0+R3+6
+002D3	7E01 		XPUSH	R1
+002D4	FB81 		DLX	DR3,DP0+R1
+002D5	FBF7 		SWAP	DR3
+002D6	7E06 		XPUSH  R6
+002D7	7E07 		XPUSH	R7
+002D8	C7B4 		LX	R7,DP0+R3+4
+002D9	7E07 		XPUSH  R7
+002DA	C7B3 		LX	R7,DP0+R3+3
+002DB	7E07 		XPUSH  R7
+002DC	D7C8		XCALL _Set1stOrder
+	023F R
+002DE	D3C8		STXS R0,BP-1
+	FFFF 
+002E0	784A 		SJMP	L116
+		
+002E1		L111
+		; 	else if ( xoverType & (1<<3) ) ret=SetBesselType( xoverType, maxBand, xOverLPHP, iirFP->f0, iirFP, FP, xoverTypeTable );
+002E1	830D 		LW	R3,BP
+002E2	2B01 		SBI	R3,1
+002E3	C7B5 		LX	R7,DP0+R3+5
+002E4	1F08 		ANI R7,8
+002E5	B715 		JRZ	R7,L113
+002E6	C7B8 		LX	R7,DP0+R3+8
+002E7	7E07 		XPUSH  R7
+002E8	C7B7 		LX	R7,DP0+R3+7
+002E9	7E07 		XPUSH  R7
+002EA	C1B6 		LX	R1,DP0+R3+6
+002EB	7E01 		XPUSH	R1
+002EC	FB81 		DLX	DR3,DP0+R1
+002ED	FBF7 		SWAP	DR3
+002EE	7E06 		XPUSH  R6
+002EF	7E07 		XPUSH	R7
+002F0	C7B3 		LX	R7,DP0+R3+3
+002F1	7E07 		XPUSH  R7
+002F2	C7B4 		LX	R7,DP0+R3+4
+002F3	7E07 		XPUSH  R7
+002F4	C7B5 		LX	R7,DP0+R3+5
+002F5	7E07 		XPUSH  R7
+002F6	D7C8		XCALL _SetBesselType
+	00F5 R
+002F8	D3C8		STXS R0,BP-1
+	FFFF 
+002FA	7830 		SJMP	L116
+		
+002FB		L113
+		; 	else if ( xoverType & (1<<4) ) ret=SetLinkwitzRileyType( xoverType, maxBand, xOverLPHP, iirFP->f0, iirFP, FP, xoverTypeTable );
+002FB	830D 		LW	R3,BP
+002FC	2B01 		SBI	R3,1
+002FD	C7B5 		LX	R7,DP0+R3+5
+002FE	1F10 		ANI R7,16
+002FF	B715 		JRZ	R7,L115
+00300	C7B8 		LX	R7,DP0+R3+8
+00301	7E07 		XPUSH  R7
+00302	C7B7 		LX	R7,DP0+R3+7
+00303	7E07 		XPUSH  R7
+00304	C1B6 		LX	R1,DP0+R3+6
+00305	7E01 		XPUSH	R1
+00306	FB81 		DLX	DR3,DP0+R1
+00307	FBF7 		SWAP	DR3
+00308	7E06 		XPUSH  R6
+00309	7E07 		XPUSH	R7
+0030A	C7B3 		LX	R7,DP0+R3+3
+0030B	7E07 		XPUSH  R7
+0030C	C7B4 		LX	R7,DP0+R3+4
+0030D	7E07 		XPUSH  R7
+0030E	C7B5 		LX	R7,DP0+R3+5
+0030F	7E07 		XPUSH  R7
+00310	D7C8		XCALL _SetLinkwitzRileyType
+	019E R
+00312	D3C8		STXS R0,BP-1
+	FFFF 
+00314	7816 		SJMP L116
+		
+00315		L115
+		; 	else ret=SetButterworthType( xoverType, maxBand, xOverLPHP, iirFP->f0, iirFP, FP, xoverTypeTable );
+00315	830D 		LW	R3,BP
+00316	2B01 		SBI	R3,1
+00317	C7B8 		LX	R7,DP0+R3+8
+00318	7E07 		XPUSH  R7
+00319	C7B7 		LX	R7,DP0+R3+7
+0031A	7E07 		XPUSH  R7
+0031B	C1B6 		LX	R1,DP0+R3+6
+0031C	7E01 		XPUSH	R1
+0031D	FB81 		DLX	DR3,DP0+R1
+0031E	FBF7 		SWAP	DR3
+0031F	7E06 		XPUSH  R6
+00320	7E07 		XPUSH	R7
+00321	C7B3 		LX	R7,DP0+R3+3
+00322	7E07 		XPUSH  R7
+00323	C7B4 		LX	R7,DP0+R3+4
+00324	7E07 		XPUSH  R7
+00325	C7B5 		LX	R7,DP0+R3+5
+00326	7E07 		XPUSH  R7
+00327	D7C8		XCALL _SetButterworthType
+	0005 R
+00329	D3C8		STXS R0,BP-1
+	FFFF 
+		
+0032B		L116
+		
+		
+		
+		; 	return ret;
+0032B	D2C8		LXS R0,BP-1
+	FFFF 
+		
+0032D	D5CE 		XRET 6
+			PUBLIC _FilterCoefficientsUpdate
+		;  iirFloatCoeff -> BP-14
+		;         stable -> BP-4
+		;         bqFilt -> BP-3
+		; realFilterType -> BP-1
+		;       iirCoeff -> BP+4
+		;          iirFP -> BP+3
+		;     FilterType -> BP+2
+0032E		_FilterCoefficientsUpdate
+0032E	C04C		SXSP  15
+	000F 
+		; }
+		; WORD FilterCoefficientsUpdate( WORD *FilterType, _FILTER_PARAM *iirFP, _BIQUAD_FIXEDCOEFF *iirCoeff )
+		; {
+		; 	WORD stable, realFilterType;
+		; 	_BIQUAD_COEFF iirFloatCoeff;	// where to store coefficient
+		; 	PTR32 bqFilt;
+		; 
+		; 	realFilterType = (*FilterType) & ( BIQUAD_MSB_USED - 1 );
+00330	830D 		LW	R3,BP
+00331	2B0B 		SBI	R3,11
+00332	C1BD 		LX	R1,DP0+R3+13
+00333	C790 		LX R7,DP0+R1
+00334	D74B		ANI R7,16383
+	3FFF 
+00336	CFBA 		STX	R7,DP0+R3+10
+		; 	bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterFLAT);
+00337	F8D0		DLA	DR0,__Biquad_FilterFLAT
+	0000 RE
+00339	D3C8		STXS R0,BP-2
+	FFFE 
+0033B	D3C9		STXS R1,BP-3
+	FFFD 
+		; 
+		; 	if ( !iirFP->Q && realFilterType ) // power-up init condition: allow to set FLAT
+0033D	FB63 		DXOR	DR3,DR3
+0033E	C1BE 		LX	R1,DP0+R3+14
+0033F	1104 		ADI R1,4
+00340	FA81 		DLX	DR2,DP0+R1
+00341	FAF7 		SWAP	DR2
+00342	FA13 		DCMP	DR2,DR3
+00343	E320 		JNZ	L122
+00344	C7BA 		LX	R7,DP0+R3+10
+00345	B71E 		JRZ	R7,L122
+		; 	{
+		; 		if ( !(realFilterType & (1<<6)) ) // not crossover filter
+00346	1F40 		ANI R7,64
+00347	BF1C 		JRNZ	R7,L122
+		; 		{
+		; 			if ( (realFilterType != 2)&&(realFilterType != 3)&&(realFilterType != 6)&&(realFilterType != 7) )
+00348	C7BA 		LX	R7,DP0+R3+10
+00349	0F02 		CPI R7,2
+0034A	E219 		JZ L122
+0034B	0F03 		CPI R7,3
+0034C	E217 		JZ L122
+0034D	0F06 		CPI R7,6
+0034E	E215 		JZ L122
+0034F	0F07 		CPI R7,7
+00350	E213 		JZ L122
+		; 			{
+		; 				iirFP->Q = FLOAT_ONE; // if was not set, set 1.0 by default
+00351	D748		LI R7,16256
+	3F80 
+00353	C5BE 		LX	R5,DP0+R3+14
+00354	8105 		LW R1,R5
+00355	1104 		ADI R1,4
+00356	CE91 		STX R6,DP0+R1+1
+00357	CF90 		STX R7,DP0+R1
+		; 				bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterPEQ);
+00358	F8D0		DLA	DR0,__Biquad_FilterPEQ
+	0000 RE
+0035A	D3C8		STXS R0,BP-2
+	FFFE 
+0035C	D3C9		STXS R1,BP-3
+	FFFD 
+		; 				*FilterType = ((*FilterType)&BIQUAD_EX_FLAG) | 1; // PEQ by default
+0035E	C1BD 		LX	R1,DP0+R3+13
+0035F	C790 		LX R7,DP0+R1
+00360	D74B		ANI R7,-32768
+	8000 
+00362	2701 		ORI R7,1
+00363	CF90 		STX R7,DP0+R1
+		; 			}
+		
+00364		L122
+		; 		}
+		
+		; 	}
+		
+		; 
+		; 	realFilterType = *FilterType;
+00364	830D 		LW	R3,BP
+00365	2B0B 		SBI	R3,11
+00366	C1BD 		LX	R1,DP0+R3+13
+00367	C790 		LX R7,DP0+R1
+00368	CFBA 		STX	R7,DP0+R3+10
+		; 	switch ((realFilterType)&((1<<6)-1))
+00369	1F3F 		ANI R7,63
+0036A	2B04 		SBI	R3,4
+0036B	CFB0 		STX	R7,DP0+R3
+0036C	B713 		JRZ	R7,L127
+0036D	0F01 		CPI R7,1
+0036E	E218 		JZ L128
+0036F	0F02 		CPI R7,2
+00370	E21D 		JZ	L129
+00371	0F03 		CPI R7,3
+00372	E222 		JZ	L130
+00373	0F04 		CPI R7,4
+00374	E227 		JZ	L131
+00375	0F05 		CPI R7,5
+00376	E22C 		JZ	L132
+00377	0F06 		CPI R7,6
+00378	E231 		JZ	L133
+00379	0F07 		CPI R7,7
+0037A	E236 		JZ	L134
+0037B	0F0A 		CPI R7,10
+0037C	E23B 		JZ	L135
+0037D	0F0B 		CPI R7,11
+0037E	E240 		JZ	L136
+0037F	7846 		SJMP	L124
+		
+		; 	{
+		
+00380		L127
+		; 		case 0: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterFLAT); break;
+00380	F8D0		DLA	DR0,__Biquad_FilterFLAT
+	0000 RE
+00382	D3C8		STXS R0,BP-2
+	FFFE 
+00384	D3C9		STXS R1,BP-3
+	FFFD 
+00386	7841 		SJMP	L125
+		
+00387		L128
+		; 		case 1: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterPEQ); break;
+00387	F8D0		DLA	DR0,__Biquad_FilterPEQ
+	0000 RE
+00389	D3C8		STXS R0,BP-2
+	FFFE 
+0038B	D3C9		STXS R1,BP-3
+	FFFD 
+0038D	783A 		SJMP	L125
+		
+0038E		L129
+		; 		case 2: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterHP1); break;
+0038E	F8D0		DLA	DR0,__Biquad_FilterHP1
+	0000 RE
+00390	D3C8		STXS R0,BP-2
+	FFFE 
+00392	D3C9		STXS R1,BP-3
+	FFFD 
+00394	7833 		SJMP	L125
+		
+00395		L130
+		; 		case 3: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterLP1); break;
+00395	F8D0		DLA	DR0,__Biquad_FilterLP1
+	0000 RE
+00397	D3C8		STXS R0,BP-2
+	FFFE 
+00399	D3C9		STXS R1,BP-3
+	FFFD 
+0039B	782C 		SJMP L125
+		
+0039C		L131
+		; 		case 4: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterHP2); break;
+0039C	F8D0		DLA	DR0,__Biquad_FilterHP2
+	0000 RE
+0039E	D3C8		STXS R0,BP-2
+	FFFE 
+003A0	D3C9		STXS R1,BP-3
+	FFFD 
+003A2	7825 		SJMP L125
+		
+003A3		L132
+		; 		case 5: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterLP2); break;
+003A3	F8D0		DLA	DR0,__Biquad_FilterLP2
+	0000 RE
+003A5	D3C8		STXS R0,BP-2
+	FFFE 
+003A7	D3C9		STXS R1,BP-3
+	FFFD 
+003A9	781E 		SJMP L125
+		
+003AA		L133
+		; 		case 6: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterHS1); break;
+003AA	F8D0		DLA	DR0,__Biquad_FilterHS1
+	0000 RE
+003AC	D3C8		STXS R0,BP-2
+	FFFE 
+003AE	D3C9		STXS R1,BP-3
+	FFFD 
+003B0	7817 		SJMP L125
+		
+003B1		L134
+		; 		case 7: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterLS1); break;
+003B1	F8D0		DLA	DR0,__Biquad_FilterLS1
+	0000 RE
+003B3	D3C8		STXS R0,BP-2
+	FFFE 
+003B5	D3C9		STXS R1,BP-3
+	FFFD 
+003B7	7810 		SJMP L125
+		
+003B8		L135
+		; 		case 10: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterAP1); break;
+003B8	F8D0		DLA	DR0,__Biquad_FilterAP1
+	0000 RE
+003BA	D3C8		STXS R0,BP-2
+	FFFE 
+003BC	D3C9		STXS R1,BP-3
+	FFFD 
+003BE	7809 		SJMP L125
+		
+003BF		L136
+		; 		case 11: bqFilt = _BIQUAD_FLTPTR(_Biquad_FilterAP2); break;
+003BF	F8D0		DLA	DR0,__Biquad_FilterAP2
+	0000 RE
+003C1	D3C8		STXS R0,BP-2
+	FFFE 
+003C3	D3C9		STXS R1,BP-3
+	FFFD 
+003C5	7802 		SJMP L125
+		
+003C6		L124
+		; 		default :
+		; 			return( 0 );
+003C6	0000 		LI R0,0
+003C7	782E 		SJMP	L117
+		
+003C8		L125
+		; 	}
+		; 
+		; 	iirFP->fs = (FLOAT)_float(_Sys_GetSamplingRate()); // default sampling rate at 96000Hz (floating point value)
+003C8	D6C8		LCALL	__Sys_GetSamplingRate$$
+	0000 RE
+003CA	F348 		DLR	DR3,DR0
+003CB	D6C8		LCALL	__float$R7R6$R2R3R4R5R6R7
+	0000 RE
+003CD	F348 		DLR	DR3,DR0
+003CE	830D 		LW	R3,BP
+003CF	2B0B 		SBI	R3,11
+003D0	C1BE 		LX	R1,DP0+R3+14
+003D1	1102 		ADI R1,2
+003D2	CE91 		STX R6,DP0+R1+1
+003D3	CF90 		STX R7,DP0+R1
+		; 
+		; 	stable = _Biquad_FltFloatCoeff( bqFilt, iirFP, &iirFloatCoeff );
+003D4	870D 		LW R7,BP
+003D5	2F0E 		SBI	R7,14
+003D6	C2BE 		LX	R2,DP0+R3+14
+003D7	F8E2		DLXS	DR0,BP-3
+	FFFD 
+003D9	F8F7 		SWAP	DR0
+003DA	8307 		LW	R3,R7
+003DB	D6C8		LCALL	__Biquad_FltFloatCoeff$R1R0R2R3$
+	0000 RE
+003DD	830D 		LW	R3,BP
+003DE	2B0B 		SBI	R3,11
+003DF	C8B7 		STX	R0,DP0+R3+7
+		; 	if ( (*FilterType)&BIQUAD_EX_FLAG )
+003E0	C1BD 		LX	R1,DP0+R3+13
+003E1	C790 		LX R7,DP0+R1
+003E2	D74B		ANI R7,-32768
+	8000 
+003E4	B707 		JRZ	R7,L137
+		; 		_Biquad_FloatToFixCoeff( &iirFloatCoeff, iirCoeff, _BIQUAD_FRACTBITS_1_8_15 );
+003E5	0717 		LI	R7,23
+003E6	C3BF 		LX	R3,DP0+R3+15
+003E7	820D 		LW	R2,BP
+003E8	2A0E 		SBI	R2,14
+003E9	D6C8		LCALL	__Biquad_FloatToFixCoeff$R2R3R7$
+	0000 RE
+003EB	7808 		SJMP L138
+		
+003EC		L137
+		; 	else
+		; 		_Biquad_FloatToFixCoeff( &iirFloatCoeff, iirCoeff, _BIQUAD_FRACTBITS_1_2_21 );
+003EC	071D 		LI	R7,29
+003ED	830D 		LW	R3,BP
+003EE	2B0B 		SBI	R3,11
+003EF	C3BF 		LX	R3,DP0+R3+15
+003F0	820D 		LW	R2,BP
+003F1	2A0E 		SBI	R2,14
+003F2	D6C8		LCALL	__Biquad_FloatToFixCoeff$R2R3R7$
+	0000 RE
+		
+003F4		L138
+		; 
+		; 	return(stable);
+003F4	D2C8		LXS R0,BP-4
+	FFFC 
+		
+003F6		L117
+003F6	D5CB 		XRET 3
+			PUBLIC _SetFilterGain
+		;       iirCoeff -> BP-11
+		;          iirFP -> BP-1
+		;              v -> BP+7
+		;           band -> BP+6
+		;         PROCid -> BP+5
+		;          DSPid -> BP+4
+		;    biquadParam -> BP+3
+		; updateCoeffCallback -> BP+2
+003F7		_SetFilterGain
+003F7	C04C		SXSP  11
+	000B 
+		; }
+		; 
+		; /* -----------------------------------------------------
+		; * set EQ band gain
+		; * band: EQ band
+		; * v:  in range [ 01000h .. 04000h .. 05E00h ] -> [ -24dB .. 0dB .. +15dB ]
+		; */
+		; void SetFilterGain( UpdateCoeffCallback *updateCoeffCallback, BiquadParameters *biquadParam, WORD DSPid, WORD PROCid, WORD band, WORD v )
+		; {
+		; 	_FILTER_PARAM *iirFP;
+		; 	_BIQUAD_FIXEDCOEFF iirCoeff;
+		; 
+		; 	if ( biquadParam->type[band] & (BIQUAD_XOVER_TYPE_BAND | (1<<6)) )	// filter band used by high order XOver filter?
+003F9	830D 		LW	R3,BP
+003FA	2B01 		SBI	R3,1
+003FB	C1B4 		LX	R1,DP0+R3+4
+003FC	C791 		LX	R7,DP0+R1+1
+003FD	C6B7 		LX	R6,DP0+R3+7
+003FE	8106 		LW R1,R6
+003FF	9107 		ADD R1,R7
+00400	C790 		LX R7,DP0+R1
+00401	D74B		ANI R7,16448
+	4040 
+00403	BF4B 		JRNZ	R7,L146
+		; 		return;							// Do not allow custom Gain settings for XOver filters
+		
+		; 
+		; 	iirFP = (_FILTER_PARAM *)&biquadParam->filterParameters[band];
+00404	C1B4 		LX	R1,DP0+R3+4
+00405	C790 		LX R7,DP0+R1
+00406	F693 		SHL R6,3
+00407	9607 		ADD R6,R7
+00408	CEB0 		STX	R6,DP0+R3
+		; 
+		; #ifdef _customFilterGain
+		; 	customFilterGain( iirFP, biquadParam, DSPid, PROCid, band, v );
+		; #else
+		; 	if ( v > 0x5E00)
+00409	C6B8 		LX	R6,DP0+R3+8
+0040A	D649		CPI	R6,24064
+	5E00 
+0040C	E104 		JB L142
+0040D	E203 		JZ L142
+		; 		v = 0x5E00;
+0040E	D748		LI R7,24064
+	5E00 
+00410	CFB8 		STX	R7,DP0+R3+8
+		
+00411		L142
+		; 	if ( v < 0x1000)
+00411	830D 		LW	R3,BP
+00412	2B01 		SBI	R3,1
+00413	C6B8 		LX	R6,DP0+R3+8
+00414	D649		CPI	R6,4096
+	1000 
+00416	E003 		JAE L144
+		; 		v = 0x1000;
+00417	D748		LI R7,4096
+	1000 
+00419	CFB8 		STX	R7,DP0+R3+8
+		
+0041A		L144
+0041A	830D 		LW	R3,BP
+0041B	2B01 		SBI	R3,1
+0041C	C7B8 		LX	R7,DP0+R3+8
+0041D	D74A		ADI	R7,-16384
+	C000 
+0041F	FFC7 		CWD	R7
+00420	D6C8		LCALL	__float$R7R6$R2R3R4R5R6R7
+	0000 RE
+00422	F348 		DLR	DR3,DR0
+00423	FAF1		DLI	DR2,989855744
+	0000
+	3B00
+00426	D6C8		LCALL	__fmul$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+00428	F348 		DLR	DR3,DR0
+00429	C1B0 		LX	R1,DP0+R3
+0042A	1106 		ADI R1,6
+0042B	CE91 		STX R6,DP0+R1+1
+0042C	CF90 		STX R7,DP0+R1
+0042D	870D 		LW R7,BP
+0042E	2F0B 		SBI	R7,11
+0042F	7E07 		XPUSH	R7
+00430	C7B0 		LX	R7,DP0+R3
+00431	7E07 		XPUSH  R7
+00432	C1B4 		LX	R1,DP0+R3+4
+00433	C791 		LX	R7,DP0+R1+1
+00434	C6B7 		LX	R6,DP0+R3+7
+00435	9607 		ADD R6,R7
+00436	7E06 		XPUSH  R6
+00437	D7C8		XCALL _FilterCoefficientsUpdate
+	032E R
+00439	B015 		JRZ	R0,L146
+0043A	830D 		LW	R3,BP
+0043B	2B01 		SBI	R3,1
+0043C	C7B7 		LX	R7,DP0+R3+7
+0043D	C74D 		PUSH	R7
+0043E	870D 		LW R7,BP
+0043F	2F0B 		SBI	R7,11
+00440	C74D 		PUSH	R7
+00441	C7B6 		LX	R7,DP0+R3+6
+00442	C74D 		PUSH	R7
+00443	C7B5 		LX	R7,DP0+R3+5
+00444	C74D 		PUSH	R7
+00445	C1B3 		LX	R1,DP0+R3+3
+00446	1102 		ADI R1,2
+00447	F881 		DLX	DR0,DP0+R1
+00448	F8F7 		SWAP	DR0
+00449	C44F 		POP	R4
+0044A	C54F 		POP	R5
+0044B	C64F 		POP	R6
+0044C	C74F 		POP	R7
+0044D	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+		
+0044F		L146
+		
+0044F	D5CE 		XRET 6
+			PUBLIC _SetFilterFreq
+		;       iirCoeff -> BP-13
+		;        maxBand -> BP-3
+		;   rawFrequency -> BP-2
+		;          iirFP -> BP-1
+		;              v -> BP+7
+		;           band -> BP+6
+		;         PROCid -> BP+5
+		;          DSPid -> BP+4
+		;    biquadParam -> BP+3
+		; updateCoeffCallback -> BP+2
+00450		_SetFilterFreq
+00450	C04C		SXSP  13
+	000D 
+		; 	iirFP->dBGain = _fmul( _float((int)(v-0x4000)), 0x3B000000 ); // 1/512
+		; #endif
+		; 
+		; 	if( FilterCoefficientsUpdate( &biquadParam->type[band], iirFP, &iirCoeff ) ) //stable?
+		; 		updateBiquadCallback( updateCoeffCallback->BIQUAD_UpdateCoeffFuncPtr, DSPid, PROCid, (WORD)&iirCoeff, band );
+		; }
+		; 
+		; /* -----------------------------------------------------
+		; * set EQ band frequency
+		; * band: EQ band
+		; * v: frequency value in range 20..21600 (in Hz)
+		; */
+		; void SetFilterFreq( UpdateCoeffCallback *updateCoeffCallback, BiquadParameters *biquadParam, WORD DSPid, WORD PROCid, WORD band, DWORD v )
+		; {
+		; 	_FILTER_PARAM *iirFP;
+		; 	_BIQUAD_FIXEDCOEFF iirCoeff;
+		; 	WORD maxBand;
+		; 	DWORD *rawFrequency;
+		; 
+		; 	if ( biquadParam->type[band] & BIQUAD_XOVER_TYPE_BAND )	// filter band used by high order XOver filter?
+00452	830D 		LW	R3,BP
+00453	2B03 		SBI	R3,3
+00454	C1B6 		LX	R1,DP0+R3+6
+00455	C791 		LX	R7,DP0+R1+1
+00456	C6B9 		LX	R6,DP0+R3+9
+00457	8106 		LW R1,R6
+00458	9107 		ADD R1,R7
+00459	C790 		LX R7,DP0+R1
+0045A	D74B		ANI R7,16384
+	4000 
+0045C	B702 		JRZ	R7,$+3
+0045D	D0CE		LJMP	L157
+	04EB R
+		; 		return;
+		
+		; 
+		; 	iirFP = (_FILTER_PARAM *)&biquadParam->filterParameters[band];
+0045F	C1B6 		LX	R1,DP0+R3+6
+00460	C790 		LX R7,DP0+R1
+00461	F693 		SHL R6,3
+00462	9607 		ADD R6,R7
+00463	CEB2 		STX	R6,DP0+R3+2
+		; 
+		; #ifdef _customFilterFreq
+		; 	customFilterFreq( iirFP, biquadParam, DSPid, PROCid, band, v );
+		; #else
+		; 	rawFrequency = &biquadParam->frequency[band];
+00464	C793 		LX	R7,DP0+R1+3
+00465	C6B9 		LX	R6,DP0+R3+9
+00466	F691 		SHL R6,1
+00467	9607 		ADD R6,R7
+00468	CEB1 		STX	R6,DP0+R3+1
+		; 	biquadParam->frequency[band] = v;
+00469	C1B9 		LX	R1,DP0+R3+9
+0046A	F191 		SHL	R1,1
+0046B	9107 		ADD R1,R7
+0046C	FBE2		DLXS	DR3,BP+7
+	0007 
+0046E	FBF7 		SWAP	DR3
+0046F	CE91 		STX R6,DP0+R1+1
+00470	CF90 		STX R7,DP0+R1
+		; 
+		; 	v = (WORD)((*rawFrequency)>>12);
+00471	070C 		LI R7,12
+00472	C1B1 		LX	R1,DP0+R3+1
+00473	FA81 		DLX	DR2,DP0+R1
+00474	FAF7 		SWAP	DR2
+00475	F20F 		DSHR	DR2,R7
+			 
+			 
+00476	0700 		LI R7,0
+00477	D3CC		STXS	R4,BP+8
+	0008 
+00479	D3CF		STXS R7,BP+7
+	0007 
+		; 	if( v<20 ) v=20;            //range limited to 20..21600Hz
+0047B	0614 		LI R6,20
+0047C	0500 		LI	R5,0
+0047D	FA13 		DCMP	DR2,DR3
+0047E	E003 		JAE	L151
+			 
+			 
+0047F	D3CE		STXS R6,BP+8
+	0008 
+00481	780C 		SJMP	L153
+		
+00482		L151
+		; 	else if( v>21600 ) v=21600;
+00482	FBF0		DLIS	DR3,21600
+	5460 
+00484	FAE2		DLXS	DR2,BP+7
+	0007 
+00486	FAF7 		SWAP	DR2
+00487	FA13 		DCMP	DR2,DR3
+00488	E205 		JZ	L153
+00489	E104 		JB	L153
+			 
+			 
+0048A	D3CE		STXS R6,BP+8
+	0008 
+0048C	D3CF		STXS R7,BP+7
+	0007 
+		
+0048E		L153
+		
+		; 
+		; 	iirFP->f0 = _fdiv( _float(biquadParam->frequency[band]), 0x45800000/* 2^12 */ );
+0048E	830D 		LW	R3,BP
+0048F	2B03 		SBI	R3,3
+00490	C1B6 		LX	R1,DP0+R3+6
+00491	C793 		LX	R7,DP0+R1+3
+00492	C1B9 		LX	R1,DP0+R3+9
+00493	F191 		SHL	R1,1
+00494	9107 		ADD R1,R7
+00495	FB81 		DLX	DR3,DP0+R1
+00496	FBF7 		SWAP	DR3
+00497	D6C8		LCALL	__float$R7R6$R2R3R4R5R6R7
+	0000 RE
+00499	F348 		DLR	DR3,DR0
+0049A	FAF1		DLI	DR2,1166016512
+	0000
+	4580
+0049D	D6C8		LCALL	__fdiv$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+0049F	F348 		DLR	DR3,DR0
+004A0	C1B2 		LX	R1,DP0+R3+2
+004A1	CE91 		STX R6,DP0+R1+1
+004A2	CF90 		STX R7,DP0+R1
+		; #endif
+		; 
+		; 	if ( biquadParam->type[band] & (1<<6) ) // XOver filter?
+004A3	C1B6 		LX	R1,DP0+R3+6
+004A4	C791 		LX	R7,DP0+R1+1
+004A5	C6B9 		LX	R6,DP0+R3+9
+004A6	8106 		LW R1,R6
+004A7	9107 		ADD R1,R7
+004A8	C790 		LX R7,DP0+R1
+004A9	1F40 		ANI R7,64
+004AA	B718 		JRZ	R7,L155
+		; 	{
+		; 		maxBand = getNumberOfXoverBands( biquadParam, band );
+004AB	7E06 		XPUSH	R6
+004AC	C7B6 		LX	R7,DP0+R3+6
+004AD	7E07 		XPUSH  R7
+004AE	D7C8		XCALL _getNumberOfXoverBands
+	055D R
+004B0	830D 		LW	R3,BP
+004B1	2B03 		SBI	R3,3
+004B2	C8B0 		STX	R0,DP0+R3
+		; 		UpdateXOverIIRCoeff( updateCoeffCallback, DSPid, PROCid, band, maxBand, iirFP, biquadParam );
+004B3	C7B6 		LX	R7,DP0+R3+6
+004B4	7E07 		XPUSH  R7
+004B5	C7B2 		LX	R7,DP0+R3+2
+004B6	7E07 		XPUSH  R7
+004B7	7E00 		XPUSH	R0
+004B8	C7B9 		LX	R7,DP0+R3+9
+004B9	7E07 		XPUSH  R7
+004BA	C7B8 		LX	R7,DP0+R3+8
+004BB	7E07 		XPUSH  R7
+004BC	C7B7 		LX	R7,DP0+R3+7
+004BD	7E07 		XPUSH  R7
+004BE	C7B5 		LX	R7,DP0+R3+5
+004BF	7E07 		XPUSH  R7
+004C0	D7C8		XCALL  _UpdateXOverIIRCoeff
+	0725 R
+		; 	}
+004C2	7828 		SJMP	L157
+		
+004C3		L155
+		; 	else
+		; 	{
+		; 		if( !isLoadingPreset && FilterCoefficientsUpdate( &biquadParam->type[band], iirFP, &iirCoeff ) ) //stable?
+004C3	D148		LI R1,_isLoadingPreset
+	0000 R
+004C5	C790 		LX R7,DP0+R1
+004C6	BF24 		JRNZ	R7,L157
+004C7	870D 		LW R7,BP
+004C8	2F0D 		SBI	R7,13
+004C9	7E07 		XPUSH	R7
+004CA	830D 		LW	R3,BP
+004CB	2B03 		SBI	R3,3
+004CC	C7B2 		LX	R7,DP0+R3+2
+004CD	7E07 		XPUSH  R7
+004CE	C1B6 		LX	R1,DP0+R3+6
+004CF	C791 		LX	R7,DP0+R1+1
+004D0	C6B9 		LX	R6,DP0+R3+9
+004D1	9607 		ADD R6,R7
+004D2	7E06 		XPUSH  R6
+004D3	D7C8		XCALL _FilterCoefficientsUpdate
+	032E R
+004D5	B015 		JRZ	R0,L157
+		; 			updateBiquadCallback( updateCoeffCallback->BIQUAD_UpdateCoeffFuncPtr, DSPid, PROCid, (WORD)&iirCoeff, band );
+004D6	830D 		LW	R3,BP
+004D7	2B03 		SBI	R3,3
+004D8	C7B9 		LX	R7,DP0+R3+9
+004D9	C74D 		PUSH	R7
+004DA	870D 		LW R7,BP
+004DB	2F0D 		SBI	R7,13
+004DC	C74D 		PUSH	R7
+004DD	C7B8 		LX	R7,DP0+R3+8
+004DE	C74D 		PUSH	R7
+004DF	C7B7 		LX	R7,DP0+R3+7
+004E0	C74D 		PUSH	R7
+004E1	C1B5 		LX	R1,DP0+R3+5
+004E2	1102 		ADI R1,2
+004E3	F881 		DLX	DR0,DP0+R1
+004E4	F8F7 		SWAP	DR0
+004E5	C44F 		POP	R4
+004E6	C54F 		POP	R5
+004E7	C64F 		POP	R6
+004E8	C74F 		POP	R7
+004E9	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+		
+004EB		L157
+		
+		
+004EB	D5CF		XRET 7
+	0007 
+			PUBLIC _SetFilterQ
+		;       iirCoeff -> BP-11
+		;          iirFP -> BP-1
+		;              v -> BP+7
+		;           band -> BP+6
+		;         PROCid -> BP+5
+		;          DSPid -> BP+4
+		;    biquadParam -> BP+3
+		; updateCoeffCallback -> BP+2
+004ED		_SetFilterQ
+004ED	C04C		SXSP  13
+	000D 
+		; 	}
+		; }
+		; 
+		; /* -----------------------------------------------------
+		; * set EQ band Q
+		; * band: EQ band
+		; * v: Q value in range 0,0x0100..0x7F00 = 0.01, ...8
+		; */
+		; void SetFilterQ( UpdateCoeffCallback *updateCoeffCallback, BiquadParameters *biquadParam, WORD DSPid, WORD PROCid, WORD band, WORD v )
+		; {
+		; 	_FILTER_PARAM *iirFP;
+		; 	_BIQUAD_FIXEDCOEFF iirCoeff;
+		; 
+		; 	if ( biquadParam->type[band] & (BIQUAD_XOVER_TYPE_BAND | (1<<6)) )	// filter band used by high order XOver filter?
+004EF	830D 		LW	R3,BP
+004F0	2B08 		SBI	R3,8
+004F1	C1BB 		LX	R1,DP0+R3+11
+004F2	C791 		LX	R7,DP0+R1+1
+004F3	C6BE 		LX	R6,DP0+R3+14
+004F4	8106 		LW R1,R6
+004F5	9107 		ADD R1,R7
+004F6	C790 		LX R7,DP0+R1
+004F7	D74B		ANI R7,16448
+	4040 
+004F9	BF62 		JRNZ	R7,L162
+		; 		return;							// Do not allow custom Gain settings for XOver filters
+		
+004FA	C1BB 		LX	R1,DP0+R3+11
+004FB	C790 		LX R7,DP0+R1
+004FC	F693 		SHL R6,3
+004FD	9607 		ADD R6,R7
+004FE	CEB7 		STX	R6,DP0+R3+7
+004FF	C6BF 		LX	R6,DP0+R3+15
+00500	F6D1 		SHR	R6,1
+00501	0700 		LI R7,0
+00502	D6C8		LCALL	__float$R7R6$R2R3R4R5R6R7
+	0000 RE
+00504	F348 		DLR	DR3,DR0
+00505	FAF1		DLI	DR2,1182792704
+	FC00
+	467F
+00508	D6C8		LCALL	__fdiv$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+0050A	F348 		DLR	DR3,DR0
+0050B	C1B7 		LX	R1,DP0+R3+7
+0050C	1104 		ADI R1,4
+0050D	CE91 		STX R6,DP0+R1+1
+0050E	CF90 		STX R7,DP0+R1
+0050F	C1B7 		LX	R1,DP0+R3+7
+00510	1104 		ADI	R1,4
+00511	2B05 		SBI	R3,5
+00512	C9B1 		STX	R1,DP0+R3+1
+00513	FA81 		DLX	DR2,DP0+R1
+00514	FAF7 		SWAP	DR2
+00515	F34A 		DLR	DR3,DR2
+00516	D6C8		LCALL	__fmul$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+00518	F348 		DLR	DR3,DR0
+00519	FAF1		DLI	DR2,1122985574
+	6666
+	42EF
+0051C	D6C8		LCALL	__fmul$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+0051E	F348 		DLR	DR3,DR0
+0051F	C1B1 		LX	R1,DP0+R3+1
+00520	CE91 		STX R6,DP0+R1+1
+00521	CF90 		STX R7,DP0+R1
+00522	FBF1		DLI	DR3,1050253722
+	999A
+	3E99
+00525	C64D 		PUSH	R6
+00526	C74D 		PUSH	R7
+00527	C1BC 		LX	R1,DP0+R3+12
+00528	1104 		ADI	R1,4
+00529	C9B0 		STX	R1,DP0+R3
+0052A	FB81 		DLX	DR3,DP0+R1
+0052B	FBF7 		SWAP	DR3
+0052C	C54F 		POP	R5
+0052D	C44F 		POP	R4
+0052E	D6C8		LCALL	__fadd$R7R6R5R4$R2R3R4R5R6R7
+	0000 RE
+00530	F348 		DLR	DR3,DR0
+00531	C1B0 		LX	R1,DP0+R3
+00532	CE91 		STX R6,DP0+R1+1
+00533	CF90 		STX R7,DP0+R1
+00534	D148		LI R1,_isLoadingPreset
+	0000 R
+00536	C790 		LX R7,DP0+R1
+00537	BF24 		JRNZ	R7,L162
+00538	870D 		LW R7,BP
+00539	2F0B 		SBI	R7,11
+0053A	7E07 		XPUSH	R7
+0053B	C7BC 		LX	R7,DP0+R3+12
+0053C	7E07 		XPUSH  R7
+0053D	1310 		ADI	R3,16
+0053E	C1B0 		LX	R1,DP0+R3
+0053F	C791 		LX	R7,DP0+R1+1
+00540	C6B3 		LX	R6,DP0+R3+3
+00541	9607 		ADD R6,R7
+00542	7E06 		XPUSH  R6
+00543	D7C8		XCALL _FilterCoefficientsUpdate
+	032E R
+00545	B016 		JRZ	R0,L162
+00546	830D 		LW	R3,BP
+00547	1303 		ADI	R3,3
+00548	C7B3 		LX	R7,DP0+R3+3
+00549	C74D 		PUSH	R7
+0054A	870D 		LW R7,BP
+0054B	2F0B 		SBI	R7,11
+0054C	C74D 		PUSH	R7
+0054D	C7B2 		LX	R7,DP0+R3+2
+0054E	C74D 		PUSH	R7
+0054F	C7B1 		LX	R7,DP0+R3+1
+00550	C74D 		PUSH	R7
+00551	2B01 		SBI	R3,1
+00552	C1B0 		LX	R1,DP0+R3
+00553	1102 		ADI R1,2
+00554	F881 		DLX	DR0,DP0+R1
+00555	F8F7 		SWAP	DR0
+00556	C44F 		POP	R4
+00557	C54F 		POP	R5
+00558	C64F 		POP	R6
+00559	C74F 		POP	R7
+0055A	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+		
+0055C		L162
+		
+0055C	D5CE 		XRET 6
+			PUBLIC _getNumberOfXoverBands
+		; maxBandAllowed -> BP-2
+		;  numberOfBands -> BP-1
+		;           band -> BP+3
+		;    biquadParam -> BP+2
+0055D		_getNumberOfXoverBands
+0055D	C04C		SXSP  3
+	0003 
+		; 
+		; 	iirFP = (_FILTER_PARAM *)&biquadParam->filterParameters[band];
+		; 
+		; #ifdef _customFilterQ
+		; 	customFilterQ( iirFP, biquadParam, DSPid, PROCid, band, v );
+		; #else
+		; 	iirFP->Q = _fdiv( _float(v>>1), 0x467FFC00/*16383.0*/ );
+		; 	iirFP->Q = _fmul( _fmul( iirFP->Q, iirFP->Q ), 0x42EF6666/*119.7*/ );
+		; 	iirFP->Q = _fadd( iirFP->Q, 0x3E99999A/*0.3*/ );
+		; #endif
+		; 	if( !isLoadingPreset && FilterCoefficientsUpdate( &biquadParam->type[band], iirFP, &iirCoeff ) ) //stable?
+		; 		updateBiquadCallback( updateCoeffCallback->BIQUAD_UpdateCoeffFuncPtr, DSPid, PROCid, (WORD)&iirCoeff, band );
+		; }
+		; 
+		; WORD getNumberOfXoverBands( BiquadParameters *biquadParam, WORD band )
+		; {
+		; 	WORD numberOfBands;
+		; 	int maxBandAllowed = 1;
+0055F	0701 		LI R7,1
+00560	830D 		LW	R3,BP
+00561	2B03 		SBI	R3,3
+00562	CFB1 		STX	R7,DP0+R3+1
+		; 
+		; 	maxBandAllowed = ( ( biquadParam->numberOfBand - band ) > 4 ) ? 4 : ( biquadParam->numberOfBand - band );
+00563	C7B6 		LX	R7,DP0+R3+6
+00564	C1B5 		LX	R1,DP0+R3+5
+00565	C694 		LX	R6,DP0+R1+4
+00566	AE07 		SUB R6,R7
+00567	0E04 		CPI	R6,4
+00568	E104 		JB L166
+00569	E203 		JZ L166
+0056A	0704 		LI R7,4
+0056B	CFB0 		STX	R7,DP0+R3
+0056C	7807 		SJMP L167
+		
+0056D		L166
+0056D	830D 		LW	R3,BP
+0056E	2B03 		SBI	R3,3
+0056F	C7B6 		LX	R7,DP0+R3+6
+00570	C1B5 		LX	R1,DP0+R3+5
+00571	C694 		LX	R6,DP0+R1+4
+00572	AE07 		SUB R6,R7
+00573	CEB0 		STX	R6,DP0+R3
+		
+00574		L167
+00574	830D 		LW	R3,BP
+00575	2B03 		SBI	R3,3
+00576	C7B0 		LX	R7,DP0+R3
+00577	CFB1 		STX	R7,DP0+R3+1
+		; 
+		; 	if ( !(biquadParam->type[band] & (1<<6)) ) // not XOver filter
+00578	C1B5 		LX	R1,DP0+R3+5
+00579	C791 		LX	R7,DP0+R1+1
+0057A	C1B6 		LX	R1,DP0+R3+6
+0057B	9107 		ADD R1,R7
+0057C	C790 		LX R7,DP0+R1
+0057D	1F40 		ANI R7,64
+0057E	BF02 		JRNZ	R7,L168
+		; 		return 0;
+0057F	0000 		LI R0,0
+00580	781E 		SJMP L164
+		
+00581		L168
+		; 
+		; 	numberOfBands = SetXOverFilterType( 0, XOVER_READ_BANDNB, biquadParam->xoverType[band], NULL, NULL, NULL );
+00581	0700 		LI R7,0
+00582	7E07 		XPUSH  R7
+00583	7E07 		XPUSH  R7
+00584	7E07 		XPUSH  R7
+00585	830D 		LW	R3,BP
+00586	2B03 		SBI	R3,3
+00587	C1B5 		LX	R1,DP0+R3+5
+00588	C792 		LX	R7,DP0+R1+2
+00589	C1B6 		LX	R1,DP0+R3+6
+0058A	9107 		ADD R1,R7
+0058B	C790 		LX R7,DP0+R1
+0058C	7E07 		XPUSH  R7
+0058D	C14C		XPUSHI 255
+	00FF 
+0058F	C14C		XPUSHI 0
+	0000 
+00591	D7C8		XCALL _SetXOverFilterType
+	02B6 R
+00593	830D 		LW	R3,BP
+00594	2B03 		SBI	R3,3
+00595	C8B2 		STX	R0,DP0+R3+2
+		; 	if( numberOfBands > maxBandAllowed )
+00596	D2CF		LXS R7,BP-2
+	FFFE 
+00598	8600 		LW	R6,R0
+00599	8E07 		CMP R6,R7
+0059A	E102 		JB L170
+0059B	E201 		JZ L170
+		; 		numberOfBands = maxBandAllowed;
+0059C	CFB2 		STX	R7,DP0+R3+2
+		
+0059D		L170
+		; 
+		; 	return numberOfBands;
+0059D	D2C8		LXS R0,BP-1
+	FFFF 
+		
+0059F		L164
+0059F	D5CA 		XRET 2
+			PUBLIC _clearLockedBands
+		;              i -> BP-1
+		; numberOfBandsToUnlock -> BP+3
+		;      bandsType -> BP+2
+005A0		_clearLockedBands
+005A0	7D0E 		DECW	XSPL
+		; }
+		; 
+		; void clearLockedBands( WORD *bandsType, WORD numberOfBandsToUnlock )
+		; {
+		; 	WORD i;
+		; 	for ( i=0; i<numberOfBandsToUnlock; i++ )
+005A1	0700 		LI R7,0
+005A2	D3CF		STXS R7,BP-1
+	FFFF 
+005A4	780C 		SJMP L176
+		
+005A5		L173
+005A5	830D 		LW	R3,BP
+005A6	2B01 		SBI	R3,1
+005A7	C7B3 		LX	R7,DP0+R3+3
+005A8	C1B0 		LX	R1,DP0+R3
+005A9	9107 		ADD	R1,R7
+005AA	C790 		LX R7,DP0+R1
+005AB	D74B		ANI R7,-32768
+	8000 
+005AD	CF90 		STX R7,DP0+R1
+		
+005AE	C7B0 		LX	R7,DP0+R3
+005AF	1701 		ADI R7,1
+005B0	CFB0 		STX	R7,DP0+R3
+		
+005B1		L176
+005B1	830D 		LW	R3,BP
+005B2	2B01 		SBI	R3,1
+005B3	C7B4 		LX	R7,DP0+R3+4
+005B4	C6B0 		LX	R6,DP0+R3
+005B5	8E07 		CMP R6,R7
+005B6	E1EE 		JB L173
+		
+005B7	D5CA 		XRET 2
+			PUBLIC _flatBands
+		;              i -> BP-1
+		; numberOfBandsToUnlock -> BP+6
+		;      bandStart -> BP+5
+		;         PROCid -> BP+4
+		;          DSPid -> BP+3
+		; updateCoeffCallback -> BP+2
+005B8		_flatBands
+005B8	7D0E 		DECW	XSPL
+		; 		bandsType[i] &= BIQUAD_EX_FLAG; // unlock by setting to FLAT
+		; }
+		; 
+		; void flatBands( UpdateCoeffCallback *updateCoeffCallback, WORD DSPid, WORD PROCid, WORD bandStart, WORD numberOfBandsToUnlock )
+		; {
+		; 	WORD i; 
+		; 	for( i = 0; i < numberOfBandsToUnlock; i++ )
+005B9	0700 		LI R7,0
+005BA	D3CF		STXS R7,BP-1
+	FFFF 
+005BC	7818 		SJMP L181
+		
+005BD		L178
+005BD	830D 		LW	R3,BP
+005BE	2B01 		SBI	R3,1
+005BF	C7B0 		LX	R7,DP0+R3
+005C0	C6B6 		LX	R6,DP0+R3+6
+005C1	9607 		ADD R6,R7
+005C2	C64D 		PUSH	R6
+005C3	0601 		LI	R6,1
+005C4	C7B5 		LX	R7,DP0+R3+5
+005C5	C74D 		PUSH	R7
+005C6	C7B4 		LX	R7,DP0+R3+4
+005C7	C74D 		PUSH	R7
+005C8	C1B3 		LX	R1,DP0+R3+3
+005C9	F881 		DLX	DR0,DP0+R1
+005CA	F8F7 		SWAP	DR0
+005CB	C44F 		POP	R4
+005CC	C54F 		POP	R5
+005CD	C74F 		POP	R7
+005CE	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+		
+005D0	830D 		LW	R3,BP
+005D1	2B01 		SBI	R3,1
+005D2	C7B0 		LX	R7,DP0+R3
+005D3	1701 		ADI R7,1
+005D4	CFB0 		STX	R7,DP0+R3
+		
+005D5		L181
+005D5	830D 		LW	R3,BP
+005D6	2B01 		SBI	R3,1
+005D7	C7B7 		LX	R7,DP0+R3+7
+005D8	C6B0 		LX	R6,DP0+R3
+005D9	8E07 		CMP R6,R7
+005DA	E1E2 		JB L178
+		
+005DB	D5CD 		XRET 5
+			PUBLIC _SetFilterType
+		;       iirCoeff -> BP-13
+		;           type -> BP-3
+		;          iirFP -> BP-2
+		;        maxBand -> BP-1
+		;              v -> BP+7
+		;           band -> BP+6
+		;         PROCid -> BP+5
+		;          DSPid -> BP+4
+		;    biquadParam -> BP+3
+		; updateCoeffCallback -> BP+2
+005DC		_SetFilterType
+005DC	C04C		SXSP  14
+	000E 
+		; 		updateBiquadCallback(updateCoeffCallback->BIQUAD_FlatFuncPtr, DSPid, PROCid, 1, bandStart + i ); // flat band.
+		; }
+		; 
+		; /* -----------------------------------------------------
+		; * set EQ band Type
+		; * band: EQ band
+		; * v: Type
+		; */
+		; void SetFilterType( UpdateCoeffCallback *updateCoeffCallback, BiquadParameters *biquadParam, WORD DSPid, WORD PROCid, WORD band, WORD v )
+		; {
+		; 	_FILTER_PARAM *iirFP;
+		; 	_BIQUAD_FIXEDCOEFF iirCoeff;
+		; 	WORD type;
+		; 	int maxBand;
+		; 
+		; 	if ( biquadParam->type[band] & BIQUAD_XOVER_TYPE_BAND )	// filter band used by high order XOver filter?
+005DE	830D 		LW	R3,BP
+005DF	2B08 		SBI	R3,8
+005E0	C1BB 		LX	R1,DP0+R3+11
+005E1	C791 		LX	R7,DP0+R1+1
+005E2	C6BE 		LX	R6,DP0+R3+14
+005E3	8106 		LW R1,R6
+005E4	9107 		ADD R1,R7
+005E5	C790 		LX R7,DP0+R1
+005E6	D74B		ANI R7,16384
+	4000 
+005E8	B702 		JRZ	R7,$+3
+005E9	D0CE		LJMP	L198
+	06A1 R
+		; 		return;
+		
+		; 
+		; 	iirFP = (_FILTER_PARAM *)&biquadParam->filterParameters[band];	
+005EB	C1BB 		LX	R1,DP0+R3+11
+005EC	C790 		LX R7,DP0+R1
+005ED	F693 		SHL R6,3
+005EE	9607 		ADD R6,R7
+005EF	CEB6 		STX	R6,DP0+R3+6
+		; 
+		; 	if ( ( maxBand = getNumberOfXoverBands( biquadParam, band ) ) > 1 )
+005F0	C7BE 		LX	R7,DP0+R3+14
+005F1	7E07 		XPUSH  R7
+005F2	7E01 		XPUSH	R1
+005F3	D7C8		XCALL _getNumberOfXoverBands
+	055D R
+005F5	830D 		LW	R3,BP
+005F6	2B08 		SBI	R3,8
+005F7	C8B7 		STX	R0,DP0+R3+7
+005F8	8500 		LW R5,R0
+005F9	0D01 		CPI	R5,1
+005FA	FDE7		JBES	L185
+	001A 
+			 
+			 
+			 
+			 
+		; 	{
+		; 		clearLockedBands( &biquadParam->type[band+1], maxBand-1 );	// "unlock" following bands used for Biquad of higher order
+005FC	2801 		SBI	R0,1
+005FD	7E00 		XPUSH	R0
+005FE	C1BB 		LX	R1,DP0+R3+11
+005FF	C791 		LX	R7,DP0+R1+1
+00600	C6BE 		LX	R6,DP0+R3+14
+00601	1601 		ADI R6,1
+00602	9607 		ADD R6,R7
+00603	7E06 		XPUSH  R6
+00604	D7C8		XCALL  _clearLockedBands
+	05A0 R
+		; 		flatBands( updateCoeffCallback, DSPid, PROCid, band+1, maxBand-1 );
+00606	830D 		LW	R3,BP
+00607	2B08 		SBI	R3,8
+00608	C7B7 		LX	R7,DP0+R3+7
+00609	2F01 		SBI R7,1
+0060A	7E07 		XPUSH  R7
+0060B	C7BE 		LX	R7,DP0+R3+14
+0060C	1701 		ADI R7,1
+0060D	7E07 		XPUSH  R7
+0060E	C7BD 		LX	R7,DP0+R3+13
+0060F	7E07 		XPUSH  R7
+00610	C7BC 		LX	R7,DP0+R3+12
+00611	7E07 		XPUSH  R7
+00612	C7BA 		LX	R7,DP0+R3+10
+00613	7E07 		XPUSH  R7
+00614	D7C8		XCALL  _flatBands
+	05B8 R
+		; 	}
+		
+00616		L185
+		; 
+		; 	if ( !(v & (1<<6)) )	// not XOver filter?
+00616	830D 		LW	R3,BP
+00617	2B08 		SBI	R3,8
+00618	C7BF 		LX	R7,DP0+R3+15
+00619	1F40 		ANI R7,64
+0061A	BF31 		JRNZ	R7,L187
+		; 	{
+		; 		biquadParam->type[band] = (biquadParam->type[band] & BIQUAD_EX_FLAG) | v;
+0061B	C1BB 		LX	R1,DP0+R3+11
+0061C	C791 		LX	R7,DP0+R1+1
+0061D	C1BE 		LX	R1,DP0+R3+14
+0061E	9107 		ADD	R1,R7
+0061F	C7BF 		LX	R7,DP0+R3+15
+00620	C590 		LX R5,DP0+R1
+00621	D54B		ANI R5,-32768
+	8000 
+00623	A507 		OR R5,R7
+00624	CD90 		STX R5,DP0+R1
+		; 
+		; 		if( !isLoadingPreset && FilterCoefficientsUpdate( &biquadParam->type[band], iirFP, &iirCoeff ) ) //stable?
+00625	D148		LI R1,_isLoadingPreset
+	0000 R
+00627	C790 		LX R7,DP0+R1
+00628	BF78 		JRNZ	R7,L198
+00629	870D 		LW R7,BP
+0062A	2F0D 		SBI	R7,13
+0062B	7E07 		XPUSH	R7
+0062C	C7B6 		LX	R7,DP0+R3+6
+0062D	7E07 		XPUSH  R7
+0062E	C1BB 		LX	R1,DP0+R3+11
+0062F	C791 		LX	R7,DP0+R1+1
+00630	C6BE 		LX	R6,DP0+R3+14
+00631	9607 		ADD R6,R7
+00632	7E06 		XPUSH  R6
+00633	D7C8		XCALL _FilterCoefficientsUpdate
+	032E R
+00635	B06B 		JRZ	R0,L198
+		; 			updateBiquadCallback( updateCoeffCallback->BIQUAD_UpdateCoeffFuncPtr, DSPid, PROCid, (WORD)&iirCoeff, band );
+00636	830D 		LW	R3,BP
+00637	2B08 		SBI	R3,8
+00638	C7BE 		LX	R7,DP0+R3+14
+00639	C74D 		PUSH	R7
+0063A	870D 		LW R7,BP
+0063B	2F0D 		SBI	R7,13
+0063C	C74D 		PUSH	R7
+0063D	C7BD 		LX	R7,DP0+R3+13
+0063E	C74D 		PUSH	R7
+0063F	C7BC 		LX	R7,DP0+R3+12
+00640	C74D 		PUSH	R7
+00641	C1BA 		LX	R1,DP0+R3+10
+00642	1102 		ADI R1,2
+00643	F881 		DLX	DR0,DP0+R1
+00644	F8F7 		SWAP	DR0
+00645	C44F 		POP	R4
+00646	C54F 		POP	R5
+00647	C64F 		POP	R6
+00648	C74F 		POP	R7
+00649	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+		; 	}
+0064B	7855 		SJMP	L198
+		
+0064C		L187
+		; 	else	// XOver filter
+		; 	{
+		; 		v &= (1<<6)-1;
+0064C	830D 		LW	R3,BP
+0064D	2B08 		SBI	R3,8
+0064E	C6BF 		LX	R6,DP0+R3+15
+0064F	1E3F 		ANI	R6,63
+00650	CEBF 		STX	R6,DP0+R3+15
+		; 		if ( v > XOVER_LINKRILEY_8TH ) // is LP or HP, if true then HP
+00651	0E14 		CPI	R6,20
+00652	E106 		JB L191
+00653	E205 		JZ L191
+		; 		{
+		; 			type = XOVER_HP;
+00654	0701 		LI R7,1
+00655	CFB5 		STX	R7,DP0+R3+5
+		; 			v -= 40;
+00656	2E28 		SBI	R6,40
+00657	CEBF 		STX	R6,DP0+R3+15
+		; 		}
+00658	7803 		SJMP L192
+		
+00659		L191
+		; 		else
+		; 			type = XOVER_LP;
+00659	0700 		LI R7,0
+0065A	D3CF		STXS R7,BP-3
+	FFFD 
+		
+0065C		L192
+		; 		maxBand = ( (biquadParam->numberOfBand-band) > 4 ) ? 4 : ( biquadParam->numberOfBand - band );
+0065C	830D 		LW	R3,BP
+0065D	2B08 		SBI	R3,8
+0065E	C7BE 		LX	R7,DP0+R3+14
+0065F	C1BB 		LX	R1,DP0+R3+11
+00660	C694 		LX	R6,DP0+R1+4
+00661	AE07 		SUB R6,R7
+00662	0E04 		CPI	R6,4
+00663	E105 		JB L194
+00664	E204 		JZ L194
+00665	0704 		LI R7,4
+00666	D3CF		STXS R7,BP-14
+	FFF2 
+00668	7808 		SJMP L195
+		
+00669		L194
+00669	830D 		LW	R3,BP
+0066A	2B08 		SBI	R3,8
+0066B	C7BE 		LX	R7,DP0+R3+14
+0066C	C1BB 		LX	R1,DP0+R3+11
+0066D	C694 		LX	R6,DP0+R1+4
+0066E	AE07 		SUB R6,R7
+0066F	2B06 		SBI	R3,6
+00670	CEB0 		STX	R6,DP0+R3
+		
+00671		L195
+00671	830D 		LW	R3,BP
+00672	2B0E 		SBI	R3,14
+00673	C7B0 		LX	R7,DP0+R3
+00674	CFBD 		STX	R7,DP0+R3+13
+		; 		if ( ( maxBand = SetXOverFilterType( type, maxBand, v, iirFP, &biquadParam->type[band], &biquadParam->xoverType[band] ) ) != -1 )
+00675	130B 		ADI	R3,11
+00676	C1B6 		LX	R1,DP0+R3+6
+00677	C792 		LX	R7,DP0+R1+2
+00678	C6B9 		LX	R6,DP0+R3+9
+00679	9607 		ADD R6,R7
+0067A	7E06 		XPUSH  R6
+0067B	C791 		LX	R7,DP0+R1+1
+0067C	C6B9 		LX	R6,DP0+R3+9
+0067D	9607 		ADD R6,R7
+0067E	7E06 		XPUSH  R6
+0067F	C7B1 		LX	R7,DP0+R3+1
+00680	7E07 		XPUSH  R7
+00681	C7BA 		LX	R7,DP0+R3+10
+00682	7E07 		XPUSH  R7
+00683	C7B2 		LX	R7,DP0+R3+2
+00684	7E07 		XPUSH  R7
+00685	C7B0 		LX	R7,DP0+R3
+00686	7E07 		XPUSH  R7
+00687	D7C8		XCALL _SetXOverFilterType
+	02B6 R
+00689	830D 		LW	R3,BP
+0068A	2B03 		SBI	R3,3
+0068B	C8B2 		STX	R0,DP0+R3+2
+0068C	D049		CPI R0,-1
+	FFFF 
+0068E	E212 		JZ	L198
+		; 		{
+		; 			if ( !isLoadingPreset )
+0068F	FF80		LXA	R7,DP0,_isLoadingPreset
+	0000 R
+00691	BF0F 		JRNZ	R7,L198
+		; 				UpdateXOverIIRCoeff( updateCoeffCallback, DSPid, PROCid, band, maxBand, iirFP, biquadParam );
+00692	C7B6 		LX	R7,DP0+R3+6
+00693	7E07 		XPUSH  R7
+00694	C7B1 		LX	R7,DP0+R3+1
+00695	7E07 		XPUSH  R7
+00696	7E00 		XPUSH	R0
+00697	C7B9 		LX	R7,DP0+R3+9
+00698	7E07 		XPUSH  R7
+00699	C7B8 		LX	R7,DP0+R3+8
+0069A	7E07 		XPUSH  R7
+0069B	C7B7 		LX	R7,DP0+R3+7
+0069C	7E07 		XPUSH  R7
+0069D	C7B5 		LX	R7,DP0+R3+5
+0069E	7E07 		XPUSH  R7
+0069F	D7C8		XCALL  _UpdateXOverIIRCoeff
+	0725 R
+		
+006A1		L198
+		; 		}
+		
+		
+		
+006A1	D5CE 		XRET 6
+006A2	----
+006A2			.area text(ROM,REL,CON)
+006A2	----
+00098			.area const(ROM,REL,CON)
+00098	0007 	L201	DW   7,32768
+00099	8000 
+0009A	003E 		DW   62,32768
+0009B	8000 
+0009C	0177 		DW   375,0
+0009D	0000 
+			PUBLIC _InitDefaultPeqBands
+0009E	----
+006A2			.area text(ROM,REL,CON)
+		;        maxBand -> BP-6
+		; updateCoeffCallback -> BP-5
+		;           band -> BP-1
+		;         PROCid -> BP+4
+		;          DSPid -> BP+3
+		;    biquadParam -> BP+2
+006A2		_InitDefaultPeqBands
+006A2	C04C		SXSP  7
+	0007 
+		; 	}
+		; }
+		; 
+		; void InitDefaultPeqBands( BiquadParameters *biquadParam, WORD DSPid, WORD PROCid )
+		; {
+		; 	static const DWORD defaultFreq[3] = { (DWORD)(120UL << 12), (DWORD)(1000UL << 12), (DWORD)(6000UL << 12) };
+		; 	UpdateCoeffCallback updateCoeffCallback;
+		; 	WORD band, maxBand;
+		; 
+		; 	if ( !biquadParam )
+006A4	830D 		LW	R3,BP
+006A5	2B07 		SBI	R3,7
+006A6	C7B9 		LX	R7,DP0+R3+9
+006A7	B77C 		JRZ	R7,L200
+		; 		return;
+		
+		; 
+		; 	updateCoeffCallback.BIQUAD_UpdateCoeffFuncPtr = _cptr32(&_MixPA_Biquad_UpdateCoeff);
+006A8	F8D0		DLA	DR0,__MixPA_Biquad_UpdateCoeff
+	0000 RE
+006AA	D3C8		STXS R0,BP-2
+	FFFE 
+006AC	D3C9		STXS R1,BP-3
+	FFFD 
+		; 	updateCoeffCallback.BIQUAD_FlatFuncPtr = _cptr32(&_MixPA_Biquad_Flat);
+006AE	F8D0		DLA	DR0,__MixPA_Biquad_Flat
+	0000 RE
+006B0	D3C8		STXS R0,BP-4
+	FFFC 
+006B2	D3C9		STXS R1,BP-5
+	FFFB 
+		; 
+		; 	_MixPA_Biquad_OnOff( DSPid, PROCid, 1 );
+006B4	0001 		LI	R0,1
+006B5	C1BB 		LX	R1,DP0+R3+11
+006B6	C4BA 		LX	R4,DP0+R3+10
+006B7	D6C8		LCALL	__MixPA_Biquad_OnOff$R4R1R0$
+	0000 RE
+		; 
+		; 	maxBand = (biquadParam->numberOfBand > 3) ? 3 : (WORD)biquadParam->numberOfBand;
+006B9	830D 		LW	R3,BP
+006BA	2B07 		SBI	R3,7
+006BB	C1B9 		LX	R1,DP0+R3+9
+006BC	C594 		LX	R5,DP0+R1+4
+006BD	0D03 		CPI	R5,3
+006BE	FDE7		JBES	L206
+	0003 
+			 
+			 
+			 
+			 
+006C0	0703 		LI R7,3
+006C1	CFB0 		STX	R7,DP0+R3
+006C2	7805 		SJMP L207
+		
+006C3		L206
+006C3	830D 		LW	R3,BP
+006C4	2B07 		SBI	R3,7
+006C5	C1B9 		LX	R1,DP0+R3+9
+006C6	C794 		LX	R7,DP0+R1+4
+006C7	CFB0 		STX	R7,DP0+R3
+		
+006C8		L207
+006C8	830D 		LW	R3,BP
+006C9	2B07 		SBI	R3,7
+006CA	C7B0 		LX	R7,DP0+R3
+006CB	CFB1 		STX	R7,DP0+R3+1
+		; 	for ( band = 0; band < maxBand; band++ )
+006CC	0700 		LI R7,0
+006CD	CFB6 		STX	R7,DP0+R3+6
+006CE	784F 		SJMP	L211
+		
+006CF		L208
+006CF	830D 		LW	R3,BP
+006D0	2B07 		SBI	R3,7
+006D1	C1B6 		LX	R1,DP0+R3+6
+006D2	F191 		SHL	R1,1
+006D3	D14A		ADI	R1,L201
+	0098 R
+006D5	FB85 		DLX	DR3,DP1+R1
+006D6	FBF7 		SWAP	DR3
+006D7	7E06 		XPUSH  R6
+006D8	7E07 		XPUSH	R7
+006D9	C7B6 		LX	R7,DP0+R3+6
+006DA	7E07 		XPUSH  R7
+006DB	C7BB 		LX	R7,DP0+R3+11
+006DC	7E07 		XPUSH  R7
+006DD	C7BA 		LX	R7,DP0+R3+10
+006DE	7E07 		XPUSH  R7
+006DF	C7B9 		LX	R7,DP0+R3+9
+006E0	7E07 		XPUSH  R7
+006E1	870D 		LW R7,BP
+006E2	2F05 		SBI	R7,5
+006E3	7E07 		XPUSH	R7
+006E4	D7C8		XCALL  _SetFilterFreq
+	0450 R
+006E6	C14C		XPUSHI 8192
+	2000 
+006E8	830D 		LW	R3,BP
+006E9	2B07 		SBI	R3,7
+006EA	C7B6 		LX	R7,DP0+R3+6
+006EB	7E07 		XPUSH  R7
+006EC	C7BB 		LX	R7,DP0+R3+11
+006ED	7E07 		XPUSH  R7
+006EE	C7BA 		LX	R7,DP0+R3+10
+006EF	7E07 		XPUSH  R7
+006F0	C7B9 		LX	R7,DP0+R3+9
+006F1	7E07 		XPUSH  R7
+006F2	870D 		LW R7,BP
+006F3	2F05 		SBI	R7,5
+006F4	7E07 		XPUSH	R7
+006F5	D7C8		XCALL  _SetFilterQ
+	04ED R
+006F7	C14C		XPUSHI 16384
+	4000 
+006F9	830D 		LW	R3,BP
+006FA	2B07 		SBI	R3,7
+006FB	C7B6 		LX	R7,DP0+R3+6
+006FC	7E07 		XPUSH  R7
+006FD	C7BB 		LX	R7,DP0+R3+11
+006FE	7E07 		XPUSH  R7
+006FF	C7BA 		LX	R7,DP0+R3+10
+00700	7E07 		XPUSH  R7
+00701	C7B9 		LX	R7,DP0+R3+9
+00702	7E07 		XPUSH  R7
+00703	870D 		LW R7,BP
+00704	2F05 		SBI	R7,5
+00705	7E07 		XPUSH	R7
+00706	D7C8		XCALL  _SetFilterGain
+	03F7 R
+00708	C14C		XPUSHI 1
+	0001 
+0070A	830D 		LW	R3,BP
+0070B	2B07 		SBI	R3,7
+0070C	C7B6 		LX	R7,DP0+R3+6
+0070D	7E07 		XPUSH  R7
+0070E	C7BB 		LX	R7,DP0+R3+11
+0070F	7E07 		XPUSH  R7
+00710	C7BA 		LX	R7,DP0+R3+10
+00711	7E07 		XPUSH  R7
+00712	C7B9 		LX	R7,DP0+R3+9
+00713	7E07 		XPUSH  R7
+00714	870D 		LW R7,BP
+00715	2F05 		SBI	R7,5
+00716	7E07 		XPUSH	R7
+00717	D7C8		XCALL  _SetFilterType
+	05DC R
+		
+00719	830D 		LW	R3,BP
+0071A	2B07 		SBI	R3,7
+0071B	C7B6 		LX	R7,DP0+R3+6
+0071C	1701 		ADI R7,1
+0071D	CFB6 		STX	R7,DP0+R3+6
+		
+0071E		L211
+0071E	830D 		LW	R3,BP
+0071F	2B07 		SBI	R3,7
+00720	C7B1 		LX	R7,DP0+R3+1
+00721	C6B6 		LX	R6,DP0+R3+6
+00722	8E07 		CMP R6,R7
+00723	E1AB 		JB	L208
+		
+00724		L200
+00724	D5CB 		XRET 3
+			PUBLIC _UpdateXOverIIRCoeff
+		;       iirCoeff -> BP-26
+		;              Q -> BP-16
+		;      xoverType -> BP-14
+		;             FP -> BP-13
+		;         stable -> BP-12
+		;             f0 -> BP-11
+		;         iirTmp -> BP-9
+		;              i -> BP-1
+		;    biquadParam -> BP+8
+		; IIRFilterParam -> BP+7
+		;   NumberOfBand -> BP+6
+		;      bandStart -> BP+5
+		;         PROCid -> BP+4
+		;          DSPid -> BP+3
+		; updateCoeffCallback -> BP+2
+00725		_UpdateXOverIIRCoeff
+00725	C04C		SXSP  26
+	001A 
+		; 	{
+		; 		SetFilterFreq( &updateCoeffCallback, biquadParam, DSPid, PROCid, band, defaultFreq[band] );
+		; 		SetFilterQ( &updateCoeffCallback, biquadParam, DSPid, PROCid, band, 0x2000 );
+		; 		SetFilterGain( &updateCoeffCallback, biquadParam, DSPid, PROCid, band, 0x4000 );
+		; 		SetFilterType( &updateCoeffCallback, biquadParam, DSPid, PROCid, band, 1 );
+		; 	}
+		; }
+		; 
+		; void UpdateXOverIIRCoeff( UpdateCoeffCallback *updateCoeffCallback, WORD DSPid, WORD PROCid,  WORD bandStart, WORD NumberOfBand, _FILTER_PARAM *IIRFilterParam, BiquadParameters *biquadParam )
+		; {
+		; 	_FILTER_PARAM iirTmp;
+		; 	_BIQUAD_FIXEDCOEFF iirCoeff;
+		; 	WORD *FP, xoverType;
+		; 	
+		; 	WORD i, stable;
+		; 	FLOAT Q, f0;
+		; 	
+		; 	FP = &biquadParam->type[bandStart];
+00727	830D 		LW	R3,BP
+00728	2B07 		SBI	R3,7
+00729	C1BF 		LX	R1,DP0+R3+15
+0072A	C791 		LX	R7,DP0+R1+1
+0072B	C6BC 		LX	R6,DP0+R3+12
+0072C	9607 		ADD R6,R7
+0072D	2B06 		SBI	R3,6
+0072E	CEB0 		STX	R6,DP0+R3
+		; 	f0 = IIRFilterParam->f0;
+0072F	1314 		ADI	R3,20
+00730	C1B0 		LX	R1,DP0+R3
+00731	FB81 		DLX	DR3,DP0+R1
+00732	FBF7 		SWAP	DR3
+00733	D3CE		STXS R6,BP-10
+	FFF6 
+00735	D3CF		STXS R7,BP-11
+	FFF5 
+		; 	xoverType = biquadParam->xoverType[bandStart]&((1<<8)-1);
+00737	C1B1 		LX	R1,DP0+R3+1
+00738	C792 		LX	R7,DP0+R1+2
+00739	2B02 		SBI	R3,2
+0073A	C1B0 		LX	R1,DP0+R3
+0073B	9107 		ADD R1,R7
+0073C	C790 		LX R7,DP0+R1
+0073D	1FFF 		ANI R7,255
+0073E	2B13 		SBI	R3,19
+0073F	CFB0 		STX	R7,DP0+R3
+		; 
+		; 	for (i=0; i<NumberOfBand; i++ )
+00740	0700 		LI R7,0
+00741	CFBD 		STX	R7,DP0+R3+13
+00742	D0CE		LJMP L216
+	07EA R
+		
+00744		L213
+		; 	{
+		; 		IIRFilterParam[i].f0 = f0;
+00744	830D 		LW	R3,BP
+00745	2B07 		SBI	R3,7
+00746	C7BE 		LX	R7,DP0+R3+14
+00747	C1B6 		LX	R1,DP0+R3+6
+00748	F193 		SHL	R1,3
+00749	9107 		ADD R1,R7
+0074A	FBE2		DLXS	DR3,BP-11
+	FFF5 
+0074C	FBF7 		SWAP	DR3
+0074D	CE91 		STX R6,DP0+R1+1
+0074E	CF90 		STX R7,DP0+R1
+		; 		if ( xoverType & (1<<3) ) // special frequency for Bessel filter
+0074F	2B07 		SBI	R3,7
+00750	C7B0 		LX	R7,DP0+R3
+00751	1F08 		ANI R7,8
+00752	B717 		JRZ	R7,L217
+		; 			iirTmp.f0 = (FLOAT)GetBesselFrequency( xoverType, FP[i]&(BIQUAD_EX_FLAG-1), i, f0 );
+00753	FBE2		DLXS	DR3,BP-11
+	FFF5 
+00755	FBF7 		SWAP	DR3
+00756	7E06 		XPUSH  R6
+00757	7E07 		XPUSH	R7
+00758	C7BD 		LX	R7,DP0+R3+13
+00759	7E07 		XPUSH  R7
+0075A	C7B1 		LX	R7,DP0+R3+1
+0075B	C1BD 		LX	R1,DP0+R3+13
+0075C	9107 		ADD R1,R7
+0075D	C790 		LX R7,DP0+R1
+0075E	D74B		ANI R7,32767
+	7FFF 
+00760	7E07 		XPUSH  R7
+00761	C7B0 		LX	R7,DP0+R3
+00762	7E07 		XPUSH  R7
+00763	D7C8		XCALL _GetBesselFrequency
+	00B2 R
+00765	D3C8		STXS R0,BP-8
+	FFF8 
+00767	D3C9		STXS R1,BP-9
+	FFF7 
+00769	7807 		SJMP L218
+		
+0076A		L217
+		; 		else
+		; 			iirTmp.f0 = f0;
+0076A	FBE2		DLXS	DR3,BP-11
+	FFF5 
+0076C	FBF7 		SWAP	DR3
+0076D	D3CE		STXS R6,BP-8
+	FFF8 
+0076F	D3CF		STXS R7,BP-9
+	FFF7 
+		
+00771		L218
+		; 		iirTmp.Q = Q = IIRFilterParam[i].Q;	// Save Q 'cause it could be modified by XOverFilterUpdate function.
+00771	830D 		LW	R3,BP
+00772	2B07 		SBI	R3,7
+00773	C7BE 		LX	R7,DP0+R3+14
+00774	C1B6 		LX	R1,DP0+R3+6
+00775	F193 		SHL	R1,3
+00776	9107 		ADD	R1,R7
+00777	1104 		ADI R1,4
+00778	FB81 		DLX	DR3,DP0+R1
+00779	FBF7 		SWAP	DR3
+0077A	D3CE		STXS R6,BP-15
+	FFF1 
+0077C	D3CF		STXS R7,BP-16
+	FFF0 
+0077E	D3CE		STXS R6,BP-4
+	FFFC 
+00780	D3CF		STXS R7,BP-5
+	FFFB 
+		; 		iirTmp.fs =  IIRFilterParam[i].fs;
+00782	C7BE 		LX	R7,DP0+R3+14
+00783	C1B6 		LX	R1,DP0+R3+6
+00784	F193 		SHL	R1,3
+00785	9107 		ADD	R1,R7
+00786	1102 		ADI R1,2
+00787	FB81 		DLX	DR3,DP0+R1
+00788	FBF7 		SWAP	DR3
+00789	D3CE		STXS R6,BP-6
+	FFFA 
+0078B	D3CF		STXS R7,BP-7
+	FFF9 
+		; 		stable = FilterCoefficientsUpdate( &FP[i], &iirTmp, &iirCoeff );
+0078D	870D 		LW R7,BP
+0078E	2F1A 		SBI	R7,26
+0078F	7E07 		XPUSH	R7
+00790	870D 		LW R7,BP
+00791	2F09 		SBI	R7,9
+00792	7E07 		XPUSH	R7
+00793	2B06 		SBI	R3,6
+00794	C7B0 		LX	R7,DP0+R3
+00795	C6BC 		LX	R6,DP0+R3+12
+00796	9607 		ADD R6,R7
+00797	7E06 		XPUSH  R6
+00798	D7C8		XCALL _FilterCoefficientsUpdate
+	032E R
+0079A	830D 		LW	R3,BP
+0079B	2B0D 		SBI	R3,13
+0079C	C8B1 		STX	R0,DP0+R3+1
+		; 		if (stable)
+0079D	B030 		JRZ	R0,L224
+		; 		{
+		; 			if ( (!Q) )
+0079E	FB63 		DXOR	DR3,DR3
+0079F	FAE2		DLXS	DR2,BP-16
+	FFF0 
+007A1	FAF7 		SWAP	DR2
+007A2	FA13 		DCMP	DR2,DR3
+007A3	E313 		JNZ L223
+		; 				updateBiquadCallback( updateCoeffCallback->BIQUAD_FlatFuncPtr, DSPid, PROCid, 1, bandStart+i ); // flat 1 band.
+007A4	C7BC 		LX	R7,DP0+R3+12
+007A5	130F 		ADI	R3,15
+007A6	C6B3 		LX	R6,DP0+R3+3
+007A7	9607 		ADD R6,R7
+007A8	C64D 		PUSH	R6
+007A9	0601 		LI	R6,1
+007AA	C7B2 		LX	R7,DP0+R3+2
+007AB	C74D 		PUSH	R7
+007AC	C7B1 		LX	R7,DP0+R3+1
+007AD	C74D 		PUSH	R7
+007AE	C1B0 		LX	R1,DP0+R3
+007AF	F881 		DLX	DR0,DP0+R1
+007B0	F8F7 		SWAP	DR0
+007B1	C44F 		POP	R4
+007B2	C54F 		POP	R5
+007B3	C74F 		POP	R7
+007B4	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+007B6	7817 		SJMP L224
+		
+007B7		L223
+		; 			else
+		; 				updateBiquadCallback( updateCoeffCallback->BIQUAD_UpdateCoeffFuncPtr, DSPid, PROCid, (WORD)&iirCoeff, bandStart+i );
+007B7	830D 		LW	R3,BP
+007B8	2B07 		SBI	R3,7
+007B9	C7B6 		LX	R7,DP0+R3+6
+007BA	C6BC 		LX	R6,DP0+R3+12
+007BB	9607 		ADD R6,R7
+007BC	C64D 		PUSH	R6
+007BD	870D 		LW R7,BP
+007BE	2F1A 		SBI	R7,26
+007BF	C74D 		PUSH	R7
+007C0	C7BB 		LX	R7,DP0+R3+11
+007C1	C74D 		PUSH	R7
+007C2	C7BA 		LX	R7,DP0+R3+10
+007C3	C74D 		PUSH	R7
+007C4	C1B9 		LX	R1,DP0+R3+9
+007C5	1102 		ADI R1,2
+007C6	F881 		DLX	DR0,DP0+R1
+007C7	F8F7 		SWAP	DR0
+007C8	C44F 		POP	R4
+007C9	C54F 		POP	R5
+007CA	C64F 		POP	R6
+007CB	C74F 		POP	R7
+007CC	D6C8		LCALL	_updateBiquadCallback$R1R0R4R5R6R7$
+	0000 RE
+		
+007CE		L224
+		; 		}
+		
+		; 		if ( ( NumberOfBand > 1 ) && ( i < ( NumberOfBand - 1 ) ) ) // tag only implied XOver bands
+007CE	830D 		LW	R3,BP
+007CF	2B07 		SBI	R3,7
+007D0	C7BD 		LX	R7,DP0+R3+13
+007D1	0F01 		CPI	R7,1
+007D2	E112 		JB L225
+007D3	E211 		JZ L225
+007D4	2F01 		SBI R7,1
+007D5	C6B6 		LX	R6,DP0+R3+6
+007D6	8E07 		CMP R6,R7
+007D7	E00D 		JAE L225
+		; 			biquadParam->type[bandStart+i+1] |= BIQUAD_XOVER_TYPE_BAND;	// Reserve this band for this XOver filter
+007D8	8706 		LW	R7,R6
+007D9	C6BC 		LX	R6,DP0+R3+12
+007DA	9607 		ADD R6,R7
+007DB	8706 		LW R7,R6
+007DC	1701 		ADI R7,1
+007DD	C1BF 		LX	R1,DP0+R3+15
+007DE	C691 		LX	R6,DP0+R1+1
+007DF	9706 		ADD R7,R6
+007E0	8107 		LW R1,R7
+007E1	C690 		LX R6,DP0+R1
+007E2	D64C		ORI R6,16384
+	4000 
+007E4	CE90 		STX R6,DP0+R1
+		
+007E5		L225
+		
+007E5	830D 		LW	R3,BP
+007E6	2B07 		SBI	R3,7
+007E7	C7B6 		LX	R7,DP0+R3+6
+007E8	1701 		ADI R7,1
+007E9	CFB6 		STX	R7,DP0+R3+6
+		
+007EA		L216
+007EA	830D 		LW	R3,BP
+007EB	2B07 		SBI	R3,7
+007EC	C7BD 		LX	R7,DP0+R3+13
+007ED	C6B6 		LX	R6,DP0+R3+6
+007EE	8E07 		CMP R6,R7
+007EF	E002 		JAE	$+3
+007F0	D0CE		LJMP	L213
+	0744 R
+		
+007F2	D5CF		XRET 7
+	0007 
+			EXTRN __MixPA_Biquad_Flat
+			EXTRN __MixPA_Biquad_UpdateCoeff
+			EXTRN __Biquad_FilterAP1
+			EXTRN __Biquad_FilterAP2
+			EXTRN __Biquad_FilterHP2
+			EXTRN __Biquad_FilterHP1
+			EXTRN __Biquad_FilterLP2
+			EXTRN __Biquad_FilterLP1
+			EXTRN __Biquad_FilterPEQ
+			EXTRN __Biquad_FilterHS1
+			EXTRN __Biquad_FilterLS1
+			EXTRN __Biquad_FilterFLAT
+			EXTRN	_isLoadingPreset
+			EXTRN	__fdiv$R7R6R5R4$R2R3R4R5R6R7
+			EXTRN	__fmul$R7R6R5R4$R2R3R4R5R6R7
+			EXTRN	__Sys_GetSamplingRate$$
+			EXTRN	__float$R7R6$R2R3R4R5R6R7
+			EXTRN	__Biquad_FltFloatCoeff$R1R0R2R3$
+			EXTRN	__Biquad_FloatToFixCoeff$R2R3R7$
+			EXTRN	_updateBiquadCallback$R1R0R4R5R6R7$
+			EXTRN	__fadd$R7R6R5R4$R2R3R4R5R6R7
+			EXTRN	__MixPA_Biquad_OnOff$R4R1R0$
+007F4	----
+!0 error(s) 0 warning(s)

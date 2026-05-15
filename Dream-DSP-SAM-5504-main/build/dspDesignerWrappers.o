@@ -1,0 +1,112 @@
+XH
+H 02 areas 0005 global symbols
+M dspDesignerWrappers.s
+A cst size 0000 flags 80
+A text size 0022 flags 00
+dbfile C*|Users|abhis|Downloads|autobot|Dream-DSP-SAM-5504-main|Dream-DSP-SAM-5504-main|dspDesignerWrappers.s   
+dbsym l %_SAMVS_VERSION 5143 ks
+dbsym l %_TARGET_IC 1580 ks
+dbsym l %_TARGET_CLASS_5xxx 1 ks
+dbsym l %_TARGET_FLAGS 9C4 ks
+dbsym l %_SAM5XXX_P24_RESERVED 0 ks
+dbsym l %_SAM_RAM_SIZE 9000 ks
+dbsym l %_SAM_CODE_MEM_END 4400 ks
+dbsym l %_SAM5504_INTRAM_16K__1_EXTQNOR_32M_15_8WS_ 1 ks
+dbsym l %_SAMVS_DEBUG 1 ks
+dbsym l %_5504DK_ 1 ks
+dbfile C*|Users|abhis|Downloads|autobot|Dream-DSP-SAM-5504-main|Dream-DSP-SAM-5504-main|dspDesignerWrappers.s   
+dbfile C*|Users|abhis|Downloads|autobot|Dream-DSP-SAM-5504-main|Dream-DSP-SAM-5504-main|dspDesignerWrappers.s   
+dbfunc e updateBiquadCallback$$ 0 fV
+dbline FFFFFFFF 0  
+dbsym l FunctionPointer32@R1R0 2 l
+dbsym l dsp@R4 3 i
+dbsym l proc@R5 4 i
+dbsym l ptr@r6 5 i
+dbsym l band@r7 6 i
+dbsym e updateBiquadCallback 0 ks
+dbsym e updateBiquadCallback$R1R0R4R5R6R7$ 0 $
+dbline 9 0  
+dbline B 1  
+dbline C 2  
+dbline D 3  
+dbline E 4  
+dbline 10 5  
+dbline 11 6  
+dbline 13 7  
+dbline 15 8  
+dbline FFFFFFFE 8  
+dbline 0 8  
+dbfunc e dspNrpnHandlerCallback 9 fV
+dbline FFFFFFFF 9  
+dbsym l FunctionPointer32 2 l
+dbsym l nrpn 4 i
+dbsym l dspId 5 i
+dbsym l processId 6 i
+dbsym l value 7 l
+dbsym l format 9 i
+dbline 1D 9  
+dbline 1F A  
+dbline 20 C  
+dbline 22 D  
+dbline 23 F  
+dbline 25 10  
+dbline 26 12  
+dbline 28 13  
+dbline 29 15  
+dbline 2B 16  
+dbline 2C 18  
+dbline 2E 19  
+dbline 2F 1B  
+dbline 30 1C  
+dbline 32 1D  
+dbline 34 1E  
+dbline FFFFFFFE 1F  
+dbline 0 1F  
+dbfunc e swapDword$$ 20 fV
+dbline FFFFFFFF 20  
+dbsym l dword_data@R1R0 2 l
+dbsym e swapDword 20 ks
+dbsym e swapDword$R1R0$ 20 $
+dbline 3B 20  
+dbline 3C 21  
+dbline FFFFFFFE 21  
+dbline 0 21  
+S updateBiquadCallback Def0000
+S _updateBiquadCallback$R1R0R4R5R6R7$ Def0000
+S _dspNrpnHandlerCallback Def0012
+S swapDword Def0040
+S _swapDword$R1R0$ Def0040
+V 010000 D0C9
+V 010002 7E07
+V 010004 7E06
+V 010006 7E05
+V 010008 7E04
+V 01000A 390B
+V 01000C F8C6
+V 01000E D0CB
+V 010010 D1CA
+V 010012 D0C9
+V 010014 D2CF
+V 010016 0009
+V 010018 7E07
+V 01001A FBE2
+V 01001C 0007
+V 01001E FBE6
+V 010020 D2CF
+V 010022 0006
+V 010024 7E07
+V 010026 D2CF
+V 010028 0005
+V 01002A 7E07
+V 01002C D2CF
+V 01002E 0004
+V 010030 7E07
+V 010032 F8E2
+V 010034 0002
+V 010036 380B
+V 010038 F9C6
+V 01003A D0CB
+V 01003C D5CF
+V 01003E 0008
+V 010040 F8F7
+V 010042 D1CA

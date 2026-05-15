@@ -1,0 +1,543 @@
+P16
+00000	----
+00000			.area text(ROM,REL,CON)
+		;*******************************************************************
+		;* Atmel P16 ANSI C Code Generation	Version M-1.8 (Mar 13,2005)
+		;*******************************************************************
+		$CASE
+00000	----
+00000			.area text(ROM,REL,CON)
+			PUBLIC _UsbDescriptorInfo
+00000	----
+00000			.area const(ROM,REL,CON)
+00000	0112 	_UsbDescriptorInfo	DW	274
+00001	0008 		DW	8
+00002	0082 		DW	130
+00003	0000 		DW	0
+00004	0000 		DW	0
+00005	0002 		DW	2
+00006	0000 		DW	0
+00007	0000 		DW	0
+00008	0004 		DW	4
+00009	000D 		DW	13
+0000A	0011 		DW	17
+0000B	001E 		DW	30
+0000C	0031 		DW	49
+0000D	0308 		DW	776
+0000E	006E 		DW	110
+0000F	002F 		DW	47
+00010	0061 		DW	97
+00011	031A 		DW	794
+00012	0044 		DW	68
+00013	0052 		DW	82
+00014	0045 		DW	69
+00015	0041 		DW	65
+00016	004D 		DW	77
+00017	0020 		DW	32
+00018	0053 		DW	83
+00019	002E 		DW	46
+0001A	0041 		DW	65
+0001B	002E 		DW	46
+0001C	0053 		DW	83
+0001D	002E 		DW	46
+0001E	0326 		DW	806
+0001F	0053 		DW	83
+00020	0041 		DW	65
+00021	004D 		DW	77
+00022	0035 		DW	53
+00023	0030 		DW	48
+00024	0030 		DW	48
+00025	0030 		DW	48
+00026	0020 		DW	32
+00027	0045 		DW	69
+00028	0076 		DW	118
+00029	0061 		DW	97
+0002A	006C 		DW	108
+0002B	0020 		DW	32
+0002C	0042 		DW	66
+0002D	006F 		DW	111
+0002E	0061 		DW	97
+0002F	0072 		DW	114
+00030	0064 		DW	100
+00031	0322 		DW	802
+00032	0046 		DW	70
+00033	0075 		DW	117
+00034	006C 		DW	108
+00035	006C 		DW	108
+00036	0053 		DW	83
+00037	0070 		DW	112
+00038	0065 		DW	101
+00039	0065 		DW	101
+0003A	0064 		DW	100
+0003B	0020 		DW	32
+0003C	0043 		DW	67
+0003D	006F 		DW	111
+0003E	006E 		DW	110
+0003F	0066 		DW	102
+00040	0069 		DW	105
+00041	0067 		DW	103
+00042	0012 		DW	18
+00043	0112 		DW	274
+00044	0101 		DW	257
+00045	0000 		DW	0
+00046	4000 		DW	16384
+00047	2485 		DW	9349
+00048	433D 		DW	17213
+00049	0100 		DW	256
+0004A	0302 		DW	770
+0004B	0100 		DW	256
+0004C	0065 		DW	101
+0004D	0209 		DW	521
+0004E	0065 		DW	101
+0004F	0102 		DW	258
+00050	8004 		DW	32772
+00051	0932 		DW	2354
+00052	0004 		DW	4
+00053	0000 		DW	0
+00054	0101 		DW	257
+00055	0000 		DW	0
+00056	2409 		DW	9225
+00057	0001 		DW	1
+00058	0901 		DW	2305
+00059	0100 		DW	256
+0005A	0901 		DW	2305
+0005B	0104 		DW	260
+0005C	0200 		DW	512
+0005D	0301 		DW	769
+0005E	0300 		DW	768
+0005F	2407 		DW	9223
+00060	0001 		DW	1
+00061	4101 		DW	16641
+00062	0600 		DW	1536
+00063	0224 		DW	548
+00064	0101 		DW	257
+00065	0603 		DW	1539
+00066	0224 		DW	548
+00067	0202 		DW	514
+00068	0903 		DW	2307
+00069	0324 		DW	804
+0006A	0301 		DW	769
+0006B	0201 		DW	513
+0006C	0301 		DW	769
+0006D	2409 		DW	9225
+0006E	0203 		DW	515
+0006F	0104 		DW	260
+00070	0101 		DW	257
+00071	0903 		DW	2307
+00072	0305 		DW	773
+00073	4002 		DW	16386
+00074	0000 		DW	0
+00075	0000 		DW	0
+00076	2505 		DW	9477
+00077	0101 		DW	257
+00078	0901 		DW	2305
+00079	8305 		DW	33541
+0007A	4002 		DW	16386
+0007B	0000 		DW	0
+0007C	0000 		DW	0
+0007D	2505 		DW	9477
+0007E	0101 		DW	257
+0007F	0003 		DW	3
+00080	0502 		DW	1282
+00081	0006 		DW	6
+00082	0042 		DW	66
+00083	0000 		DW	0
+00084	004C 		DW	76
+00085	0000 		DW	0
+00086	0000 		DW	0
+00087	0000 		DW	0
+00088	0000 		DW	0
+00089	0000 		DW	0
+0008A	0000 		DW	0
+0008B	0080 		DW	128
+			PUBLIC _InitUSB
+0008C	----
+00000			.area text(ROM,REL,CON)
+00000		_InitUSB
+		; /*
+		;  *        DDDDDD          RRRRRR         EEEEEE         AAA            MM     M
+		;  *       D     D         R     R        E             A    A          M M  M  M
+		;  *      D     D         RRRRRR         EEEEEE        AAAAAAA         M   M   M
+		;  *     D     D         R   R          E             A     A         M       M
+		;  *    DDDDDD          R     R        EEEEEE        A     A         M       M
+		;  *
+		;  *  Digital         Research  in  Electronics    Acoustics        &     Music
+		;  *_____________________________________________________________________________
+		;  *
+		;  * SAM5000 based product
+		;  * COPYRIGHT (c) DREAM S.A.S. 2025
+		;  *
+		;  * C main entry point, initializations, base loop
+		;  * This file can be modified by user and will not be overwritten by Dream DSP Designer.
+		;  *_____________________________________________________________________________
+		; */
+		; 
+		; //#define _USE_SERIAL_MIDI 1    // uncomment this line to use MIDI over UART instead USB
+		; //#define _BOARD_MIDIBAUDRATE 115200    // baud rate used for serial MIDI/UART (default is 31250)
+		; #define _USE_GLOBAL_PRESET 0 // 1=include global preset handling, 0=not using global preset
+		; 
+		; /*
+		;  * CODE SIZE REDUCTION:
+		;  * _SKIP_DDD_NRPN_CTRL is NOT defined here - NRPN control is kept.
+		;  * To further reduce code if needed, define _SKIP_DDD_NRPN_CTRL in project settings.
+		;  */
+		; 
+		; #include <system.h>
+		; #include <DreamBoards.h>
+		; #ifdef _USE_SERIAL_MIDI
+		; #include <libmidi.h>
+		; #else
+		; #include <libusb.h>
+		; #endif
+		; #include "dspDesigner.h"
+		; #include "midictrl.h"
+		; #if _USE_GLOBAL_PRESET
+		; #include "GlobalPresets.h"
+		; #endif
+		; 
+		; 
+		; #ifndef _USE_SERIAL_MIDI
+		; // use MIDI over USB for parameter control
+		; extern const unsigned short UsbDescriptorInfo[]; //from USB descriptor file (generated by UsbDescUI)
+		; 
+		; // C-preprocessor two-level expansion to build constant
+		; #define _SAM5XXX_PORTNAME(port,val)    SAM5XXX_USB ## port ## _ ## val
+		; #define SAM5XXX_PORTNAME(port,val)    _SAM5XXX_PORTNAME(port, val)
+		; #define    SAM5XXX_USB_PORT    0    //0 or 1 (must be set to 0 on SAM5504/5704)
+		; #define SAM5XXX_USB(val)    SAM5XXX_PORTNAME(SAM5XXX_USB_PORT, val)
+		; 
+		; #define _SUPPORT_USB_AUDIO    0    //set 1 in case of using USB Descriptor with Audio function
+		; #if _SUPPORT_USB_AUDIO
+		; extern const unsigned short UsbDescriptorInfo[];
+		; WORD usb_dsp;
+		; #else
+		; WORD UsbMidiInBuf[64], UsbMidiOutBuf[348];    // USB-MIDI queue buffers
+		; 
+		; /*
+		;  * USB Descriptor - placed in CONSTHIGH segment.
+		;  * Generated from DDDUsbDescriptor.ucf (1 MIDI IN & 1 MIDI OUT, no Audio).
+		;  * Kept as-is; stored in ROM/const segment so does NOT contribute to CODEHIGH.
+		;  */
+		; const unsigned short UsbDescriptorInfo[140] = {
+		;     0x0112, 0x0008, 0x0082, 0x0000, 0x0000, 0x0002, 0x0000, 0x0000,    /*   0 */
+		;     0x0004, 0x000D, 0x0011, 0x001E, 0x0031, 0x0308, 0x006E, 0x002F,    /*   8 */
+		;     0x0061, 0x031A, 0x0044, 0x0052, 0x0045, 0x0041, 0x004D, 0x0020,    /*  16 */
+		;     0x0053, 0x002E, 0x0041, 0x002E, 0x0053, 0x002E, 0x0326, 0x0053,    /*  24 */
+		;     0x0041, 0x004D, 0x0035, 0x0030, 0x0030, 0x0030, 0x0020, 0x0045,    /*  32 */
+		;     0x0076, 0x0061, 0x006C, 0x0020, 0x0042, 0x006F, 0x0061, 0x0072,    /*  40 */
+		;     0x0064, 0x0322, 0x0046, 0x0075, 0x006C, 0x006C, 0x0053, 0x0070,    /*  48 */
+		;     0x0065, 0x0065, 0x0064, 0x0020, 0x0043, 0x006F, 0x006E, 0x0066,    /*  56 */
+		;     0x0069, 0x0067, 0x0012, 0x0112, 0x0101, 0x0000, 0x4000, 0x2485,    /*  64 */
+		;     0x433D, 0x0100, 0x0302, 0x0100, 0x0065, 0x0209, 0x0065, 0x0102,    /*  72 */
+		;     0x8004, 0x0932, 0x0004, 0x0000, 0x0101, 0x0000, 0x2409, 0x0001,    /*  80 */
+		;     0x0901, 0x0100, 0x0901, 0x0104, 0x0200, 0x0301, 0x0300, 0x2407,    /*  88 */
+		;     0x0001, 0x4101, 0x0600, 0x0224, 0x0101, 0x0603, 0x0224, 0x0202,    /*  96 */
+		;     0x0903, 0x0324, 0x0301, 0x0201, 0x0301, 0x2409, 0x0203, 0x0104,    /* 104 */
+		;     0x0101, 0x0903, 0x0305, 0x4002, 0x0000, 0x0000, 0x2505, 0x0101,    /* 112 */
+		;     0x0901, 0x8305, 0x4002, 0x0000, 0x0000, 0x2505, 0x0101, 0x0003,    /* 120 */
+		;     0x0502, 0x0006, 0x0042, 0x0000, 0x004C, 0x0000, 0x0000, 0x0000,    /* 128 */
+		;     0x0000, 0x0000, 0x0000, 0x0080
+		;     };
+		; #endif
+		; 
+		; //-------------------------------------------------------------------------
+		; void InitUSB( void )
+		; {
+		;     if( UsbDescriptorInfo[3] != 0 )
+00000	FF84		LXA	R7,DP1,_UsbDescriptorInfo+3
+	0003 R
+00002	B706 		JRZ	R7,L25
+		;         _USBDDE_SAM5xxx_IOCTL(SAM5XXX_USB_PORT, USB5XXXIOCTL_CONFIGURE, USB5XXX_CONFIGURE_DEVICE|USB5XXX_CONFIGURE_HIGH_SPEED);
+00003	066E 		LI	R6,110
+00004	0701 		LI	R7,1
+00005	0500 		LI	R5,0
+00006	D6C8		LCALL	__USBDDE_SAM5xxx_IOCTL$R5R7R6$
+	0000 RE
+00008	7805 		SJMP L26
+		
+00009		L25
+		;     else
+		;         _USBDDE_SAM5xxx_IOCTL(SAM5XXX_USB_PORT, USB5XXXIOCTL_CONFIGURE, USB5XXX_CONFIGURE_DEVICE|USB5XXX_CONFIGURE_FULL_SPEED);
+00009	06EE 		LI	R6,238
+0000A	0701 		LI	R7,1
+0000B	0500 		LI	R5,0
+0000C	D6C8		LCALL	__USBDDE_SAM5xxx_IOCTL$R5R7R6$
+	0000 RE
+		
+0000E		L26
+		;     _USBDDE_SAM5xxx_IOCTL(SAM5XXX_USB_PORT, USB5XXXIOCTL_ACTIVATE, 0);
+0000E	0600 		LI	R6,0
+0000F	0702 		LI	R7,2
+00010	0500 		LI	R5,0
+00011	D6C8		LCALL	__USBDDE_SAM5xxx_IOCTL$R5R7R6$
+	0000 RE
+		;     _USB_Initialize();
+00013	D6C8		LCALL	__USB_Initialize$$
+	0000 RE
+		; #if _SUPPORT_USB_AUDIO
+		;     usb_dsp = _DSPalloc(1);
+		;     _USB_InitRegisterEntry(_USB_PTR(_USBDDE_SAM5xxxAC), usb_dsp);
+		;     _USB_InitStartupEx(_USB_DESC(UsbDescriptorInfo), SAM5XXX_USB(ADDR), 0, SAM5XXX_USB(P24INTBIT));
+		;     _DSProutIN(usb_dsp, DAAD0L,DAAD0R,IBUSEIN,IBUSEIN);
+		;     _DSProut(usb_dsp, DABD0L,DABD0R,IBUSFOUT,IBUSFOUT);
+		; #else
+		;     _USB_InitRegisterEntry(_USB_PTR(_USBDDE_SAM5xxx), 0);
+00015	F9D0		DLA	DR1,__USBDDE_SAM5xxx
+	0000 RE
+00017	FB63 		DXOR	DR3,DR3
+00018	D6C8		LCALL	__USB_InitRegisterEntry$R3R2R7R6$
+	0000 RE
+		;     _USB_InitRegisterEntry(_USB_PTR(_USBDDE_MidiClass), 0);
+0001A	F9D0		DLA	DR1,__USBDDE_MidiClass
+	0000 RE
+0001C	FB63 		DXOR	DR3,DR3
+0001D	D6C8		LCALL	__USB_InitRegisterEntry$R3R2R7R6$
+	0000 RE
+		;     _USB_InitStartupEx(_USB_DESC(UsbDescriptorInfo), SAM5XXX_USB(ADDR), SAM5XXX_USB(INTPORT), SAM5XXX_USB(INTBIT));
+0001F	F9D0		DLA	DR1,_UsbDescriptorInfo
+	0000 R
+00021	0604 		LI	R6,4
+00022	0793 		LI	R7,147
+00023	FAF1		DLI	DR2,184549376
+	0000
+	0B00
+00026	D6C8		LCALL	__USB_InitStartupEx$R3R2R5R4R7R6$
+	0000 RE
+		;     _USBMC_InitSetBuffer(UsbMidiInBuf, sizeof(UsbMidiInBuf), UsbMidiOutBuf, sizeof(UsbMidiOutBuf));
+00028	D748		LI	R7,348
+	015C 
+0002A	D648		LI	R6,_UsbMidiOutBuf
+	0000 R
+0002C	0140 		LI	R1,64
+0002D	D048		LI	R0,_UsbMidiInBuf
+	015C R
+0002F	D6C8		LCALL	__USBMC_InitSetBuffer$R0R1R6R7$
+	0000 RE
+		; #endif
+		;     _USBDDE_SAM5xxx_IOCTL(SAM5XXX_USB_PORT, USB5XXXIOCTL_ACTIVATE, 1);
+00031	0601 		LI	R6,1
+00032	0702 		LI	R7,2
+00033	0500 		LI	R5,0
+00034	D6C8		LCALL	__USBDDE_SAM5xxx_IOCTL$R5R7R6$
+	0000 RE
+		
+00036	D5C8 		XRET 0
+			PUBLIC _main
+		;     midi_event -> BP-3
+		; activity_counter -> BP-1
+00037		_main
+00037	C04C		SXSP  3
+	0003 
+		; }
+		; #endif
+		; 
+		; void main (void)
+		; {
+00039	F8F6		RDIO	R0,1
+	2801 
+0003B	8700 		LW R7,R0
+0003C	1F04 		ANI R7,4
+0003D	BF06 		JRNZ	R7,L29
+0003E	0008 		LI	R0,8
+0003F	D0CD		ANDIO	-17
+	FFEF 
+00041	0070 		LI	R0,112
+00042	D0CC		ORIO	-32768
+	8000 
+		
+00044		L29
+		;     DWORD midi_event;
+		;     WORD activity_counter;
+		; 
+		;     _BOARD_ACTIVITY_LED_INIT();
+		;     _BOARD_ACTIVITY_LED_ON();
+00044	00E0 		LI	R0,224
+00045	D0CC		ORIO	-32768
+	8000 
+		;     _BOARD_AUDIO_CONFIG();
+00047	000A 		LI	R0,10
+00048	D0CC		ORIO	-32511
+	8101 
+		;     _BOARD_CODEC_INIT();
+		; 
+		;     _DSPresetAll();
+0004A	D6C8		LCALL	__DSPresetAll$$
+	0000 RE
+		;     dspDesigner_InitAndRoute();
+0004C	D7C8		XCALL  _dspDesigner_InitAndRoute
+	0000 RE
+		;     dspDesigner_InitNrpnFunction();
+0004E	D7C8		XCALL  _dspDesigner_InitNrpnFunction
+	0000 RE
+		; 
+		; #if _USE_GLOBAL_PRESET
+		;     dspDesigner_LoadGlobalPreset( _cptr32( globalpreset[0] ) );
+		; #endif
+		; 
+		;     /*
+		;      * 96kHz clock selection.
+		;      * _Sys_SwitchPll5xxx( 0xD10C, 0 ):
+		;      *   0xD10C = PLL config word selecting 96kHz (MCLK=256*Fs=24.576MHz).
+		;      *   Second argument 0 = apply immediately (no audio mute ramp).
+		;      * This is the correct value for SAM5504 @ 96kHz.
+		;      */
+		;     _Sys_SwitchPll5xxx( 0xD10C, 0 );
+00050	FBF1		DLI	DR3,53516
+	D10C
+	0000
+00053	D6C8		LCALL	__Sys_SwitchPll5xxx$R6R7$
+	0000 RE
+		; 
+		; #ifdef _USE_SERIAL_MIDI
+		;     _MIDI_InitEx( _BOARD_MIDIBAUDRATE );
+		;     _MIDI_InitEvent();
+		; #else
+		;     InitUSB();
+00055	D7C8		XCALL  _InitUSB
+	0000 R
+		;     _wrio( TIMER2PORT, _Sys_CalcTimerReload(_BOARD_MIDIBAUDRATE));
+00057	F9F0		DLIS	DR1,31250
+	7A12 
+00059	D6C8		LCALL	__Sys_CalcTimerReload$R3R2$
+	0000 RE
+0005B	8700 		LW R7,R0
+0005C	FFF6		WRIO	R7,4
+	A804 
+		;     _orio( CONTROLPORT, ENA_TIMER2 );
+0005E	0001 		LI	R0,1
+0005F	D0CC		ORIO	2048
+	0800 
+		; #endif
+		;     _wrio( TIMER0PORT, _BOARD_TIMER0V );
+00061	D448		LI	R4,-4935
+	ECB9 
+00063	FCF6		WRIO	R4,2
+	A802 
+		;     _orio( CONTROLPORT, ENA_TIMER0 );
+00065	D0CC		ORIO	512
+	0200 
+		; 
+		;     activity_counter = 0;
+00067	0700 		LI R7,0
+00068	D3CF		STXS R7,BP-1
+	FFFF 
+0006A	7826 		SJMP	L43
+		
+0006B		L31
+		; 
+		;     while (1) 
+		;     {
+		; #ifdef _USE_SERIAL_MIDI
+		;         _MIDI_Flush();
+		;         if(_MIDI_ReceiveEvent(&midi_event))
+		; #else
+		;         _USB_Poll();
+0006B	D6C8		LCALL	__USB_Poll$$
+	0000 RE
+		;         if(_USBMC_PollMidiEvent(&midi_event))
+0006D	810D 		LW	R1,BP
+0006E	2903 		SBI	R1,3
+0006F	D6C8		LCALL	__USBMC_PollMidiEvent$R1$
+	0000 RE
+00071	B00D 		JRZ	R0,L36
+		; #endif
+		;         {
+		;             dspDesigner_HandleMidiEvent( midi_event );
+00072	FBE2		DLXS	DR3,BP-3
+	FFFD 
+00074	FBF7 		SWAP	DR3
+00075	7E06 		XPUSH  R6
+00076	7E07 		XPUSH	R7
+00077	D7C8		XCALL _dspDesigner_HandleMidiEvent
+	0000 RE
+		;             if( !activity_counter ) activity_counter = 20;
+00079	830D 		LW	R3,BP
+0007A	2B01 		SBI	R3,1
+0007B	C7B0 		LX	R7,DP0+R3
+0007C	BF02 		JRNZ	R7,L36
+0007D	0714 		LI R7,20
+0007E	CFB0 		STX	R7,DP0+R3
+		
+0007F		L36
+		;         }
+		
+		; 
+		;         if( _rdtr0())    // Timer 0 request (~10ms)
+0007F	C0CD 		RDTR0	R0
+00080	B010 		JRZ	R0,L43
+		;         {
+		;             if( activity_counter > 0 )
+00081	830D 		LW	R3,BP
+00082	2B01 		SBI	R3,1
+00083	C7B0 		LX	R7,DP0+R3
+00084	B70C 		JRZ	R7,L43
+		;             {
+		;                 if( --activity_counter > 10 ) _BOARD_ACTIVITY_LED_OFF();
+00085	2F01 		SBI R7,1
+00086	CFB0 		STX	R7,DP0+R3
+00087	0F0A 		CPI	R7,10
+00088	E105 		JB L42
+00089	E204 		JZ L42
+0008A	00E0 		LI	R0,224
+0008B	D0CD		ANDIO	32767
+	7FFF 
+0008D	7803 		SJMP L43
+		
+0008E		L42
+		;                 else _BOARD_ACTIVITY_LED_ON();
+0008E	00E0 		LI	R0,224
+0008F	D0CC		ORIO	-32768
+	8000 
+		
+00091		L43
+		;             }
+		
+		;         }
+		
+		
+00091	78D9 		SJMP L31
+		
+		
+00092	D5C8 		XRET 0
+			PUBLIC _Send
+		;           data -> BP+2
+00093		_Send
+		;     }
+		; }
+		; 
+		; void Send( UCHAR data )
+		; {
+		; #ifdef _USE_SERIAL_MIDI
+		;     _MIDI_Send( data );
+		; #else
+		;     _USBMC_Send( data );
+00093	D2CF		LXS R7,BP+2
+	0002 
+00095	D6C8		LCALL	__USBMC_Send$R7$
+	0000 RE
+		
+00097	D5C9 		XRET 1
+00098	----
+00000			.area bss(RAM,REL,CON)
+			PUBLIC _UsbMidiOutBuf
+00000		_UsbMidiOutBuf	DS 348
+			PUBLIC _UsbMidiInBuf
+0015C		_UsbMidiInBuf	DS 64
+			EXTRN _dspDesigner_HandleMidiEvent
+			EXTRN _dspDesigner_InitNrpnFunction
+			EXTRN _dspDesigner_InitAndRoute
+			EXTRN __USBDDE_SAM5xxx
+			EXTRN __USBDDE_MidiClass
+			EXTRN	__USBDDE_SAM5xxx_IOCTL$R5R7R6$
+			EXTRN	__USB_Initialize$$
+			EXTRN	__USB_InitRegisterEntry$R3R2R7R6$
+			EXTRN	__USB_InitStartupEx$R3R2R5R4R7R6$
+			EXTRN	__USBMC_InitSetBuffer$R0R1R6R7$
+			EXTRN	__DSPresetAll$$
+			EXTRN	__Sys_SwitchPll5xxx$R6R7$
+			EXTRN	__Sys_CalcTimerReload$R3R2$
+			EXTRN	__USB_Poll$$
+			EXTRN	__USBMC_PollMidiEvent$R1$
+			EXTRN	__USBMC_Send$R7$
+0019C	----
+!0 error(s) 0 warning(s)
