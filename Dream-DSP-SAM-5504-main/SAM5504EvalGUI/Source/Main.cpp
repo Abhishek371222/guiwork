@@ -11,8 +11,6 @@ constexpr int outputGainProcess3Nrpn = 0x0302;
 constexpr double minGainDb = -60.0;
 constexpr double maxGainDb = 12.0;
 constexpr double warningGainDb = 6.0;
-constexpr double masterGainCalibrationDb = 18.0;
-constexpr double outputGainCalibrationDb = 18.0;
 constexpr double rampIntervalMs = 15.0;
 constexpr double rampStepDb = 0.75;
 constexpr int leftInputChannel = 0;    // DSP1 (left input)
@@ -344,7 +342,7 @@ private:
         if (midiOut == nullptr)
             return;
 
-        const auto targetValue = dbToSamGainValue (masterGainSlider.getValue() + masterGainCalibrationDb);
+        const auto targetValue = dbToSamGainValue (masterGainSlider.getValue());
         rampState.masterTarget = targetValue;
         rampState.masterLeftCurrent = targetValue;
         rampState.masterRightCurrent = targetValue;
@@ -358,23 +356,23 @@ private:
             return;
 
         // DSP #2: Output A = process 1, Output B = process 3
-        auto valueA = dbToSamGainValue (outputASlider.getValue() + outputGainCalibrationDb);
+        auto valueA = dbToSamGainValue (outputASlider.getValue());
         rampState.outputATarget = valueA;
         rampState.outputACurrent = valueA;
         sendDreamNrpn (*midiOut, leftOutputChannel, outputGainProcess1Nrpn, valueA);
 
-        auto valueB = dbToSamGainValue (outputBSlider.getValue() + outputGainCalibrationDb);
+        auto valueB = dbToSamGainValue (outputBSlider.getValue());
         rampState.outputBTarget = valueB;
         rampState.outputBCurrent = valueB;
         sendDreamNrpn (*midiOut, leftOutputChannel, outputGainProcess3Nrpn, valueB);
 
         // DSP #4: Output C = process 1, Output D = process 3
-        auto valueC = dbToSamGainValue (outputCSlider.getValue() + outputGainCalibrationDb);
+        auto valueC = dbToSamGainValue (outputCSlider.getValue());
         rampState.outputCTarget = valueC;
         rampState.outputCCurrent = valueC;
         sendDreamNrpn (*midiOut, rightOutputChannel, outputGainProcess1Nrpn, valueC);
 
-        auto valueD = dbToSamGainValue (outputDSlider.getValue() + outputGainCalibrationDb);
+        auto valueD = dbToSamGainValue (outputDSlider.getValue());
         rampState.outputDTarget = valueD;
         rampState.outputDCurrent = valueD;
         sendDreamNrpn (*midiOut, rightOutputChannel, outputGainProcess3Nrpn, valueD);
@@ -426,17 +424,17 @@ private:
 
         if (slider == &masterGainSlider)
         {
-            rampState.masterTarget = dbToSamGainValue (masterGainSlider.getValue() + masterGainCalibrationDb);
+            rampState.masterTarget = dbToSamGainValue (masterGainSlider.getValue());
             return;
         }
 
         if (slider == &outputASlider || slider == &outputBSlider ||
             slider == &outputCSlider || slider == &outputDSlider)
         {
-            rampState.outputATarget = dbToSamGainValue (outputASlider.getValue() + outputGainCalibrationDb);
-            rampState.outputBTarget = dbToSamGainValue (outputBSlider.getValue() + outputGainCalibrationDb);
-            rampState.outputCTarget = dbToSamGainValue (outputCSlider.getValue() + outputGainCalibrationDb);
-            rampState.outputDTarget = dbToSamGainValue (outputDSlider.getValue() + outputGainCalibrationDb);
+            rampState.outputATarget = dbToSamGainValue (outputASlider.getValue());
+            rampState.outputBTarget = dbToSamGainValue (outputBSlider.getValue());
+            rampState.outputCTarget = dbToSamGainValue (outputCSlider.getValue());
+            rampState.outputDTarget = dbToSamGainValue (outputDSlider.getValue());
             return;
         }
     }
