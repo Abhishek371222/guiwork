@@ -18,7 +18,7 @@ int dbToSamGainValue (double db)
     constexpr double zeroDb = 0x4000;
     constexpr double unitsPerDb = 512.0;
     constexpr int minValue = 0x1000;
-    constexpr int maxValue = 0x5e00;
+    constexpr int maxValue = 0x7000;
 
     return juce::jlimit (minValue, maxValue, juce::roundToInt (zeroDb + db * unitsPerDb));
 }
@@ -91,7 +91,7 @@ public:
         addAndMakeVisible (masterGainSlider);
         masterGainSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         masterGainSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 70, 24);
-        masterGainSlider.setRange (-24.0, 15.0, 0.1);
+        masterGainSlider.setRange (-24.0, 24.0, 0.1);
         masterGainSlider.setValue (0.0, juce::dontSendNotification);
         masterGainSlider.setTextValueSuffix (" dB");
         masterGainSlider.addListener (this);
@@ -109,7 +109,7 @@ public:
         addAndMakeVisible (outputASlider);
         outputASlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputASlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputASlider.setRange (-24.0, 15.0, 0.1);
+        outputASlider.setRange (-24.0, 24.0, 0.1);
         outputASlider.setValue (0.0, juce::dontSendNotification);
         outputASlider.setTextValueSuffix (" dB");
         outputASlider.addListener (this);
@@ -122,7 +122,7 @@ public:
         addAndMakeVisible (outputBSlider);
         outputBSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputBSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputBSlider.setRange (-24.0, 15.0, 0.1);
+        outputBSlider.setRange (-24.0, 24.0, 0.1);
         outputBSlider.setValue (0.0, juce::dontSendNotification);
         outputBSlider.setTextValueSuffix (" dB");
         outputBSlider.addListener (this);
@@ -135,7 +135,7 @@ public:
         addAndMakeVisible (outputCSlider);
         outputCSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputCSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputCSlider.setRange (-24.0, 15.0, 0.1);
+        outputCSlider.setRange (-24.0, 24.0, 0.1);
         outputCSlider.setValue (0.0, juce::dontSendNotification);
         outputCSlider.setTextValueSuffix (" dB");
         outputCSlider.addListener (this);
@@ -148,7 +148,7 @@ public:
         addAndMakeVisible (outputDSlider);
         outputDSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputDSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputDSlider.setRange (-24.0, 15.0, 0.1);
+        outputDSlider.setRange (-24.0, 24.0, 0.1);
         outputDSlider.setValue (0.0, juce::dontSendNotification);
         outputDSlider.setTextValueSuffix (" dB");
         outputDSlider.addListener (this);
@@ -311,6 +311,12 @@ private:
 
         midiOut = juce::MidiOutput::openDevice (outputs.getReference (index).identifier);
         updateStatus();
+
+        if (midiOut != nullptr)
+        {
+            sendMasterGain();
+            sendOutputGains();
+        }
     }
 
     void sendMasterGain()
