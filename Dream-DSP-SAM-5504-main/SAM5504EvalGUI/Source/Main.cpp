@@ -13,8 +13,8 @@ constexpr int compressorThresholdNrpn = 0x0502;
 constexpr int compressorRatioNrpn = 0x0503;
 constexpr int compressorBoostNrpn = 0x0504;
 constexpr int compressorBoostPhaseNrpn = 0x0505;
-constexpr double minGainDb = -60.0;
-constexpr double maxGainDb = 12.0;
+constexpr double minGainDb = -24.0;
+constexpr double maxGainDb = 15.0;
 constexpr double warningGainDb = 6.0;
 constexpr double rampIntervalMs = 15.0;
 constexpr double rampStepDb = 0.75;
@@ -26,16 +26,14 @@ constexpr int rightOutputChannel = 3;  // DSP4 (right output)
 int dbToSamGainValue (double db)
 {
     const auto clampedDb = juce::jlimit (minGainDb, maxGainDb, db);
-    const auto linearGain = std::pow (10.0, clampedDb / 20.0);
-    const auto scaled = juce::roundToInt (0x4000 * linearGain);
+    const auto scaled = juce::roundToInt (0x4000 + clampedDb * 512.0);
 
     return juce::jlimit (0, 0x7fff, scaled);
 }
 
 double samGainValueToDb (int value)
 {
-    const auto linearGain = juce::jlimit (0.0001, 3.9999, static_cast<double> (value) / 0x4000);
-    return 20.0 * std::log10 (linearGain);
+    return (static_cast<double> (juce::jlimit (0, 0x7fff, value)) - 0x4000) / 512.0;
 }
 
 juce::MidiMessage cc (int channelZeroBased, int controller, int value)
@@ -349,22 +347,10 @@ private:
             return;
 
         const auto offValue = 0x0000;
-        const auto unityThreshold = dbToSamGainValue (0.0);
-        const auto unityRatio = 0x0000;
-        const auto unityBoost = dbToSamGainValue (0.0);
-        const auto neutralPhase = 0x0000;
 
         sendDreamNrpn (*midiOut, leftInputChannel, compressorEnableNrpn, offValue);
-        sendDreamNrpn (*midiOut, leftInputChannel, compressorThresholdNrpn, unityThreshold);
-        sendDreamNrpn (*midiOut, leftInputChannel, compressorRatioNrpn, unityRatio);
-        sendDreamNrpn (*midiOut, leftInputChannel, compressorBoostNrpn, unityBoost);
-        sendDreamNrpn (*midiOut, leftInputChannel, compressorBoostPhaseNrpn, neutralPhase);
 
         sendDreamNrpn (*midiOut, rightInputChannel, compressorEnableNrpn, offValue);
-        sendDreamNrpn (*midiOut, rightInputChannel, compressorThresholdNrpn, unityThreshold);
-        sendDreamNrpn (*midiOut, rightInputChannel, compressorRatioNrpn, unityRatio);
-        sendDreamNrpn (*midiOut, rightInputChannel, compressorBoostNrpn, unityBoost);
-        sendDreamNrpn (*midiOut, rightInputChannel, compressorBoostPhaseNrpn, neutralPhase);
     }
 
     void sendMasterGain()

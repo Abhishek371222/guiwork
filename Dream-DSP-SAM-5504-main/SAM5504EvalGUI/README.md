@@ -30,6 +30,9 @@ The value mapping follows the firmware EQ/gain convention:
 - `0x1000` = -24 dB
 - `0x5e00` = +15 dB
 - 512 units = 1 dB
+- dB values are packed as `0x4000 + (dB * 512)` before being sent over NRPN
+
+The GUI uses the same fixed-point dB mapping as the firmware parameter model, so a displayed `0 dB` value is a true unity-gain request.
 
 ## Open in Projucer
 

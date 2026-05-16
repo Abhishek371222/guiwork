@@ -643,7 +643,7 @@ void ParameterManager::addDelayParameters()
             name + " Output Gain",
             "Delay output gain",
             nrpnBase + 0x0002, midiChannel,
-            -24.0f, 12.0f, 0.0f, 0.0f, "dB",
+            -24.0f, 15.0f, 0.0f, 0.0f, "dB",
             dbToSamGain,
             samGainToDb
         });
