@@ -311,12 +311,6 @@ private:
 
         midiOut = juce::MidiOutput::openDevice (outputs.getReference (index).identifier);
         updateStatus();
-
-        if (midiOut != nullptr)
-        {
-            sendMasterGain();
-            sendOutputGains();
-        }
     }
 
     void sendMasterGain()
@@ -354,13 +348,13 @@ private:
         if (midiOut != nullptr)
         {
             connectButton.setButtonText ("Disconnect");
-            status.setText ("✓ Connected: " + midiOut->getName(), juce::dontSendNotification);
+            status.setText ("Connected: " + midiOut->getName(), juce::dontSendNotification);
             status.setColour (juce::Label::textColourId, juce::Colour (0xff176b35));
             return;
         }
 
         connectButton.setButtonText ("Connect");
-        status.setText ("✗ Not connected", juce::dontSendNotification);
+        status.setText ("Not connected", juce::dontSendNotification);
         status.setColour (juce::Label::textColourId, juce::Colour (0xff8a2d2d));
     }
 
