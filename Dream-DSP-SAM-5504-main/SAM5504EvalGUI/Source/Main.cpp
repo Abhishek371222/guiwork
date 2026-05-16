@@ -8,6 +8,11 @@ constexpr int appHeight = 850;
 constexpr int masterGainNrpn = 0x0100;
 constexpr int outputGainProcess1Nrpn = 0x0102;
 constexpr int outputGainProcess3Nrpn = 0x0302;
+constexpr int compressorEnableNrpn = 0x0501;
+constexpr int compressorThresholdNrpn = 0x0502;
+constexpr int compressorRatioNrpn = 0x0503;
+constexpr int compressorBoostNrpn = 0x0504;
+constexpr int compressorBoostPhaseNrpn = 0x0505;
 constexpr double minGainDb = -60.0;
 constexpr double maxGainDb = 12.0;
 constexpr double warningGainDb = 6.0;
@@ -332,9 +337,34 @@ private:
 
         if (midiOut != nullptr)
         {
+            sendCompressorReset();
             sendMasterGain();
             sendOutputGains();
         }
+    }
+
+    void sendCompressorReset()
+    {
+        if (midiOut == nullptr)
+            return;
+
+        const auto offValue = 0x0000;
+        const auto unityThreshold = dbToSamGainValue (0.0);
+        const auto unityRatio = 0x0000;
+        const auto unityBoost = dbToSamGainValue (0.0);
+        const auto neutralPhase = 0x0000;
+
+        sendDreamNrpn (*midiOut, leftInputChannel, compressorEnableNrpn, offValue);
+        sendDreamNrpn (*midiOut, leftInputChannel, compressorThresholdNrpn, unityThreshold);
+        sendDreamNrpn (*midiOut, leftInputChannel, compressorRatioNrpn, unityRatio);
+        sendDreamNrpn (*midiOut, leftInputChannel, compressorBoostNrpn, unityBoost);
+        sendDreamNrpn (*midiOut, leftInputChannel, compressorBoostPhaseNrpn, neutralPhase);
+
+        sendDreamNrpn (*midiOut, rightInputChannel, compressorEnableNrpn, offValue);
+        sendDreamNrpn (*midiOut, rightInputChannel, compressorThresholdNrpn, unityThreshold);
+        sendDreamNrpn (*midiOut, rightInputChannel, compressorRatioNrpn, unityRatio);
+        sendDreamNrpn (*midiOut, rightInputChannel, compressorBoostNrpn, unityBoost);
+        sendDreamNrpn (*midiOut, rightInputChannel, compressorBoostPhaseNrpn, neutralPhase);
     }
 
     void sendMasterGain()
