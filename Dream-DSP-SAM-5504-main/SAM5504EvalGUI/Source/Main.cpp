@@ -6,6 +6,8 @@ constexpr int appWidth = 700;
 constexpr int appHeight = 850;
 
 constexpr int masterGainNrpn = 0x0100;
+constexpr int outputGainProcess1Nrpn = 0x0102;
+constexpr int outputGainProcess3Nrpn = 0x0302;
 constexpr int leftInputChannel = 0;    // DSP1 (left input)
 constexpr int leftOutputChannel = 1;   // DSP2 (left output)
 constexpr int rightInputChannel = 2;   // DSP3 (right input)
@@ -332,13 +334,19 @@ private:
         if (midiOut == nullptr)
             return;
 
-        // Output A & B: DSP#2 (left output, channel 1)
+        // DSP #2: Output A = process 1, Output B = process 3
         auto valueA = dbToSamGainValue (outputASlider.getValue());
-        sendDreamNrpn (*midiOut, leftOutputChannel, masterGainNrpn, valueA);
+        sendDreamNrpn (*midiOut, leftOutputChannel, outputGainProcess1Nrpn, valueA);
 
-        // Output C & D: DSP#4 (right output, channel 3)
+        auto valueB = dbToSamGainValue (outputBSlider.getValue());
+        sendDreamNrpn (*midiOut, leftOutputChannel, outputGainProcess3Nrpn, valueB);
+
+        // DSP #4: Output C = process 1, Output D = process 3
         auto valueC = dbToSamGainValue (outputCSlider.getValue());
-        sendDreamNrpn (*midiOut, rightOutputChannel, masterGainNrpn, valueC);
+        sendDreamNrpn (*midiOut, rightOutputChannel, outputGainProcess1Nrpn, valueC);
+
+        auto valueD = dbToSamGainValue (outputDSlider.getValue());
+        sendDreamNrpn (*midiOut, rightOutputChannel, outputGainProcess3Nrpn, valueD);
     }
 
     void updateStatus()
