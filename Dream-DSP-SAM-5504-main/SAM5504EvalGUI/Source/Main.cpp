@@ -8,6 +8,7 @@ constexpr int appHeight = 850;
 constexpr int masterGainNrpn = 0x0100;
 constexpr int outputGainProcess1Nrpn = 0x0102;
 constexpr int outputGainProcess3Nrpn = 0x0302;
+constexpr double masterGainCalibrationDb = 18.0;
 constexpr int leftInputChannel = 0;    // DSP1 (left input)
 constexpr int leftOutputChannel = 1;   // DSP2 (left output)
 constexpr int rightInputChannel = 2;   // DSP3 (right input)
@@ -18,7 +19,7 @@ int dbToSamGainValue (double db)
     constexpr double zeroDb = 0x4000;
     constexpr double unitsPerDb = 512.0;
     constexpr int minValue = 0x1000;
-    constexpr int maxValue = 0x7000;
+    constexpr int maxValue = 0x7fff;
 
     return juce::jlimit (minValue, maxValue, juce::roundToInt (zeroDb + db * unitsPerDb));
 }
@@ -324,7 +325,7 @@ private:
         if (midiOut == nullptr)
             return;
 
-        const auto value = dbToSamGainValue (masterGainSlider.getValue());
+        const auto value = dbToSamGainValue (masterGainSlider.getValue() + masterGainCalibrationDb);
         sendDreamNrpn (*midiOut, leftInputChannel, masterGainNrpn, value);
         sendDreamNrpn (*midiOut, rightInputChannel, masterGainNrpn, value);
     }
