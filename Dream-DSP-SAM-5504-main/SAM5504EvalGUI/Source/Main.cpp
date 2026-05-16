@@ -8,7 +8,11 @@ constexpr int appHeight = 850;
 constexpr int masterGainNrpn = 0x0100;
 constexpr int outputGainProcess1Nrpn = 0x0102;
 constexpr int outputGainProcess3Nrpn = 0x0302;
-constexpr double masterGainCalibrationDb = 18.0;
+constexpr double minGainDb = -60.0;
+constexpr double maxGainDb = 12.0;
+constexpr double warningGainDb = 6.0;
+constexpr double rampIntervalMs = 15.0;
+constexpr double rampStepDb = 0.75;
 constexpr int leftInputChannel = 0;    // DSP1 (left input)
 constexpr int leftOutputChannel = 1;   // DSP2 (left output)
 constexpr int rightInputChannel = 2;   // DSP3 (right input)
@@ -16,12 +20,17 @@ constexpr int rightOutputChannel = 3;  // DSP4 (right output)
 
 int dbToSamGainValue (double db)
 {
-    constexpr double zeroDb = 0x4000;
-    constexpr double unitsPerDb = 512.0;
-    constexpr int minValue = 0x1000;
-    constexpr int maxValue = 0x7fff;
+    const auto clampedDb = juce::jlimit (minGainDb, maxGainDb, db);
+    const auto linearGain = std::pow (10.0, clampedDb / 20.0);
+    const auto scaled = juce::roundToInt (0x4000 * linearGain);
 
-    return juce::jlimit (minValue, maxValue, juce::roundToInt (zeroDb + db * unitsPerDb));
+    return juce::jlimit (0, 0x7fff, scaled);
+}
+
+double samGainValueToDb (int value)
+{
+    const auto linearGain = juce::jlimit (0.0001, 3.9999, static_cast<double> (value) / 0x4000);
+    return 20.0 * std::log10 (linearGain);
 }
 
 juce::MidiMessage cc (int channelZeroBased, int controller, int value)
@@ -50,7 +59,8 @@ void sendDreamNrpn (juce::MidiOutput& output, int channelZeroBased, int nrpn, in
 class MainComponent final : public juce::Component,
                             private juce::Button::Listener,
                             private juce::ComboBox::Listener,
-                            private juce::Slider::Listener
+                            private juce::Slider::Listener,
+                            private juce::Timer
 {
 public:
     MainComponent()
@@ -92,7 +102,8 @@ public:
         addAndMakeVisible (masterGainSlider);
         masterGainSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         masterGainSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 70, 24);
-        masterGainSlider.setRange (-24.0, 24.0, 0.1);
+        masterGainSlider.setRange (minGainDb, maxGainDb, 0.1);
+        masterGainSlider.setSkewFactorFromMidPoint (0.0);
         masterGainSlider.setValue (0.0, juce::dontSendNotification);
         masterGainSlider.setTextValueSuffix (" dB");
         masterGainSlider.addListener (this);
@@ -110,7 +121,8 @@ public:
         addAndMakeVisible (outputASlider);
         outputASlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputASlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputASlider.setRange (-24.0, 24.0, 0.1);
+        outputASlider.setRange (minGainDb, maxGainDb, 0.1);
+        outputASlider.setSkewFactorFromMidPoint (0.0);
         outputASlider.setValue (0.0, juce::dontSendNotification);
         outputASlider.setTextValueSuffix (" dB");
         outputASlider.addListener (this);
@@ -123,7 +135,8 @@ public:
         addAndMakeVisible (outputBSlider);
         outputBSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputBSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputBSlider.setRange (-24.0, 24.0, 0.1);
+        outputBSlider.setRange (minGainDb, maxGainDb, 0.1);
+        outputBSlider.setSkewFactorFromMidPoint (0.0);
         outputBSlider.setValue (0.0, juce::dontSendNotification);
         outputBSlider.setTextValueSuffix (" dB");
         outputBSlider.addListener (this);
@@ -136,7 +149,8 @@ public:
         addAndMakeVisible (outputCSlider);
         outputCSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputCSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputCSlider.setRange (-24.0, 24.0, 0.1);
+        outputCSlider.setRange (minGainDb, maxGainDb, 0.1);
+        outputCSlider.setSkewFactorFromMidPoint (0.0);
         outputCSlider.setValue (0.0, juce::dontSendNotification);
         outputCSlider.setTextValueSuffix (" dB");
         outputCSlider.addListener (this);
@@ -149,7 +163,8 @@ public:
         addAndMakeVisible (outputDSlider);
         outputDSlider.setSliderStyle (juce::Slider::LinearHorizontal);
         outputDSlider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 22);
-        outputDSlider.setRange (-24.0, 24.0, 0.1);
+        outputDSlider.setRange (minGainDb, maxGainDb, 0.1);
+        outputDSlider.setSkewFactorFromMidPoint (0.0);
         outputDSlider.setValue (0.0, juce::dontSendNotification);
         outputDSlider.setTextValueSuffix (" dB");
         outputDSlider.addListener (this);
@@ -175,10 +190,12 @@ public:
         setSize (appWidth, appHeight);
         refreshMidiDevices();
         updateStatus();
+        startTimerHz (static_cast<int> (1000.0 / rampIntervalMs));
     }
 
     ~MainComponent() override
     {
+        stopTimer();
         masterGainSlider.removeListener (this);
         outputASlider.removeListener (this);
         outputBSlider.removeListener (this);
@@ -325,9 +342,12 @@ private:
         if (midiOut == nullptr)
             return;
 
-        const auto value = dbToSamGainValue (masterGainSlider.getValue() + masterGainCalibrationDb);
-        sendDreamNrpn (*midiOut, leftInputChannel, masterGainNrpn, value);
-        sendDreamNrpn (*midiOut, rightInputChannel, masterGainNrpn, value);
+        const auto targetValue = dbToSamGainValue (masterGainSlider.getValue());
+        rampState.masterTarget = targetValue;
+        rampState.masterLeftCurrent = targetValue;
+        rampState.masterRightCurrent = targetValue;
+        sendDreamNrpn (*midiOut, leftInputChannel, masterGainNrpn, targetValue);
+        sendDreamNrpn (*midiOut, rightInputChannel, masterGainNrpn, targetValue);
     }
 
     void sendOutputGains()
@@ -337,16 +357,24 @@ private:
 
         // DSP #2: Output A = process 1, Output B = process 3
         auto valueA = dbToSamGainValue (outputASlider.getValue());
+        rampState.outputATarget = valueA;
+        rampState.outputACurrent = valueA;
         sendDreamNrpn (*midiOut, leftOutputChannel, outputGainProcess1Nrpn, valueA);
 
         auto valueB = dbToSamGainValue (outputBSlider.getValue());
+        rampState.outputBTarget = valueB;
+        rampState.outputBCurrent = valueB;
         sendDreamNrpn (*midiOut, leftOutputChannel, outputGainProcess3Nrpn, valueB);
 
         // DSP #4: Output C = process 1, Output D = process 3
         auto valueC = dbToSamGainValue (outputCSlider.getValue());
+        rampState.outputCTarget = valueC;
+        rampState.outputCCurrent = valueC;
         sendDreamNrpn (*midiOut, rightOutputChannel, outputGainProcess1Nrpn, valueC);
 
         auto valueD = dbToSamGainValue (outputDSlider.getValue());
+        rampState.outputDTarget = valueD;
+        rampState.outputDCurrent = valueD;
         sendDreamNrpn (*midiOut, rightOutputChannel, outputGainProcess3Nrpn, valueD);
     }
 
@@ -392,18 +420,69 @@ private:
 
     void sliderValueChanged (juce::Slider* slider) override
     {
+        updateGainWarningState();
+
         if (slider == &masterGainSlider)
         {
-            sendMasterGain();
+            rampState.masterTarget = dbToSamGainValue (masterGainSlider.getValue());
             return;
         }
 
         if (slider == &outputASlider || slider == &outputBSlider ||
             slider == &outputCSlider || slider == &outputDSlider)
         {
-            sendOutputGains();
+            rampState.outputATarget = dbToSamGainValue (outputASlider.getValue());
+            rampState.outputBTarget = dbToSamGainValue (outputBSlider.getValue());
+            rampState.outputCTarget = dbToSamGainValue (outputCSlider.getValue());
+            rampState.outputDTarget = dbToSamGainValue (outputDSlider.getValue());
             return;
         }
+    }
+
+    void timerCallback() override
+    {
+        if (midiOut == nullptr)
+            return;
+
+        rampToTarget (leftInputChannel, masterGainNrpn, rampState.masterLeftCurrent, rampState.masterTarget);
+        rampToTarget (rightInputChannel, masterGainNrpn, rampState.masterRightCurrent, rampState.masterTarget);
+
+        rampToTarget (leftOutputChannel, outputGainProcess1Nrpn, rampState.outputACurrent, rampState.outputATarget);
+        rampToTarget (leftOutputChannel, outputGainProcess3Nrpn, rampState.outputBCurrent, rampState.outputBTarget);
+        rampToTarget (rightOutputChannel, outputGainProcess1Nrpn, rampState.outputCCurrent, rampState.outputCTarget);
+        rampToTarget (rightOutputChannel, outputGainProcess3Nrpn, rampState.outputDCurrent, rampState.outputDTarget);
+    }
+
+    void rampToTarget (int channel, int nrpn, int& currentValue, int targetValue)
+    {
+        if (currentValue == targetValue)
+            return;
+
+        const auto currentDb = samGainValueToDb (currentValue);
+        const auto targetDb = samGainValueToDb (targetValue);
+        const auto nextDb = currentDb + juce::jlimit (-rampStepDb, rampStepDb, targetDb - currentDb);
+        const auto nextValue = dbToSamGainValue (nextDb);
+
+        if (nextValue != currentValue)
+        {
+            currentValue = nextValue;
+            sendDreamNrpn (*midiOut, channel, nrpn, currentValue);
+        }
+    }
+
+    void updateGainWarningState()
+    {
+        const auto applyWarning = [this] (juce::Slider& slider)
+        {
+            const auto db = slider.getValue();
+            slider.setColour (juce::Slider::thumbColourId, db > warningGainDb ? juce::Colour (0xffd17a00) : juce::Colour (0xff3d93c6));
+        };
+
+        applyWarning (masterGainSlider);
+        applyWarning (outputASlider);
+        applyWarning (outputBSlider);
+        applyWarning (outputCSlider);
+        applyWarning (outputDSlider);
     }
 
     // Top section
@@ -437,6 +516,21 @@ private:
     juce::Label boardInfoSeparator;
     juce::Label boardInfo;
     juce::Rectangle<int> boardArea;
+
+    struct GainRampState
+    {
+        int masterLeftCurrent = dbToSamGainValue (0.0);
+        int masterRightCurrent = dbToSamGainValue (0.0);
+        int masterTarget = dbToSamGainValue (0.0);
+        int outputACurrent = dbToSamGainValue (0.0);
+        int outputATarget = dbToSamGainValue (0.0);
+        int outputBCurrent = dbToSamGainValue (0.0);
+        int outputBTarget = dbToSamGainValue (0.0);
+        int outputCCurrent = dbToSamGainValue (0.0);
+        int outputCTarget = dbToSamGainValue (0.0);
+        int outputDCurrent = dbToSamGainValue (0.0);
+        int outputDTarget = dbToSamGainValue (0.0);
+    } rampState;
 
     juce::Array<juce::MidiDeviceInfo> outputs;
     std::unique_ptr<juce::MidiOutput> midiOut;
